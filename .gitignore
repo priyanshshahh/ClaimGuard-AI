@@ -1,0 +1,28 @@
+# Secrets
+backend/.env
+.env
+.env.local
+*.pem
+
+# Python
+backend/venv/
+backend/__pycache__/
+backend/.pytest_cache/
+backend/models/
+backend/data/
+*.pkl
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Build artifacts
+*.pyc
+__pycache__/
