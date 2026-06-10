@@ -1,17 +1,9 @@
 # ClaimGuard-AI
+## Hackathon Submission — AIxBio @ Bayer Co.Lab (May 2026)
 
 Agentic pre-submission financial risk engine for healthcare revenue cycle management.
 
 Prevents insurance claim denials **before submission** by reading physician notes, predicting denial probability, and prioritizing auditor work by expected financial loss.
-
-## Hackathon Submission — AIxBio @ Bayer Co.Lab (May 2026)
-
-| Deliverable | File |
-|-------------|------|
-| Lightning pitch deck (5 slides) | `ClaimGuard-AI-Lightning-Pitch.pptx` |
-| Project write-up | `PROJECT_WRITEUP.md` |
-| 3-min pitch script | `LIGHTNING_PITCH.md` |
-| Demo walkthrough | `HOW_TO_DEMO.md` |
 
 ## Quick Start
 
