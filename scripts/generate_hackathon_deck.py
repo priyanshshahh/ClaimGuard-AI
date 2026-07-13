@@ -10,7 +10,8 @@ try:
     from pptx.enum.text import PP_ALIGN
     from pptx.enum.shapes import MSO_SHAPE
 except ImportError:
-    import subprocess, sys
+    import subprocess
+    import sys
     subprocess.check_call([sys.executable, "-m", "pip", "install", "python-pptx", "-q"])
     from pptx import Presentation
     from pptx.util import Inches, Pt

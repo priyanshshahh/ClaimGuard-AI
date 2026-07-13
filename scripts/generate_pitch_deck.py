@@ -10,12 +10,13 @@ try:
     from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
     from pptx.enum.shapes import MSO_SHAPE
 except ImportError:
-    import subprocess, sys
+    import subprocess
+    import sys
     subprocess.check_call([sys.executable, "-m", "pip", "install", "python-pptx", "-q"])
     from pptx import Presentation
     from pptx.util import Inches, Pt
     from pptx.dml.color import RGBColor
-    from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
+    from pptx.enum.text import PP_ALIGN
     from pptx.enum.shapes import MSO_SHAPE
 
 OUT = Path(__file__).resolve().parent.parent / "ClaimGuard-AI-Pitch-Deck.pptx"
