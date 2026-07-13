@@ -10,6 +10,8 @@ from langchain_groq import ChatGroq
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field
 
+from deidentify import scrub_phi
+
 load_dotenv()
 
 NEBIUS_BASE_URL = "https://api.tokenfactory.nebius.com/v1/"
@@ -155,6 +157,8 @@ def _fallback_clinical() -> dict:
 
 
 def analyze_clinical_notes(notes: str, icd_code: str, cpt_code: str) -> dict:
+    # De-identify before any third-party LLM call (see deidentify.py limitations).
+    notes = scrub_phi(notes)
     if _nebius_client():
         try:
             return _parse_clinical_strict(notes, icd_code, cpt_code)
@@ -183,7 +187,7 @@ def generate_appeal_letter(
     user = (
         f"Claim: {claim_data.get('claim_id')} | Payer: {claim_data.get('payer_id')} | "
         f"${claim_data.get('claim_value_usd')}\nICD: {claim_data.get('icd_10_code')} "
-        f"CPT: {claim_data.get('cpt_code')}\nNotes: {claim_data.get('patient_chart_notes', '')[:900]}\n"
+        f"CPT: {claim_data.get('cpt_code')}\nNotes: {scrub_phi(claim_data.get('patient_chart_notes', ''))[:900]}\n"
         f"Risk: {original_analysis.get('explanation', '')}\nDenial: {denial_reason}"
     )
     if _nebius_client():
@@ -213,7 +217,7 @@ def check_payer_policy(notes: str, icd_code: str, cpt_code: str, payer_id: str) 
         "compliance_status (COMPLIANT/NON_COMPLIANT/NEEDS_CLARIFICATION), "
         "risk_summary, required_documentation (array)."
     )
-    user = f"Payer: {payer_id}\nICD: {icd_code} CPT: {cpt_code}\nNotes: {notes[:700]}"
+    user = f"Payer: {payer_id}\nICD: {icd_code} CPT: {cpt_code}\nNotes: {scrub_phi(notes)[:700]}"
     if _nebius_client():
         try:
             return _nebius_json_task(system, user, PolicyCheckResult, 0.1)
