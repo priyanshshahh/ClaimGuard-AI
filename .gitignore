@@ -5,12 +5,19 @@ backend/.env
 *.pem
 
 # Python
+.venv/
 backend/venv/
 backend/__pycache__/
 backend/.pytest_cache/
-backend/models/
 backend/data/
 *.pkl
+__pycache__/
+*.pyc
+
+# Trained model artifacts in backend/models/ ARE committed (reproducible serving).
+# Raw training data and local experiment tracking are not:
+data/
+wandb/
 
 # Node
 frontend/node_modules/
@@ -22,7 +29,3 @@ frontend/out/
 .idea/
 .vscode/
 *.log
-
-# Build artifacts
-*.pyc
-__pycache__/

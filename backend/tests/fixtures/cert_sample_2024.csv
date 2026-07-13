@@ -1,0 +1,2001 @@
+claim_control_number,Part,DRG,HCPCS Procedure Code,Provider Type,Type of Bill,Review Decision,Error Code
+2432395,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2463616,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,814,Disagree,Insufficient Documentation
+2474326,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2439280,1. Part B,,81162,Clinical Laboratory (Billing Independently),,Agree,-
+2468218,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2460190,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,110,Agree,-
+2473255,3. Part A(Excluding Inpatient Hospital PPS),,A4209,ESRD,721,Agree,-
+2471213,3. Part A(Excluding Inpatient Hospital PPS),,36415,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452397,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Disagree,Insufficient Documentation
+2467692,4. Part A(Inpatient Hospital PPS),561,,DRG Short Term,110,Agree,-
+2452850,1. Part B,,81319,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2475700,2. DME MAC,,E0466,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2476842,3. Part A(Excluding Inpatient Hospital PPS),,Q5002,Hospice,813,Agree,-
+2440177,1. Part B,,99291,Internal Medicine,,Agree,-
+2443571,4. Part A(Inpatient Hospital PPS),432,,DRG Short Term,111,Disagree,Incorrect Coding
+2442022,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2441439,2. DME MAC,,A4222,Pharmacy,,Agree,-
+2468365,2. DME MAC,,B4224,Pharmacy,,Disagree,Medical Necessity
+2452682,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2465113,3. Part A(Excluding Inpatient Hospital PPS),,G0155,HHA,32G,Agree,-
+2459613,1. Part B,,67028,Ophthalmology,,Agree,-
+2479107,3. Part A(Excluding Inpatient Hospital PPS),,36821,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",13G,Agree,-
+2443592,2. DME MAC,,E0676,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2456185,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2480689,2. DME MAC,,L8400,Individual orthotic personnel certified by an accrediting organization,,Agree,-
+2474794,1. Part B,,99215,Gastroenterology,,Disagree,Incorrect Coding
+2480279,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2453080,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2461634,2. DME MAC,,A4224,Pharmacy,,Agree,Overturned
+2437318,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2480095,3. Part A(Excluding Inpatient Hospital PPS),,96375,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2440498,3. Part A(Excluding Inpatient Hospital PPS),,85025,ESRD,721,Agree,-
+2477185,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2449136,1. Part B,,G0145,Clinical Laboratory (Billing Independently),,Agree,-
+2435451,3. Part A(Excluding Inpatient Hospital PPS),,97140,SNF,223,Agree,-
+2471346,1. Part B,,51798,Urology,,Agree,-
+2435716,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2461022,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2439514,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2455433,1. Part B,,87640,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2452803,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Disagree,Insufficient Documentation
+2459229,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2471968,2. DME MAC,,Q0511,Pharmacy,,Disagree,Medical Necessity
+2462218,1. Part B,,99222,Internal Medicine,,Agree,-
+2482133,2. DME MAC,,B4034,Pharmacy,,Agree,-
+2451033,2. DME MAC,,A4456,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2470846,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2471398,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,320,Agree,-
+2454985,4. Part A(Inpatient Hospital PPS),057,,Other FI Service Types,111,Disagree,Incorrect Coding
+2448397,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2474262,2. DME MAC,,B4193,Pharmacy,,Agree,-
+2434344,1. Part B,,86140,Internal Medicine,,Disagree,Insufficient Documentation
+2456976,3. Part A(Excluding Inpatient Hospital PPS),,82040,ESRD,721,Agree,-
+2465884,1. Part B,,A9595,Diagnostic Radiology,,Disagree,Incorrect Coding
+2478577,3. Part A(Excluding Inpatient Hospital PPS),,84484,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452215,3. Part A(Excluding Inpatient Hospital PPS),,G0103,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",140,Agree,-
+2480034,4. Part A(Inpatient Hospital PPS),235,,DRG Short Term,111,Agree,-
+2464822,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2443935,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2439088,3. Part A(Excluding Inpatient Hospital PPS),,99152,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Medical Necessity
+2472407,3. Part A(Excluding Inpatient Hospital PPS),,77300,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",132,Agree,-
+2448624,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2452681,3. Part A(Excluding Inpatient Hospital PPS),,82040,ESRD,721,Agree,-
+2432513,3. Part A(Excluding Inpatient Hospital PPS),,A4913,ESRD,721,Agree,Overturned
+2454482,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2441518,3. Part A(Excluding Inpatient Hospital PPS),,36415,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,Overturned
+2439712,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2480426,2. DME MAC,,J1599,Pharmacy,,Agree,-
+2455398,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Disagree,Medical Necessity
+2473184,3. Part A(Excluding Inpatient Hospital PPS),,1IB21,HHA,329,Agree,-
+2437378,2. DME MAC,,A7030,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2459109,4. Part A(Inpatient Hospital PPS),267,,DRG Short Term,111,Disagree,Insufficient Documentation
+2444210,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,-
+2461584,3. Part A(Excluding Inpatient Hospital PPS),,G0496,HHA,329,Agree,-
+2473339,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2435851,3. Part A(Excluding Inpatient Hospital PPS),,97112,SNF,223,Disagree,Insufficient Documentation
+2435709,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2465322,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2436888,4. Part A(Inpatient Hospital PPS),492,,DRG Short Term,111,Disagree,Incorrect Coding
+2460575,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2462405,2. DME MAC,,A6238,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2438570,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,811,Agree,-
+2448866,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2480567,3. Part A(Excluding Inpatient Hospital PPS),,J1644,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2476645,2. DME MAC,,Q0512,Pharmacy,,Agree,-
+2452661,1. Part B,,1036F,Optometry,,Agree,-
+2445763,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,327,Agree,-
+2469766,1. Part B,,36415,Clinical Laboratory (Billing Independently),,Agree,-
+2464383,4. Part A(Inpatient Hospital PPS),605,,DRG Short Term,117,Disagree,Medical Necessity
+2440705,3. Part A(Excluding Inpatient Hospital PPS),,83935,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456994,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2479178,3. Part A(Excluding Inpatient Hospital PPS),,73700,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2446761,2. DME MAC,,Q0512,Pharmacy,,Disagree,No Documentation
+2455430,1. Part B,,88381,Clinical Laboratory (Billing Independently),,Disagree,No Documentation
+2476841,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2480573,4. Part A(Inpatient Hospital PPS),603,,DRG Short Term,111,Agree,-
+2432768,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,727,Agree,-
+2457246,1. Part B,,J0897,Family Practice,,Agree,-
+2439267,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2444136,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2459713,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2463741,1. Part B,,17311,Dermatology,,Agree,-
+2449405,4. Part A(Inpatient Hospital PPS),252,,DRG Short Term,111,Agree,-
+2469169,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2440235,1. Part B,,81317,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2476742,3. Part A(Excluding Inpatient Hospital PPS),,85610,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2457276,1. Part B,,11721,Podiatry,,Agree,-
+2451383,1. Part B,,87798,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2437935,4. Part A(Inpatient Hospital PPS),101,,DRG Short Term,111,Agree,-
+2480289,3. Part A(Excluding Inpatient Hospital PPS),,KGGA0,SNF,212,Agree,Overturned
+2448427,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2450210,2. DME MAC,,A6021,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2451588,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,824,Agree,-
+2458645,2. DME MAC,,E0956,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2458244,3. Part A(Excluding Inpatient Hospital PPS),,80053,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2442355,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Medical Necessity
+2476803,2. DME MAC,,E0466,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2476233,2. DME MAC,,A4239,Pharmacy,,Agree,-
+2474064,3. Part A(Excluding Inpatient Hospital PPS),,87040,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2454483,3. Part A(Excluding Inpatient Hospital PPS),,86901,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2446160,2. DME MAC,,A4520,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2452783,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2482078,2. DME MAC,,L5828,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2440070,2. DME MAC,,L3650,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2452770,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Disagree,Insufficient Documentation
+2461910,4. Part A(Inpatient Hospital PPS),291,,DRG Short Term,111,Agree,-
+2458085,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2436009,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2475847,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2450810,1. Part B,,1123F,Neurology,,Disagree,No Documentation
+2438043,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2481856,2. DME MAC,,J7606,Pharmacy,,Agree,-
+2438210,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,720,Agree,-
+2435448,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2441175,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2435761,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2461641,2. DME MAC,,Q0513,Pharmacy,,Agree,-
+2468963,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2443376,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2442023,1. Part B,,90966,Nephrology,,Agree,-
+2432571,2. DME MAC,,A4629,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2466691,1. Part B,,81242,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2444223,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2447428,3. Part A(Excluding Inpatient Hospital PPS),,G0162,HHA,329,Agree,-
+2472640,1. Part B,,G6002,Radiation Oncology,,Agree,-
+2469231,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2473643,2. DME MAC,,L5920,Individual orthotic personnel certified by an accrediting organization,,Agree,-
+2460149,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Agree,-
+2461563,1. Part B,,99214,General Surgery,,Disagree,Incorrect Coding
+2435696,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Disagree,Insufficient Documentation
+2471397,3. Part A(Excluding Inpatient Hospital PPS),,96413,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Agree,Overturned
+2432424,2. DME MAC,,A4328,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2434638,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2469265,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461266,3. Part A(Excluding Inpatient Hospital PPS),,OHVE1,SNF,213,Disagree,Other
+2461362,1. Part B,,99309,Cardiology,,Disagree,Incorrect Coding
+2448441,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2442869,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2475735,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2476467,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,727,Agree,-
+2476156,3. Part A(Excluding Inpatient Hospital PPS),,80048,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2443935,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2439240,2. DME MAC,,A4221,Pharmacy,,Disagree,Other
+2439286,4. Part A(Inpatient Hospital PPS),391,,DRG Short Term,110,Agree,-
+2467811,3. Part A(Excluding Inpatient Hospital PPS),,70360,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435906,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2436064,2. DME MAC,,E0748,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2466218,3. Part A(Excluding Inpatient Hospital PPS),,78815,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456776,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2464613,1. Part B,,97110,Physical Therapist in Private Practice,,Agree,-
+2463267,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2466530,4. Part A(Inpatient Hospital PPS),313,,DRG Short Term,111,Agree,-
+2457149,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2458892,3. Part A(Excluding Inpatient Hospital PPS),,A9500,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2481312,2. DME MAC,,E0973,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480256,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2435702,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,813,Agree,-
+2465389,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2459114,4. Part A(Inpatient Hospital PPS),885,,Other FI Service Types,111,Agree,-
+2449151,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2455278,1. Part B,,36415,Clinical Laboratory (Billing Independently),,Agree,-
+2442718,4. Part A(Inpatient Hospital PPS),102,,DRG Short Term,111,Agree,-
+2456750,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2444223,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2450450,1. Part B,,99308,Nurse Practitioner,,Agree,-
+2438577,1. Part B,,87088,Clinical Laboratory (Billing Independently),,Agree,-
+2448600,3. Part A(Excluding Inpatient Hospital PPS),,36415,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2468176,3. Part A(Excluding Inpatient Hospital PPS),,71046,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2433141,3. Part A(Excluding Inpatient Hospital PPS),,80051,ESRD,721,Agree,-
+2453439,4. Part A(Inpatient Hospital PPS),207,,DRG Short Term,111,Agree,-
+2439971,2. DME MAC,,L3916,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2456956,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Insufficient Documentation
+2456726,3. Part A(Excluding Inpatient Hospital PPS),,83540,ESRD,721,Agree,-
+2434592,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2467788,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2452575,2. DME MAC,,E2201,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2477230,4. Part A(Inpatient Hospital PPS),885,,Other FI Service Types,111,Agree,-
+2475315,3. Part A(Excluding Inpatient Hospital PPS),,77080,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448178,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2439779,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2473027,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2440385,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2452717,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Insufficient Documentation
+2452476,3. Part A(Excluding Inpatient Hospital PPS),,85041,ESRD,721,Agree,-
+2481212,4. Part A(Inpatient Hospital PPS),254,,DRG Short Term,111,Agree,-
+2462070,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Insufficient Documentation
+2468877,2. DME MAC,,A7035,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2445007,2. DME MAC,,A4371,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2448402,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2458278,1. Part B,,81242,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2436950,3. Part A(Excluding Inpatient Hospital PPS),,96360,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2446697,1. Part B,,87500,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2451850,3. Part A(Excluding Inpatient Hospital PPS),,83690,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2449683,4. Part A(Inpatient Hospital PPS),897,,DRG Short Term,111,Disagree,Incorrect Coding
+2464349,1. Part B,,J9271,Medical Oncology,,Agree,-
+2452798,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2443828,4. Part A(Inpatient Hospital PPS),264,,DRG Short Term,117,Agree,-
+2442697,3. Part A(Excluding Inpatient Hospital PPS),,93005,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2455182,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2452790,3. Part A(Excluding Inpatient Hospital PPS),,J3370,ESRD,721,Agree,-
+2480308,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2480844,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2457174,3. Part A(Excluding Inpatient Hospital PPS),,J0131,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2444182,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,813,Agree,-
+2472021,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2480235,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2457755,1. Part B,,97140,Physical Therapist in Private Practice,,Agree,-
+2473473,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,No Documentation
+2470965,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2462405,2. DME MAC,,E0467,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2465113,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,32G,Agree,-
+2436692,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Other
+2465085,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2445053,1. Part B,,99214,Pulmonary Disease,,Agree,-
+2464941,4. Part A(Inpatient Hospital PPS),432,,DRG Short Term,110,Agree,-
+2435657,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2469267,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2471245,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,814,Agree,-
+2475077,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,Overturned
+2461040,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2474910,2. DME MAC,,A4221,Pharmacy,,Agree,-
+2475492,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2464913,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2465359,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2448462,3. Part A(Excluding Inpatient Hospital PPS),,97110,SNF,223,Agree,-
+2450255,2. DME MAC,,B4224,Pharmacy,,Disagree,Medical Necessity
+2436630,1. Part B,,87801,Clinical Laboratory (Billing Independently),,Agree,-
+2446032,1. Part B,,97530,Physical Therapist in Private Practice,,Agree,-
+2444069,2. DME MAC,,A4238,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2455801,3. Part A(Excluding Inpatient Hospital PPS),,95811,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2438231,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2439771,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2439495,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2444152,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2456930,3. Part A(Excluding Inpatient Hospital PPS),,83540,ESRD,721,Agree,-
+2435703,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2436666,3. Part A(Excluding Inpatient Hospital PPS),,97162,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2437323,4. Part A(Inpatient Hospital PPS),501,,DRG Short Term,111,Agree,-
+2439689,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2436539,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2436345,1. Part B,,81334,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2460854,3. Part A(Excluding Inpatient Hospital PPS),,IEUE1,SNF,212,Agree,-
+2458489,4. Part A(Inpatient Hospital PPS),881,,DRG Short Term,111,Disagree,Incorrect Coding
+2433214,1. Part B,,90837,Clinical Psychologist,,Agree,-
+2451002,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2441167,3. Part A(Excluding Inpatient Hospital PPS),,1BC21,HHA,329,Agree,-
+2449428,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2475117,2. DME MAC,,L1851,Individual orthotic personnel certified by an accrediting organization,,Disagree,Insufficient Documentation
+2448001,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Medical Necessity
+2480449,1. Part B,,1126F,Family Practice,,Agree,-
+2469200,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2480295,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2439857,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2434927,2. DME MAC,,A4409,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2476388,2. DME MAC,,E0779,Pharmacy,,Agree,-
+2466868,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2470628,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448411,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2441839,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2475737,3. Part A(Excluding Inpatient Hospital PPS),,82947,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2447340,3. Part A(Excluding Inpatient Hospital PPS),,83036,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2449386,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2436292,1. Part B,,96402,Hematology,,Agree,-
+2467563,1. Part B,,64721,Orthopedic Surgery,,Agree,-
+2432539,2. DME MAC,,E0601,Medical Supply Company with Respiratory Therapist,,Agree,-
+2481737,1. Part B,,99223,Internal Medicine,,Disagree,Insufficient Documentation
+2475324,2. DME MAC,,A4222,Pharmacy,,Disagree,No Documentation
+2438446,2. DME MAC,,A5500,Podiatry,,Agree,-
+2440894,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2480850,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2457163,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2473258,3. Part A(Excluding Inpatient Hospital PPS),,80061,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2469221,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2449860,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2456730,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2463397,1. Part B,,86803,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2450359,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2468835,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448408,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2440067,3. Part A(Excluding Inpatient Hospital PPS),,82570,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2436453,1. Part B,,87426,Nurse Practitioner,,Agree,-
+2455531,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2445971,2. DME MAC,,A6196,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2454965,3. Part A(Excluding Inpatient Hospital PPS),,80053,ESRD,721,Agree,-
+2473374,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2433917,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2472127,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2461017,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Agree,-
+2477518,1. Part B,,A9555,Cardiology,,Agree,-
+2448865,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Disagree,Medical Necessity
+2468116,2. DME MAC,,L5920,Hospital,,Agree,-
+2454330,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2474327,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2452512,1. Part B,,87530,Clinical Laboratory (Billing Independently),,Agree,-
+2432893,1. Part B,,G0452,Clinical Laboratory (Billing Independently),,Agree,-
+2481241,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2442726,3. Part A(Excluding Inpatient Hospital PPS),,D0301,Inpatient Rehab Unit,111,Agree,Overturned
+2468340,2. DME MAC,,B4220,Pharmacy,,Agree,-
+2448457,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2439514,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2451112,2. DME MAC,,B4224,Pharmacy,,Disagree,Other
+2446747,2. DME MAC,,A4311,Medical Supply Company with Respiratory Therapist,,Agree,-
+2477689,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Other
+2460419,4. Part A(Inpatient Hospital PPS),190,,DRG Short Term,111,Disagree,Incorrect Coding
+2444932,2. DME MAC,,E0955,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2438828,1. Part B,,G9637,Diagnostic Radiology,,Agree,-
+2439518,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2444205,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,822,Agree,-
+2474282,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2469377,3. Part A(Excluding Inpatient Hospital PPS),,82728,ESRD,721,Agree,-
+2455939,1. Part B,,J9312,Rheumatology,,Agree,-
+2462553,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2478897,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2438030,1. Part B,,33418,Thoracic Surgery,,Agree,-
+2432739,2. DME MAC,,A5500,Pharmacy,,Disagree,Insufficient Documentation
+2434975,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2478687,1. Part B,,87653,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2458783,1. Part B,,G2067,Unknown Provider Type,,Disagree,Insufficient Documentation
+2461063,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2469378,3. Part A(Excluding Inpatient Hospital PPS),,80069,ESRD,721,Agree,-
+2469220,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,Overturned
+2480332,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Disagree,Incorrect Coding
+2473739,1. Part B,,85652,Clinical Laboratory (Billing Independently),,Agree,-
+2439513,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,233,Agree,-
+2448155,1. Part B,,99291,Emergency Medicine,,Agree,-
+2452681,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2461208,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2432930,2. DME MAC,,L5781,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2433981,1. Part B,,70450,Diagnostic Radiology,,Agree,-
+2452710,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2432269,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,320,Disagree,Medical Necessity
+2456914,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2445897,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2443672,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2459369,3. Part A(Excluding Inpatient Hospital PPS),,KAKE1,SNF,213,Disagree,Other
+2448757,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2479225,2. DME MAC,,E1392,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2474681,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Agree,-
+2433218,1. Part B,,0037U,Clinical Laboratory (Billing Independently),,Agree,-
+2448382,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2474451,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2443173,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Insufficient Documentation
+2454328,3. Part A(Excluding Inpatient Hospital PPS),,Q9967,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2470704,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Insufficient Documentation
+2461610,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2438053,1. Part B,,99309,Nurse Practitioner,,Agree,-
+2435746,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2446272,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2444223,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2462645,1. Part B,,99223,Physical Medicine and Rehabilitation,,Disagree,Insufficient Documentation
+2480748,4. Part A(Inpatient Hospital PPS),920,,DRG Short Term,111,Agree,-
+2432325,3. Part A(Excluding Inpatient Hospital PPS),,80053,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2469261,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2435975,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2434975,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2469239,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,810,Agree,-
+2474252,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2481136,1. Part B,,97110,Physical Therapist in Private Practice,,Agree,-
+2461067,3. Part A(Excluding Inpatient Hospital PPS),,J1447,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Agree,-
+2450834,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,223,Agree,-
+2469223,3. Part A(Excluding Inpatient Hospital PPS),,85025,ESRD,721,Agree,-
+2439514,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2478355,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2436850,1. Part B,,85025,Clinical Laboratory (Billing Independently),,Agree,-
+2465404,3. Part A(Excluding Inpatient Hospital PPS),,85027,ESRD,723,Agree,-
+2443937,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2469378,3. Part A(Excluding Inpatient Hospital PPS),,87340,ESRD,721,Agree,-
+2443501,3. Part A(Excluding Inpatient Hospital PPS),,88305,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2448281,1. Part B,,J1745,Rheumatology,,Agree,-
+2444277,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,817,Agree,-
+2449487,1. Part B,,G0008,Internal Medicine,,Agree,-
+2474124,4. Part A(Inpatient Hospital PPS),092,,DRG Short Term,111,Agree,-
+2479219,3. Part A(Excluding Inpatient Hospital PPS),,G0494,HHA,329,Agree,-
+2465303,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Agree,-
+2459585,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2458235,1. Part B,,99203,Emergency Medicine,,Agree,-
+2471324,1. Part B,,87481,Clinical Laboratory (Billing Independently),,Agree,-
+2479854,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2434217,1. Part B,,81407,Clinical Laboratory (Billing Independently),,Disagree,No Documentation
+2461549,2. DME MAC,,E2402,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2460365,4. Part A(Inpatient Hospital PPS),919,,DRG Short Term,117,Agree,-
+2440535,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2432282,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2454332,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2475501,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2439488,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2480275,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2435696,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Disagree,Insufficient Documentation
+2439924,1. Part B,,0064A,Mass Immunization Roster Billers (Mass Immunizers have to roster bill assigned claims and can only bill for immunizations),,Agree,-
+2438122,2. DME MAC,,L5651,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2441273,2. DME MAC,,E0951,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2444494,4. Part A(Inpatient Hospital PPS),872,,DRG Short Term,111,Agree,-
+2433537,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2441374,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2473381,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Incorrect Coding
+2452698,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2446025,1. Part B,,63650,Physical Medicine and Rehabilitation,,Disagree,Insufficient Documentation
+2432605,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2472547,1. Part B,,99233,Internal Medicine,,Disagree,Insufficient Documentation
+2465036,2. DME MAC,,J1575,Pharmacy,,Agree,-
+2458108,3. Part A(Excluding Inpatient Hospital PPS),,71045,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2441265,1. Part B,,87641,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2475150,1. Part B,,82310,Clinical Laboratory (Billing Independently),,Agree,-
+2469260,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,Overturned
+2441002,2. DME MAC,,A7033,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480251,3. Part A(Excluding Inpatient Hospital PPS),,J0887,ESRD,721,Agree,-
+2444152,3. Part A(Excluding Inpatient Hospital PPS),,84466,ESRD,721,Agree,-
+2461289,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2461624,1. Part B,,81231,Clinical Laboratory (Billing Independently),,Agree,-
+2445479,1. Part B,,81298,Clinical Laboratory (Billing Independently),,Agree,-
+2461039,3. Part A(Excluding Inpatient Hospital PPS),,82728,ESRD,721,Agree,-
+2457914,2. DME MAC,,A6446,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2457987,2. DME MAC,,L3260,Podiatry,,Agree,-
+2439505,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2468471,2. DME MAC,,A7038,Medical Supply Company with Respiratory Therapist,,Agree,-
+2445501,1. Part B,,87635,Nurse Practitioner,,Agree,-
+2476755,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2473310,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,813,Agree,-
+2457407,1. Part B,,J7040,Hematology/Oncology,,Disagree,Incorrect Coding
+2444223,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2470275,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2448687,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Disagree,Insufficient Documentation
+2472057,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2452178,2. DME MAC,,B4035,Pharmacy,,Agree,-
+2446559,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2434473,3. Part A(Excluding Inpatient Hospital PPS),,G0496,HHA,329,Agree,-
+2465588,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2476628,3. Part A(Excluding Inpatient Hospital PPS),,84132,ESRD,721,Agree,-
+2461559,1. Part B,,93015,Cardiology,,Agree,-
+2448542,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2452707,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Insufficient Documentation
+2473623,1. Part B,,87798,Clinical Laboratory (Billing Independently),,Agree,-
+2466070,1. Part B,,71045,Diagnostic Radiology,,Disagree,Insufficient Documentation
+2475427,1. Part B,,66989,Ophthalmology,,Agree,-
+2444303,2. DME MAC,,L0631,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2481618,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2473629,1. Part B,,99214,Nurse Practitioner,,Disagree,Incorrect Coding
+2481496,3. Part A(Excluding Inpatient Hospital PPS),,G0463,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2444152,3. Part A(Excluding Inpatient Hospital PPS),,J2501,ESRD,721,Agree,-
+2443938,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,811,Agree,-
+2469714,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Other
+2433681,1. Part B,,81295,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2448132,2. DME MAC,,J7512,Pharmacy,,Agree,-
+2471631,4. Part A(Inpatient Hospital PPS),694,,DRG Short Term,111,Agree,-
+2451510,1. Part B,,87661,Clinical Laboratory (Billing Independently),,Agree,-
+2433373,2. DME MAC,,A4259,"Medical supply company not included in 51, 52, or 53",,Disagree,Incorrect Coding
+2438500,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,811,Disagree,Insufficient Documentation
+2467041,3. Part A(Excluding Inpatient Hospital PPS),,G0495,HHA,32I,Agree,-
+2432605,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2461018,3. Part A(Excluding Inpatient Hospital PPS),,J2501,ESRD,721,Agree,-
+2465393,3. Part A(Excluding Inpatient Hospital PPS),,84100,ESRD,721,Agree,-
+2479340,1. Part B,,93010,Nurse Practitioner,,Agree,-
+2472229,1. Part B,,1036F,Thoracic Surgery,,Agree,-
+2434393,4. Part A(Inpatient Hospital PPS),327,,DRG Short Term,111,Agree,-
+2443581,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2456088,2. DME MAC,,A7035,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2465345,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2440721,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2439956,2. DME MAC,,K0554,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2456231,3. Part A(Excluding Inpatient Hospital PPS),,84484,Critical Access Hospital (CAH) Outpatient Services,851,Agree,Overturned
+2447988,1. Part B,,87640,Nurse Practitioner,,Agree,-
+2442127,1. Part B,,87088,Clinical Laboratory (Billing Independently),,Agree,-
+2440379,3. Part A(Excluding Inpatient Hospital PPS),,G0499,ESRD,721,Disagree,Insufficient Documentation
+2442612,2. DME MAC,,E0748,"Medical supply company not included in 51, 52, or 53",,Agree,Overturned
+2439642,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2480468,1. Part B,,G0480,Clinical Laboratory (Billing Independently),,Agree,-
+2433460,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2449043,4. Part A(Inpatient Hospital PPS),473,,DRG Short Term,111,Disagree,Insufficient Documentation
+2432376,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,817,Agree,-
+2476890,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2451584,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,-
+2477169,3. Part A(Excluding Inpatient Hospital PPS),,,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2456812,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2444946,1. Part B,,J1300,Neurology,,Agree,-
+2473593,2. DME MAC,,E0431,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2446883,4. Part A(Inpatient Hospital PPS),259,,DRG Short Term,110,Agree,-
+2481189,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2439643,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2446232,4. Part A(Inpatient Hospital PPS),101,,DRG Short Term,111,Agree,-
+2476895,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,812,Agree,-
+2436698,1. Part B,,99072,Clinical Laboratory (Billing Independently),,Agree,-
+2465498,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2452130,3. Part A(Excluding Inpatient Hospital PPS),,96413,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2459033,1. Part B,,17312,Dermatology,,Agree,-
+2450845,2. DME MAC,,E1390,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2468968,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2435439,3. Part A(Excluding Inpatient Hospital PPS),,83540,ESRD,721,Agree,-
+2434012,2. DME MAC,,A6238,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2476605,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2444830,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2474056,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2445375,2. DME MAC,,A4623,Medical Supply Company with Respiratory Therapist,,Disagree,Other
+2480281,3. Part A(Excluding Inpatient Hospital PPS),,82728,ESRD,721,Agree,-
+2448670,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Agree,-
+2467343,4. Part A(Inpatient Hospital PPS),301,,DRG Short Term,111,Agree,-
+2480342,3. Part A(Excluding Inpatient Hospital PPS),,80053,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2464828,3. Part A(Excluding Inpatient Hospital PPS),,73564,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2439748,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Disagree,Other
+2433375,3. Part A(Excluding Inpatient Hospital PPS),,70551,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2439374,3. Part A(Excluding Inpatient Hospital PPS),,80061,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,Overturned
+2478279,3. Part A(Excluding Inpatient Hospital PPS),,G0495,HHA,329,Agree,-
+2441768,1. Part B,,U0003,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2467248,2. DME MAC,,G0333,Pharmacy,,Agree,-
+2458351,2. DME MAC,,A5120,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2471806,3. Part A(Excluding Inpatient Hospital PPS),,,RHCs,711,Agree,-
+2461576,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2443811,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2457967,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2477542,3. Part A(Excluding Inpatient Hospital PPS),,26055,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2476636,3. Part A(Excluding Inpatient Hospital PPS),,97116,SNF,233,Agree,-
+2462463,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2468288,2. DME MAC,,K1022,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2466779,2. DME MAC,,L2330,Multispecialty Clinic or Group Practice,,Disagree,Insufficient Documentation
+2472094,3. Part A(Excluding Inpatient Hospital PPS),,99284,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2478319,1. Part B,,83721,Clinical Laboratory (Billing Independently),,Agree,-
+2451002,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2435443,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2480306,3. Part A(Excluding Inpatient Hospital PPS),,99233,Hospice,817,Agree,-
+2448603,3. Part A(Excluding Inpatient Hospital PPS),,80051,ESRD,721,Agree,-
+2444737,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2462933,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2459861,2. DME MAC,,B4035,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480238,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2478797,1. Part B,,81519,Clinical Laboratory (Billing Independently),,Agree,-
+2448616,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2448399,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2468709,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2453155,1. Part B,,66984,Ambulatory Surgical Center,,Agree,-
+2444154,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2445667,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2450249,2. DME MAC,,A7038,Medical Supply Company with Respiratory Therapist,,Agree,-
+2441450,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2457619,1. Part B,,A0425,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Disagree,Medical Necessity
+2463007,1. Part B,,J9312,Neurology,,Agree,-
+2462788,3. Part A(Excluding Inpatient Hospital PPS),,97110,Comprehensive Outpatient Rehab Facility (CORF),753,Disagree,Insufficient Documentation
+2443398,4. Part A(Inpatient Hospital PPS),267,,DRG Short Term,117,Agree,-
+2452694,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2450040,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2455498,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2450634,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2465303,3. Part A(Excluding Inpatient Hospital PPS),,97110,SNF,223,Agree,-
+2462860,3. Part A(Excluding Inpatient Hospital PPS),,85025,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2466654,1. Part B,,99214,Physical Medicine and Rehabilitation,,Agree,-
+2444135,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2435774,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2478951,1. Part B,,G8427,General Surgery,,Agree,-
+2468562,2. DME MAC,,B4088,Pharmacy,,Agree,-
+2474120,3. Part A(Excluding Inpatient Hospital PPS),,3CA31,HHA,329,Agree,-
+2448189,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2459742,2. DME MAC,,L1843,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2480234,3. Part A(Excluding Inpatient Hospital PPS),,85048,ESRD,721,Agree,-
+2433969,3. Part A(Excluding Inpatient Hospital PPS),,Q5002,Hospice,810,Agree,-
+2468713,4. Part A(Inpatient Hospital PPS),515,,DRG Short Term,111,Agree,-
+2432245,2. DME MAC,,L1851,Orthopedic Surgery,,Agree,-
+2464827,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2480340,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,812,Agree,-
+2464546,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2452815,1. Part B,,99308,Nurse Practitioner,,Agree,-
+2481668,4. Part A(Inpatient Hospital PPS),309,,DRG Short Term,111,Agree,-
+2439741,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2469707,1. Part B,,90834,Clinical Social Worker,,Agree,-
+2452775,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2452293,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2472119,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,811,Disagree,Insufficient Documentation
+2433652,1. Part B,,99308,Nurse Practitioner,,Agree,-
+2464586,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2434378,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Agree,-
+2472463,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2444163,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2432693,2. DME MAC,,E2510,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2453017,1. Part B,,90662,Mass Immunization Roster Billers (Mass Immunizers have to roster bill assigned claims and can only bill for immunizations),,Agree,-
+2468342,2. DME MAC,,A7000,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480263,3. Part A(Excluding Inpatient Hospital PPS),,97110,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461869,1. Part B,,99285,Nurse Practitioner,,Agree,-
+2452754,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2463541,2. DME MAC,,A6021,General Practice,,Disagree,Insufficient Documentation
+2451866,1. Part B,,U0003,Clinical Laboratory (Billing Independently),,Agree,-
+2441988,3. Part A(Excluding Inpatient Hospital PPS),,J9045,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2439733,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2457689,1. Part B,,98941,Chiropractic,,Agree,-
+2438095,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2461651,2. DME MAC,,Q0513,Pharmacy,,Agree,-
+2439898,1. Part B,,66984,Ophthalmology,,Agree,-
+2472982,4. Part A(Inpatient Hospital PPS),267,,DRG Short Term,111,Agree,Overturned
+2469222,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2476615,3. Part A(Excluding Inpatient Hospital PPS),,97140,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2478448,1. Part B,,87799,Clinical Laboratory (Billing Independently),,Agree,-
+2477887,1. Part B,,88381,Clinical Laboratory (Billing Independently),,Agree,-
+2451293,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Disagree,Insufficient Documentation
+2460404,1. Part B,,93010,Emergency Medicine,,Agree,-
+2464288,2. DME MAC,,E0562,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2468252,4. Part A(Inpatient Hospital PPS),239,,DRG Short Term,111,Agree,-
+2448183,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2466978,3. Part A(Excluding Inpatient Hospital PPS),,JDEC1,SNF,214,Agree,-
+2459556,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2476650,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2455199,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2467137,3. Part A(Excluding Inpatient Hospital PPS),,J3490,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2473453,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,823,Agree,-
+2481412,3. Part A(Excluding Inpatient Hospital PPS),,Q5006,Hospice,811,Agree,-
+2446755,1. Part B,,92250,Ophthalmology,,Agree,-
+2452925,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2439719,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2468333,2. DME MAC,,L5845,Medical supply company with prosthetic personnel certified by an accrediting organization,,Agree,-
+2466181,3. Part A(Excluding Inpatient Hospital PPS),,84154,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",141,Agree,-
+2478935,2. DME MAC,,L5629,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2465213,2. DME MAC,,L8470,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2441536,3. Part A(Excluding Inpatient Hospital PPS),,97162,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448345,1. Part B,,67028,Ophthalmology,,Agree,-
+2480271,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2434658,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2462002,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2465461,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2471521,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2445485,2. DME MAC,,L1843,"Medical supply company not included in 51, 52, or 53",,Disagree,Medical Necessity
+2452044,1. Part B,,87801,Clinical Laboratory (Billing Independently),,Agree,Overturned
+2433917,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2463838,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2438729,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Insufficient Documentation
+2450592,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2434766,1. Part B,,G0483,Nurse Practitioner,,Agree,-
+2433518,1. Part B,,87541,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2435717,3. Part A(Excluding Inpatient Hospital PPS),,82565,ESRD,720,Agree,-
+2472650,3. Part A(Excluding Inpatient Hospital PPS),,84403,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",141,Agree,-
+2447745,1. Part B,,11102,Dermatology,,Agree,Overturned
+2433969,3. Part A(Excluding Inpatient Hospital PPS),,Q5002,Hospice,810,Agree,-
+2456692,1. Part B,,88342,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2466362,3. Part A(Excluding Inpatient Hospital PPS),,87086,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435692,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2478331,1. Part B,,99285,Emergency Medicine,,Agree,-
+2477581,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2480309,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2465390,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,823,Agree,-
+2448201,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2473105,3. Part A(Excluding Inpatient Hospital PPS),,96366,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461599,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2468977,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2446466,1. Part B,,88381,Clinical Laboratory (Billing Independently),,Agree,Overturned
+2444831,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,320,Agree,-
+2478725,4. Part A(Inpatient Hospital PPS),831,,DRG Short Term,110,Agree,-
+2469195,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Insufficient Documentation
+2473054,1. Part B,,92014,Ophthalmology,,Agree,-
+2458426,3. Part A(Excluding Inpatient Hospital PPS),,0240U,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2465309,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2435473,1. Part B,,0031U,Clinical Laboratory (Billing Independently),,Agree,-
+2444580,1. Part B,,84443,Internal Medicine,,Agree,-
+2448375,3. Part A(Excluding Inpatient Hospital PPS),,96374,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2480342,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456937,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Other
+2463554,1. Part B,,83970,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2435187,4. Part A(Inpatient Hospital PPS),871,,DRG Short Term,111,Agree,-
+2435110,1. Part B,,97140,Physical Therapist in Private Practice,,Agree,-
+2432201,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2457222,1. Part B,,00811,Certified Registered Nurse Anesthetist (CRNA),,Agree,-
+2471892,2. DME MAC,,E0570,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2471313,1. Part B,,96375,Rheumatology,,Agree,-
+2448019,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2442706,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2437566,1. Part B,,83735,Internal Medicine,,Agree,-
+2443306,2. DME MAC,,L5972,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2460860,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Agree,-
+2452710,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2456185,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2475040,3. Part A(Excluding Inpatient Hospital PPS),,71045,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2450540,2. DME MAC,,L0650,Orthopedic Surgery,,Agree,-
+2445360,1. Part B,,96417,Hematology/Oncology,,Agree,-
+2449652,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2468057,1. Part B,,J2920,Rheumatology,,Agree,-
+2432869,3. Part A(Excluding Inpatient Hospital PPS),,84100,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2443924,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2471186,1. Part B,,99214,Physician Assistant,,Disagree,Incorrect Coding
+2475595,1. Part B,,82330,Clinical Laboratory (Billing Independently),,Agree,-
+2478054,1. Part B,,71260,Diagnostic Radiology,,Agree,-
+2465368,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2452136,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2440724,4. Part A(Inpatient Hospital PPS),025,,DRG Short Term,111,Agree,-
+2437274,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Disagree,Insufficient Documentation
+2448434,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2447520,1. Part B,,73560,Portable X-Ray Supplier (Billing Independently),,Agree,-
+2454185,3. Part A(Excluding Inpatient Hospital PPS),,83540,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2443063,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2434845,1. Part B,,93306,Cardiology,,Agree,-
+2447544,4. Part A(Inpatient Hospital PPS),252,,DRG Short Term,111,Agree,-
+2446593,2. DME MAC,,E0218,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2440926,1. Part B,,95972,Pain Management,,Disagree,Insufficient Documentation
+2437475,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2476750,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2435165,2. DME MAC,,A6446,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2456230,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Disagree,Incorrect Coding
+2448401,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Disagree,Insufficient Documentation
+2433050,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2448183,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Agree,-
+2476627,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2444163,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2436583,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Agree,-
+2438006,1. Part B,,84439,Clinical Laboratory (Billing Independently),,Agree,-
+2456799,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2435851,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Disagree,Insufficient Documentation
+2444350,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,112,Agree,-
+2434559,1. Part B,,87481,Clinical Laboratory (Billing Independently),,Agree,-
+2469359,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,812,Disagree,Insufficient Documentation
+2449065,4. Part A(Inpatient Hospital PPS),454,,DRG Short Term,111,Agree,-
+2474440,4. Part A(Inpatient Hospital PPS),627,,DRG Short Term,111,Agree,-
+2435882,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2456550,3. Part A(Excluding Inpatient Hospital PPS),,36415,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Agree,-
+2451002,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2464876,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Disagree,Insufficient Documentation
+2461286,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2452705,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2473434,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,812,Agree,-
+2466977,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2456061,2. DME MAC,,A5512,Podiatry,,Agree,-
+2452841,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Insufficient Documentation
+2476873,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2457937,1. Part B,,87186,Clinical Laboratory (Billing Independently),,Agree,-
+2465659,1. Part B,,99308,Clinical Nurse Specialist,,Agree,-
+2436643,1. Part B,,G0283,Physical Therapist in Private Practice,,Agree,-
+2469231,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2480313,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,813,Disagree,Medical Necessity
+2446074,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2456297,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Insufficient Documentation
+2477249,2. DME MAC,,L5972,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2447399,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Disagree,Medical Necessity
+2467907,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,811,Disagree,Incorrect Coding
+2462896,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Insufficient Documentation
+2456916,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2480254,3. Part A(Excluding Inpatient Hospital PPS),,87340,ESRD,721,Disagree,Incorrect Coding
+2463269,3. Part A(Excluding Inpatient Hospital PPS),,J3262,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2474022,1. Part B,,97530,Physical Therapist in Private Practice,,Agree,-
+2456450,4. Part A(Inpatient Hospital PPS),683,,DRG Short Term,111,Agree,-
+2456947,3. Part A(Excluding Inpatient Hospital PPS),,82040,ESRD,721,Agree,-
+2433384,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2481412,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,811,Agree,-
+2457056,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,720,Agree,-
+2465372,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2441085,1. Part B,,92136,Ophthalmology,,Disagree,Insufficient Documentation
+2471006,2. DME MAC,,L5940,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2458726,3. Part A(Excluding Inpatient Hospital PPS),,G0463,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448293,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,720,Agree,-
+2470021,1. Part B,,87661,Pathology,,Agree,-
+2456474,2. DME MAC,,L5910,Individual prosthetic personnel certified by an accrediting organization,,Agree,Overturned
+2461159,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2467567,2. DME MAC,,L1852,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2436918,4. Part A(Inpatient Hospital PPS),300,,DRG Short Term,111,Agree,-
+2478513,2. DME MAC,,A7030,Medical Supply Company with Respiratory Therapist,,Agree,-
+2460028,3. Part A(Excluding Inpatient Hospital PPS),,77300,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2456299,3. Part A(Excluding Inpatient Hospital PPS),,U0003,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",141,Agree,-
+2448180,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2473454,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2481744,3. Part A(Excluding Inpatient Hospital PPS),,99284,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2471823,1. Part B,,J7192,Pharmacy,,Disagree,Insufficient Documentation
+2477447,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2476702,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2435532,4. Part A(Inpatient Hospital PPS),040,,DRG Short Term,111,Agree,-
+2481240,2. DME MAC,,B4220,Pharmacy,,Disagree,Medical Necessity
+2457828,3. Part A(Excluding Inpatient Hospital PPS),,3HB21,HHA,329,Agree,-
+2441411,4. Part A(Inpatient Hospital PPS),867,,DRG Short Term,111,Agree,-
+2440786,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2475674,4. Part A(Inpatient Hospital PPS),267,,DRG Short Term,111,Disagree,Insufficient Documentation
+2448483,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2463845,1. Part B,,G0475,Clinical Laboratory (Billing Independently),,Agree,-
+2432315,1. Part B,,99423,Internal Medicine,,Disagree,Insufficient Documentation
+2480238,3. Part A(Excluding Inpatient Hospital PPS),,85045,ESRD,721,Agree,-
+2464566,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2443337,3. Part A(Excluding Inpatient Hospital PPS),,96375,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2465085,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2442292,2. DME MAC,,A7031,Medical Supply Company with Respiratory Therapist,,Agree,-
+2432282,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2474554,3. Part A(Excluding Inpatient Hospital PPS),,96413,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461037,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2437786,4. Part A(Inpatient Hospital PPS),392,,DRG Short Term,111,Agree,-
+2450396,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2461024,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2440762,1. Part B,,J2469,Hematology/Oncology,,Agree,-
+2445316,1. Part B,,1170F,Internal Medicine,,Disagree,No Documentation
+2471417,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2478372,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2448192,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2438145,2. DME MAC,,E0466,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2461327,1. Part B,,90966,Nephrology,,Disagree,Insufficient Documentation
+2468792,4. Part A(Inpatient Hospital PPS),561,,DRG Short Term,111,Agree,-
+2448385,3. Part A(Excluding Inpatient Hospital PPS),,97530,Outpatient Rehab Facility (ORF),741,Agree,-
+2465879,1. Part B,,87641,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2432886,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,824,Disagree,Incorrect Coding
+2439717,3. Part A(Excluding Inpatient Hospital PPS),,99349,Hospice,813,Agree,-
+2435670,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2463614,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2448582,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2432768,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,727,Agree,-
+2433384,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2473286,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2434496,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2439505,3. Part A(Excluding Inpatient Hospital PPS),,J1644,ESRD,721,Agree,-
+2449904,1. Part B,,99214,Nurse Practitioner,,Disagree,Incorrect Coding
+2478563,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2477208,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2438715,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2442525,1. Part B,,G8427,Family Practice,,Agree,-
+2449450,1. Part B,,88381,Clinical Laboratory (Billing Independently),,Agree,-
+2451009,2. DME MAC,,E0601,"Medical supply company not included in 51, 52, or 53",,Agree,Overturned
+2477025,1. Part B,,97112,Physical Therapist in Private Practice,,Agree,-
+2479346,4. Part A(Inpatient Hospital PPS),561,,DRG Long Term,111,Agree,-
+2473342,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,-
+2434168,1. Part B,,81405,Clinical Laboratory (Billing Independently),,Agree,-
+2454781,3. Part A(Excluding Inpatient Hospital PPS),,99223,Hospice,817,Agree,-
+2463724,1. Part B,,85025,Medical Oncology,,Disagree,Insufficient Documentation
+2448603,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2468975,3. Part A(Excluding Inpatient Hospital PPS),,84466,ESRD,721,Agree,-
+2474436,3. Part A(Excluding Inpatient Hospital PPS),,D0305,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2473106,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2461713,1. Part B,,J3490,Hematology/Oncology,,Agree,-
+2456881,1. Part B,,81225,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2479293,1. Part B,,96372,Physician Assistant,,Agree,-
+2460853,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480452,1. Part B,,80053,Clinical Laboratory (Billing Independently),,Agree,-
+2435805,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2439422,3. Part A(Excluding Inpatient Hospital PPS),,J3490,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2452598,4. Part A(Inpatient Hospital PPS),082,,DRG Short Term,111,Agree,-
+2432886,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,824,Disagree,Incorrect Coding
+2465367,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2461233,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,-
+2466851,2. DME MAC,,A6021,General Practice,,Agree,-
+2447487,3. Part A(Excluding Inpatient Hospital PPS),,A0902,Inpatient Rehab Unit,111,Agree,Overturned
+2432325,3. Part A(Excluding Inpatient Hospital PPS),,36415,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2435677,3. Part A(Excluding Inpatient Hospital PPS),,97112,SNF,223,Agree,-
+2437265,1. Part B,,96372,Family Practice,,Agree,-
+2432269,3. Part A(Excluding Inpatient Hospital PPS),,3IA11,HHA,320,Disagree,Medical Necessity
+2475815,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Agree,-
+2436922,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2473282,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2443964,1. Part B,,84165,Clinical Laboratory (Billing Independently),,Agree,-
+2456916,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2469159,1. Part B,,96413,Hematology/Oncology,,Agree,-
+2445023,2. DME MAC,,J3285,Pharmacy,,Agree,-
+2452701,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2470073,1. Part B,,36415,Internal Medicine,,Agree,-
+2465280,3. Part A(Excluding Inpatient Hospital PPS),,J0882,ESRD,721,Agree,-
+2452768,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2451718,3. Part A(Excluding Inpatient Hospital PPS),,36415,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",141,Disagree,Insufficient Documentation
+2443948,3. Part A(Excluding Inpatient Hospital PPS),,C1758,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2454943,3. Part A(Excluding Inpatient Hospital PPS),,76536,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2477074,4. Part A(Inpatient Hospital PPS),330,,DRG Short Term,111,Agree,-
+2439748,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Disagree,Other
+2475862,3. Part A(Excluding Inpatient Hospital PPS),,70450,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",130,Agree,-
+2439046,2. DME MAC,,A4425,Medical Supply Company with Respiratory Therapist,,Agree,-
+2456745,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2471229,4. Part A(Inpatient Hospital PPS),220,,DRG Short Term,111,Agree,-
+2441561,4. Part A(Inpatient Hospital PPS),246,,DRG Short Term,111,Agree,-
+2477158,1. Part B,,J2778,Ophthalmology,,Agree,-
+2475629,1. Part B,,88312,Pathology,,Agree,-
+2447094,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2448983,3. Part A(Excluding Inpatient Hospital PPS),,32408,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2460520,1. Part B,,3017F,Family Practice,,Agree,-
+2444216,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2452767,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2468027,1. Part B,,67028,Ophthalmology,,Agree,-
+2476641,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Other
+2447660,3. Part A(Excluding Inpatient Hospital PPS),,G0495,HHA,329,Disagree,Medical Necessity
+2433311,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,320,Agree,-
+2465290,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2447428,3. Part A(Excluding Inpatient Hospital PPS),,G0158,HHA,329,Agree,-
+2457303,1. Part B,,90966,Nephrology,,Agree,-
+2444198,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2439273,4. Part A(Inpatient Hospital PPS),908,,DRG Short Term,111,Agree,-
+2439798,4. Part A(Inpatient Hospital PPS),871,,DRG Short Term,111,Agree,-
+2468484,1. Part B,,73000,Portable X-Ray Supplier (Billing Independently),,Agree,-
+2473772,2. DME MAC,,L1820,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2480308,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2454647,4. Part A(Inpatient Hospital PPS),469,,DRG Short Term,110,Agree,-
+2446730,1. Part B,,99215,Hematology/Oncology,,Disagree,Incorrect Coding
+2435652,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,727,Agree,-
+2448443,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2474710,4. Part A(Inpatient Hospital PPS),743,,DRG Short Term,111,Agree,-
+2435449,3. Part A(Excluding Inpatient Hospital PPS),,82365,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2447494,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2476626,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2476633,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2443935,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2476651,3. Part A(Excluding Inpatient Hospital PPS),,97110,SNF,232,Agree,-
+2478801,1. Part B,,93229,Cardiology,,Disagree,Insufficient Documentation
+2480244,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2453097,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,11G,Agree,-
+2465090,3. Part A(Excluding Inpatient Hospital PPS),,83735,ESRD,721,Agree,-
+2455215,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Disagree,Insufficient Documentation
+2433237,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Medical Necessity
+2480616,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2450161,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Agree,-
+2450189,4. Part A(Inpatient Hospital PPS),690,,DRG Short Term,111,Disagree,Medical Necessity
+2473123,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Agree,-
+2445807,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448594,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2461165,3. Part A(Excluding Inpatient Hospital PPS),,83550,ESRD,721,Agree,-
+2460944,2. DME MAC,,E0562,Pharmacy,,Agree,-
+2471197,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2446438,4. Part A(Inpatient Hospital PPS),287,,DRG Short Term,111,Disagree,Incorrect Coding
+2440624,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461717,3. Part A(Excluding Inpatient Hospital PPS),,83735,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2433668,1. Part B,,99233,Internal Medicine,,Agree,Overturned
+2438039,2. DME MAC,,Q0511,Pharmacy,,Agree,-
+2433879,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2437258,1. Part B,,96375,Nurse Practitioner,,Agree,-
+2438369,1. Part B,,96417,Hematology/Oncology,,Agree,-
+2457220,1. Part B,,A0425,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Agree,-
+2480291,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2441265,1. Part B,,87651,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2448745,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2448475,3. Part A(Excluding Inpatient Hospital PPS),,Q5003,Hospice,813,Agree,-
+2471174,1. Part B,,93306,Cardiology,,Agree,-
+2446316,2. DME MAC,,A4221,Pharmacy,,Agree,-
+2460999,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2461027,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2469165,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2480331,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2444227,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2455696,2. DME MAC,,A6021,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2480253,3. Part A(Excluding Inpatient Hospital PPS),,86900,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2481331,3. Part A(Excluding Inpatient Hospital PPS),,76641,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2455913,3. Part A(Excluding Inpatient Hospital PPS),,85027,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435201,2. DME MAC,,E2510,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2447132,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2480742,3. Part A(Excluding Inpatient Hospital PPS),,73560,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461039,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2451921,4. Part A(Inpatient Hospital PPS),885,,Other FI Service Types,111,Agree,-
+2464812,3. Part A(Excluding Inpatient Hospital PPS),,84075,ESRD,721,Agree,-
+2460271,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2460198,1. Part B,,81519,Clinical Laboratory (Billing Independently),,Agree,-
+2448194,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2432869,3. Part A(Excluding Inpatient Hospital PPS),,70547,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456889,1. Part B,,83036,Internal Medicine,,Agree,-
+2474079,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2445199,2. DME MAC,,A7037,"Medical supply company not included in 51, 52, or 53",,Agree,Overturned
+2475193,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Disagree,Insufficient Documentation
+2481020,2. DME MAC,,L8440,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2472349,2. DME MAC,,L5848,Individual orthotic personnel certified by an accrediting organization,,Disagree,Insufficient Documentation
+2458971,3. Part A(Excluding Inpatient Hospital PPS),,3LC21,HHA,329,Agree,-
+2439337,1. Part B,,G0444,Family Practice,,Agree,-
+2474939,1. Part B,,81002,Internal Medicine,,Agree,-
+2472616,1. Part B,,63650,Ambulatory Surgical Center,,Disagree,Insufficient Documentation
+2443554,1. Part B,,81295,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2439767,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2460055,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2443058,4. Part A(Inpatient Hospital PPS),607,,DRG Short Term,111,Agree,-
+2453086,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2461631,2. DME MAC,,B4224,Pharmacy,,Disagree,Insufficient Documentation
+2462712,4. Part A(Inpatient Hospital PPS),056,,DRG Short Term,111,Agree,-
+2479495,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2478297,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,817,Agree,-
+2468837,3. Part A(Excluding Inpatient Hospital PPS),,G1004,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2474001,2. DME MAC,,A4407,"Medical supply company not included in 51, 52, or 53",,Disagree,Other
+2468972,3. Part A(Excluding Inpatient Hospital PPS),,97110,Outpatient Rehab Facility (ORF),741,Agree,-
+2457970,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2447063,2. DME MAC,,A4221,Pharmacy,,Agree,-
+2469250,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2461216,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2465430,4. Part A(Inpatient Hospital PPS),004,,DRG Short Term,111,Agree,-
+2439607,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2449330,3. Part A(Excluding Inpatient Hospital PPS),,97140,Comprehensive Outpatient Rehab Facility (CORF),753,Disagree,Insufficient Documentation
+2432895,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2461008,3. Part A(Excluding Inpatient Hospital PPS),,97024,SNF,223,Agree,-
+2476871,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2465181,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2469197,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2433958,3. Part A(Excluding Inpatient Hospital PPS),,82040,ESRD,720,Agree,-
+2458964,4. Part A(Inpatient Hospital PPS),885,,Other FI Service Types,111,Agree,-
+2439384,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Disagree,Insufficient Documentation
+2444053,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2477678,2. DME MAC,,E1390,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2452382,3. Part A(Excluding Inpatient Hospital PPS),,92526,Outpatient Rehab Facility (ORF),740,Agree,-
+2452682,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2472017,4. Part A(Inpatient Hospital PPS),472,,DRG Short Term,110,Agree,-
+2448238,4. Part A(Inpatient Hospital PPS),518,,DRG Short Term,111,Disagree,Medical Necessity
+2467339,1. Part B,,99285,Emergency Medicine,,Agree,-
+2444302,4. Part A(Inpatient Hospital PPS),227,,DRG Short Term,111,Disagree,Medical Necessity
+2438938,3. Part A(Excluding Inpatient Hospital PPS),,J2704,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448508,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2455337,2. DME MAC,,B4220,Pharmacy,,Disagree,Insufficient Documentation
+2465101,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2469227,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2436713,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Agree,Overturned
+2474971,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2480225,1. Part B,,20610,Orthopedic Surgery,,Agree,-
+2476744,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2461748,4. Part A(Inpatient Hospital PPS),004,,DRG Short Term,111,Agree,-
+2454738,1. Part B,,90471,Family Practice,,Agree,-
+2433543,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2441478,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2468966,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2443298,3. Part A(Excluding Inpatient Hospital PPS),,82948,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2453020,3. Part A(Excluding Inpatient Hospital PPS),,88307,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2437305,4. Part A(Inpatient Hospital PPS),897,,DRG Short Term,111,Agree,-
+2450936,1. Part B,,99284,Emergency Medicine,,Disagree,Incorrect Coding
+2474140,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2433537,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2456730,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2473326,3. Part A(Excluding Inpatient Hospital PPS),,97110,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2470327,3. Part A(Excluding Inpatient Hospital PPS),,99152,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Incorrect Coding
+2452368,1. Part B,,97150,Physical Therapist in Private Practice,,Disagree,Insufficient Documentation
+2453489,2. DME MAC,,E1810,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2439525,3. Part A(Excluding Inpatient Hospital PPS),,88342,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2470580,1. Part B,,99291,Infectious Disease,,Disagree,Incorrect Coding
+2459673,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2460580,3. Part A(Excluding Inpatient Hospital PPS),,84295,ESRD,721,Agree,-
+2433382,2. DME MAC,,E2601,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Disagree,Medical Necessity
+2445784,1. Part B,,93306,Cardiology,,Agree,-
+2475745,2. DME MAC,,Q0512,Pharmacy,,Agree,-
+2478072,1. Part B,,82043,Clinical Laboratory (Billing Independently),,Agree,-
+2446557,1. Part B,,99308,Podiatry,,Agree,-
+2470478,3. Part A(Excluding Inpatient Hospital PPS),,77063,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2442194,3. Part A(Excluding Inpatient Hospital PPS),,97140,Comprehensive Outpatient Rehab Facility (CORF),753,Agree,Overturned
+2474044,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2445141,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2478350,3. Part A(Excluding Inpatient Hospital PPS),,82330,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2433015,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2473369,3. Part A(Excluding Inpatient Hospital PPS),,FALF1,SNF,213,Disagree,Other
+2478271,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2437110,3. Part A(Excluding Inpatient Hospital PPS),,G1004,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",132,Agree,-
+2443405,4. Part A(Inpatient Hospital PPS),035,,DRG Short Term,111,Agree,-
+2452284,4. Part A(Inpatient Hospital PPS),270,,DRG Short Term,111,Agree,-
+2443931,3. Part A(Excluding Inpatient Hospital PPS),,83550,ESRD,721,Agree,-
+2449673,1. Part B,,71260,Diagnostic Radiology,,Agree,-
+2438982,1. Part B,,87661,Clinical Laboratory (Billing Independently),,Agree,-
+2466234,4. Part A(Inpatient Hospital PPS),190,,DRG Short Term,111,Agree,-
+2465324,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Disagree,No Documentation
+2450334,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2435738,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,810,Agree,-
+2449436,2. DME MAC,,E0601,"Medical supply company not included in 51, 52, or 53",,Agree,Overturned
+2461316,4. Part A(Inpatient Hospital PPS),378,,DRG Short Term,111,Disagree,Medical Necessity
+2437619,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,117,Disagree,Medical Necessity
+2443775,3. Part A(Excluding Inpatient Hospital PPS),,97530,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Disagree,Insufficient Documentation
+2448199,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,Overturned
+2439885,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2454110,2. DME MAC,,J7626,Pharmacy,,Agree,-
+2479906,1. Part B,,99223,Cardiology,,Disagree,Incorrect Coding
+2460914,4. Part A(Inpatient Hospital PPS),378,,DRG Short Term,111,Agree,-
+2447674,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,723,Agree,-
+2439549,4. Part A(Inpatient Hospital PPS),264,,DRG Short Term,111,Agree,-
+2439619,3. Part A(Excluding Inpatient Hospital PPS),,J0690,ESRD,721,Agree,-
+2476624,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2438267,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2439112,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Insufficient Documentation
+2450422,2. DME MAC,,B4220,Pharmacy,,Agree,-
+2444149,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2471829,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,Overturned
+2449466,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Agree,-
+2474325,3. Part A(Excluding Inpatient Hospital PPS),,4LA11,HHA,329,Agree,-
+2448113,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2451329,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2457953,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2470760,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Incorrect Coding
+2451312,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2457118,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2469801,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2475843,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2476720,3. Part A(Excluding Inpatient Hospital PPS),,97535,SNF,223,Agree,-
+2445887,4. Part A(Inpatient Hospital PPS),472,,DRG Short Term,111,Disagree,Medical Necessity
+2480247,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2449374,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Disagree,Insufficient Documentation
+2432651,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2434013,1. Part B,,U0004,Clinical Laboratory (Billing Independently),,Agree,-
+2479761,3. Part A(Excluding Inpatient Hospital PPS),,Q5004,Hospice,811,Disagree,No Documentation
+2438529,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2448174,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2443457,1. Part B,,99306,Nurse Practitioner,,Disagree,Incorrect Coding
+2453123,2. DME MAC,,L2397,"Medical supply company not included in 51, 52, or 53",,Disagree,Other
+2455451,3. Part A(Excluding Inpatient Hospital PPS),,C1776,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2470385,1. Part B,,99232,Infectious Disease,,Disagree,Incorrect Coding
+2481876,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Disagree,Incorrect Coding
+2448195,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2452104,4. Part A(Inpatient Hospital PPS),394,,DRG Short Term,111,Disagree,Incorrect Coding
+2434177,1. Part B,,U0003,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2448541,3. Part A(Excluding Inpatient Hospital PPS),,82565,ESRD,721,Agree,-
+2458165,2. DME MAC,,Q2052,Pharmacy,,Agree,-
+2454618,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2438299,2. DME MAC,,A7035,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2470860,2. DME MAC,,L5940,Individual orthotic personnel certified by an accrediting organization,,Agree,-
+2461824,1. Part B,,92014,Ophthalmology,,Agree,-
+2480399,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2459673,3. Part A(Excluding Inpatient Hospital PPS),,A1501,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2434870,3. Part A(Excluding Inpatient Hospital PPS),,J3490,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2464326,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2471558,4. Part A(Inpatient Hospital PPS),748,,DRG Short Term,111,Agree,-
+2444156,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2474693,4. Part A(Inpatient Hospital PPS),908,,DRG Short Term,111,Agree,-
+2478814,1. Part B,,J1300,Nurse Practitioner,,Agree,-
+2479322,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2468444,1. Part B,,92136,Ophthalmology,,Agree,-
+2475200,4. Part A(Inpatient Hospital PPS),560,,DRG Short Term,111,Disagree,Incorrect Coding
+2460028,3. Part A(Excluding Inpatient Hospital PPS),,77373,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2437274,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,814,Disagree,Insufficient Documentation
+2440779,1. Part B,,99203,Orthopedic Surgery,,Agree,-
+2450950,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2444162,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2466358,3. Part A(Excluding Inpatient Hospital PPS),,Q3014,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Other
+2432838,2. DME MAC,,B9002,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480344,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,Overturned
+2461001,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2449061,2. DME MAC,,J7507,Pharmacy,,Agree,-
+2478768,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2435899,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Disagree,Incorrect Coding
+2481418,4. Part A(Inpatient Hospital PPS),378,,DRG Short Term,111,Disagree,Incorrect Coding
+2441388,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2449062,1. Part B,,73120,Portable X-Ray Supplier (Billing Independently),,Disagree,Insufficient Documentation
+2476864,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,817,Agree,-
+2481648,4. Part A(Inpatient Hospital PPS),246,,DRG Short Term,111,Disagree,Incorrect Coding
+2456730,3. Part A(Excluding Inpatient Hospital PPS),,82947,ESRD,721,Agree,-
+2452243,1. Part B,,83550,Internal Medicine,,Agree,-
+2453475,3. Part A(Excluding Inpatient Hospital PPS),,KAGD1,SNF,214,Disagree,Insufficient Documentation
+2463862,2. DME MAC,,A4352,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2477159,1. Part B,,87481,Clinical Laboratory (Billing Independently),,Agree,-
+2453360,1. Part B,,11043,General Surgery,,Agree,-
+2448522,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Insufficient Documentation
+2457138,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,812,Disagree,Insufficient Documentation
+2439509,3. Part A(Excluding Inpatient Hospital PPS),,83550,ESRD,721,Agree,-
+2433778,3. Part A(Excluding Inpatient Hospital PPS),,G0155,HHA,329,Agree,-
+2452761,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,813,Agree,-
+2465404,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,723,Agree,-
+2452925,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2466168,1. Part B,,80061,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2479640,2. DME MAC,,L1851,General Practice,,Disagree,Other
+2457434,1. Part B,,93010,Cardiology,,Agree,-
+2466667,1. Part B,,88329,Pathology,,Agree,-
+2457741,2. DME MAC,,Q0512,Pharmacy,,Agree,-
+2469974,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,811,Agree,-
+2478941,1. Part B,,80307,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2459225,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2432699,2. DME MAC,,K0552,Pharmacy,,Agree,-
+2472176,2. DME MAC,,K0738,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2457667,2. DME MAC,,E0740,Physical Therapist in Private Practice,,Disagree,Insufficient Documentation
+2434637,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2440439,2. DME MAC,,L0650,Orthopedic Surgery,,Disagree,Medical Necessity
+2434928,2. DME MAC,,E0781,Pharmacy,,Agree,-
+2434950,1. Part B,,77014,Radiation Oncology,,Agree,-
+2433468,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,823,Agree,-
+2440140,2. DME MAC,,A7036,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2453855,1. Part B,,G0008,Mass Immunization Roster Billers (Mass Immunizers have to roster bill assigned claims and can only bill for immunizations),,Agree,-
+2479827,4. Part A(Inpatient Hospital PPS),517,,DRG Short Term,111,Agree,-
+2448174,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2467939,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2452397,3. Part A(Excluding Inpatient Hospital PPS),,J2916,ESRD,721,Disagree,Insufficient Documentation
+2463937,3. Part A(Excluding Inpatient Hospital PPS),,,Critical Access Hospital (CAH) Outpatient Services,851,Disagree,Insufficient Documentation
+2465836,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Agree,Overturned
+2476898,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,812,Disagree,Other
+2476612,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2460343,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2481988,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2442449,2. DME MAC,,V2020,Optician,,Agree,-
+2463734,1. Part B,,G2023,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2456871,1. Part B,,1170F,Family Practice,,Agree,-
+2467964,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,811,Agree,-
+2450973,4. Part A(Inpatient Hospital PPS),521,,DRG Short Term,111,Disagree,Other
+2433817,1. Part B,,U0005,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2435710,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2450730,1. Part B,,90662,Mass Immunization Roster Billers (Mass Immunizers have to roster bill assigned claims and can only bill for immunizations),,Agree,-
+2481104,3. Part A(Excluding Inpatient Hospital PPS),,GAXF1,SNF,214,Agree,-
+2435440,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2473464,2. DME MAC,,A4927,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2437698,2. DME MAC,,L1971,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2435441,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Disagree,Other
+2469259,3. Part A(Excluding Inpatient Hospital PPS),,84520,ESRD,721,Agree,-
+2476394,1. Part B,,36415,Internal Medicine,,Agree,-
+2461893,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2473763,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2442089,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2447811,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",132,Agree,-
+2446376,1. Part B,,99284,Emergency Medicine,,Agree,-
+2441838,3. Part A(Excluding Inpatient Hospital PPS),,,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2433035,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2473312,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2458485,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2454805,4. Part A(Inpatient Hospital PPS),945,,DRG Short Term,111,Agree,-
+2476934,4. Part A(Inpatient Hospital PPS),103,,DRG Short Term,111,Agree,-
+2476613,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,727,Agree,-
+2480103,3. Part A(Excluding Inpatient Hospital PPS),,82728,ESRD,727,Agree,-
+2466268,3. Part A(Excluding Inpatient Hospital PPS),,74220,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2442394,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Agree,-
+2476716,2. DME MAC,,L1833,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2465511,2. DME MAC,,E0165,"Medical supply company not included in 51, 52, or 53",,Disagree,Insufficient Documentation
+2448191,3. Part A(Excluding Inpatient Hospital PPS),,84155,ESRD,721,Agree,-
+2453369,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2439734,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2471193,1. Part B,,97112,Physical Therapist in Private Practice,,Disagree,Insufficient Documentation
+2455294,3. Part A(Excluding Inpatient Hospital PPS),,G0158,HHA,329,Agree,-
+2455912,3. Part A(Excluding Inpatient Hospital PPS),,J1170,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2444456,2. DME MAC,,A4604,"Medical supply company not included in 51, 52, or 53",,Disagree,Insufficient Documentation
+2481386,2. DME MAC,,A7002,Medical Supply Company with Respiratory Therapist,,Disagree,Other
+2444107,1. Part B,,99203,Nurse Practitioner,,Agree,-
+2442533,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,217,Disagree,Other
+2464036,2. DME MAC,,E0431,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2464316,1. Part B,,99348,Nurse Practitioner,,Agree,-
+2466598,2. DME MAC,,L2397,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2445102,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2465307,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2442054,4. Part A(Inpatient Hospital PPS),948,,DRG Short Term,111,Agree,-
+2432886,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,824,Disagree,Incorrect Coding
+2469272,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2451175,3. Part A(Excluding Inpatient Hospital PPS),,73560,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456013,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Disagree,Insufficient Documentation
+2444583,1. Part B,,99497,Nurse Practitioner,,Agree,-
+2451110,2. DME MAC,,A6238,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2456339,3. Part A(Excluding Inpatient Hospital PPS),,B0602,Inpatient Rehab Unit,110,Agree,-
+2444216,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2476650,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2452208,1. Part B,,93978,Vascular Surgery,,Agree,-
+2476404,2. DME MAC,,A7035,Medical Supply Company with Respiratory Therapist,,Agree,-
+2464326,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2439761,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2468971,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,727,Agree,-
+2479717,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480347,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2439493,3. Part A(Excluding Inpatient Hospital PPS),,J1644,ESRD,721,Agree,-
+2433457,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,810,Agree,-
+2465333,3. Part A(Excluding Inpatient Hospital PPS),,86706,ESRD,721,Agree,-
+2470726,4. Part A(Inpatient Hospital PPS),561,,DRG Short Term,111,Agree,-
+2463565,1. Part B,,80053,Medical Oncology,,Agree,-
+2479104,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2448284,2. DME MAC,,L5705,Individual prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2461044,2. DME MAC,,L5637,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2438523,1. Part B,,87651,Pathology,,Agree,-
+2466542,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,117,Agree,-
+2466773,2. DME MAC,,A7034,Medical Supply Company with Respiratory Therapist,,Agree,-
+2447342,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,231,Disagree,Insufficient Documentation
+2450703,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2475118,2. DME MAC,,L8440,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2453182,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Other
+2440784,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2480348,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,823,Agree,-
+2461377,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,Overturned
+2476168,3. Part A(Excluding Inpatient Hospital PPS),,C1730,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2453342,1. Part B,,66989,Ambulatory Surgical Center,,Agree,-
+2467736,2. DME MAC,,L8470,Individual orthotic personnel certified by an accrediting organization,,Agree,-
+2462565,3. Part A(Excluding Inpatient Hospital PPS),,A0106,Inpatient Rehabilitation Hospitals,111,Agree,-
+2465322,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,813,Agree,-
+2473255,3. Part A(Excluding Inpatient Hospital PPS),,J2501,ESRD,721,Agree,-
+2455579,3. Part A(Excluding Inpatient Hospital PPS),,J2543,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2450562,4. Part A(Inpatient Hospital PPS),266,,DRG Short Term,111,Agree,-
+2455124,3. Part A(Excluding Inpatient Hospital PPS),,84484,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2466027,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2452698,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2461059,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2451962,2. DME MAC,,A7035,Medical Supply Company with Respiratory Therapist,,Disagree,Other
+2452537,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2435457,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,727,Agree,-
+2444585,1. Part B,,99215,Neurology,,Agree,-
+2447849,4. Part A(Inpatient Hospital PPS),518,,DRG Short Term,111,Agree,-
+2460853,3. Part A(Excluding Inpatient Hospital PPS),,96413,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2473424,3. Part A(Excluding Inpatient Hospital PPS),,84466,ESRD,721,Disagree,Incorrect Coding
+2459990,3. Part A(Excluding Inpatient Hospital PPS),,96413,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2477712,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2443334,3. Part A(Excluding Inpatient Hospital PPS),,27447,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2441836,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2479475,4. Part A(Inpatient Hospital PPS),242,,DRG Short Term,111,Agree,-
+2462044,1. Part B,,82784,Clinical Laboratory (Billing Independently),,Agree,-
+2476739,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2438597,2. DME MAC,,A4222,Pharmacy,,Agree,-
+2465593,3. Part A(Excluding Inpatient Hospital PPS),,93306,Critical Access Hospital (CAH) Outpatient Services,851,Disagree,Incorrect Coding
+2432673,1. Part B,,87640,Clinical Laboratory (Billing Independently),,Disagree,No Documentation
+2445508,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,814,Agree,-
+2432980,4. Part A(Inpatient Hospital PPS),226,,DRG Short Term,111,Agree,-
+2460720,1. Part B,,93010,Interventional Cardiology,,Agree,-
+2456726,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2480709,2. DME MAC,,A7032,Medical Supply Company with Respiratory Therapist,,Agree,-
+2436335,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480238,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Agree,-
+2461681,1. Part B,,97140,Physical Therapist in Private Practice,,Agree,Overturned
+2474544,1. Part B,,J9305,Nurse Practitioner,,Agree,-
+2451850,3. Part A(Excluding Inpatient Hospital PPS),,82306,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2473317,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,81G,Agree,-
+2465187,1. Part B,,81275,Clinical Laboratory (Billing Independently),,Disagree,Other
+2458898,3. Part A(Excluding Inpatient Hospital PPS),,84484,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2449719,2. DME MAC,,E0431,"Medical supply company not included in 51, 52, or 53",,Disagree,Other
+2464538,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2461168,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2448711,2. DME MAC,,E0465,Pharmacy,,Agree,-
+2445871,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2473257,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,727,Agree,-
+2441946,1. Part B,,97112,Occupational Therapist in Private Practice,,Agree,-
+2455390,3. Part A(Excluding Inpatient Hospital PPS),,87799,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2456952,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2435382,1. Part B,,87799,Clinical Laboratory (Billing Independently),,Agree,-
+2448644,3. Part A(Excluding Inpatient Hospital PPS),,J7120,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2433083,1. Part B,,87563,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2437741,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Agree,-
+2461849,2. DME MAC,,E0961,"Medical supply company not included in 51, 52, or 53",,Disagree,Insufficient Documentation
+2433160,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2452383,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2463205,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Agree,-
+2465361,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2476830,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,217,Disagree,Other
+2432238,1. Part B,,84165,Clinical Laboratory (Billing Independently),,Agree,-
+2454529,4. Part A(Inpatient Hospital PPS),391,,DRG Short Term,111,Agree,-
+2457681,1. Part B,,99214,Podiatry,,Agree,-
+2469161,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2456932,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Agree,-
+2438727,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2447651,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2452732,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2471950,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2465327,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,822,Agree,-
+2448187,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2461165,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2437760,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Insufficient Documentation
+2461889,1. Part B,,78492,Interventional Cardiology,,Agree,-
+2444227,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2468501,3. Part A(Excluding Inpatient Hospital PPS),,85027,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2448448,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,-
+2480993,2. DME MAC,,A6251,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2463172,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2447201,3. Part A(Excluding Inpatient Hospital PPS),,84703,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2469309,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,217,Agree,-
+2439524,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,723,Agree,Overturned
+2435673,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2480897,1. Part B,,99495,Family Practice,,Disagree,Insufficient Documentation
+2480601,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2439059,1. Part B,,J7320,Pain Management,,Agree,-
+2470749,2. DME MAC,,E1390,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2434447,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Agree,-
+2445195,2. DME MAC,,E0466,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2463124,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2441602,4. Part A(Inpatient Hospital PPS),025,,DRG Short Term,111,Agree,-
+2478204,1. Part B,,80307,Interventional Pain Management,,Agree,-
+2436304,3. Part A(Excluding Inpatient Hospital PPS),,96361,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2451219,1. Part B,,33418,Interventional Cardiology,,Agree,-
+2463016,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2439680,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2447015,3. Part A(Excluding Inpatient Hospital PPS),,97110,Outpatient Rehab Facility (ORF),743,Agree,-
+2469096,2. DME MAC,,J7626,Pharmacy,,Agree,-
+2432453,4. Part A(Inpatient Hospital PPS),472,,DRG Short Term,110,Agree,-
+2436850,1. Part B,,83550,Clinical Laboratory (Billing Independently),,Agree,-
+2455715,1. Part B,,G0482,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2468147,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2466521,4. Part A(Inpatient Hospital PPS),246,,DRG Short Term,117,Agree,-
+2480251,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2470102,1. Part B,,U0005,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2435662,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,No Documentation
+2447144,1. Part B,,A0427,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Agree,-
+2441996,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435736,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,812,Agree,-
+2480096,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,233,Agree,-
+2472764,2. DME MAC,,A7035,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2435936,1. Part B,,99223,Hospitalist,,Disagree,Incorrect Coding
+2444063,2. DME MAC,,K0002,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2472500,3. Part A(Excluding Inpatient Hospital PPS),,82150,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2456752,3. Part A(Excluding Inpatient Hospital PPS),,97530,Outpatient Rehab Facility (ORF),741,Agree,-
+2463927,2. DME MAC,,A7038,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2476089,2. DME MAC,,B4224,Pharmacy,,Disagree,Medical Necessity
+2468658,1. Part B,,83540,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2462207,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2437478,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2454538,4. Part A(Inpatient Hospital PPS),464,,DRG Short Term,111,Agree,-
+2457016,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2456574,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2466095,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2439810,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,823,Agree,-
+2447078,2. DME MAC,,L5673,Individual prosthetic personnel certified by an accrediting organization,,Disagree,Incorrect Coding
+2472813,3. Part A(Excluding Inpatient Hospital PPS),,J7050,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,Overturned
+2434376,3. Part A(Excluding Inpatient Hospital PPS),,26440,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480237,3. Part A(Excluding Inpatient Hospital PPS),,92508,SNF,223,Agree,-
+2443927,3. Part A(Excluding Inpatient Hospital PPS),,G1004,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2450646,2. DME MAC,,E1390,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2447821,3. Part A(Excluding Inpatient Hospital PPS),,84484,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480267,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2478227,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2462977,2. DME MAC,,A4623,Medical Supply Company with Respiratory Therapist,,Agree,-
+2456790,4. Part A(Inpatient Hospital PPS),179,,DRG Short Term,111,Agree,-
+2450294,1. Part B,,96413,Rheumatology,,Agree,-
+2463507,3. Part A(Excluding Inpatient Hospital PPS),,11043,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2466302,1. Part B,,72100,Independent Diagnostic Testing Facility (IDTF),,Disagree,Insufficient Documentation
+2448008,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448177,3. Part A(Excluding Inpatient Hospital PPS),,85048,ESRD,721,Agree,-
+2444183,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2473490,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2433370,4. Part A(Inpatient Hospital PPS),378,,DRG Short Term,110,Agree,-
+2479218,3. Part A(Excluding Inpatient Hospital PPS),,CAGE1,SNF,214,Disagree,Other
+2444153,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2443931,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2448595,3. Part A(Excluding Inpatient Hospital PPS),,87340,ESRD,721,Agree,-
+2454842,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2448476,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,810,Agree,-
+2433594,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2440119,1. Part B,,G8420,Cardiology,,Agree,-
+2473087,1. Part B,,87641,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2465422,4. Part A(Inpatient Hospital PPS),178,,DRG Short Term,111,Disagree,Medical Necessity
+2432926,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Disagree,Other
+2476828,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2464842,4. Part A(Inpatient Hospital PPS),496,,DRG Short Term,117,Agree,-
+2435258,4. Part A(Inpatient Hospital PPS),316,,DRG Short Term,111,Agree,-
+2469269,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2448479,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,813,Agree,-
+2475492,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2448462,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Agree,-
+2479902,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2470546,4. Part A(Inpatient Hospital PPS),856,,DRG Short Term,111,Disagree,Incorrect Coding
+2473027,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2448189,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2454782,3. Part A(Excluding Inpatient Hospital PPS),,80048,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2475347,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2464914,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,814,Agree,-
+2440754,1. Part B,,81595,Clinical Laboratory (Billing Independently),,Agree,-
+2469488,1. Part B,,93880,Diagnostic Radiology,,Agree,-
+2433554,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,320,Agree,-
+2478897,3. Part A(Excluding Inpatient Hospital PPS),,G0495,HHA,329,Agree,-
+2477075,4. Part A(Inpatient Hospital PPS),813,,DRG Short Term,117,Agree,-
+2440419,4. Part A(Inpatient Hospital PPS),004,,DRG Short Term,111,Agree,-
+2460412,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2470244,4. Part A(Inpatient Hospital PPS),266,,DRG Short Term,111,Agree,-
+2476624,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2442438,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461000,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2449569,1. Part B,,87563,Clinical Laboratory (Billing Independently),,Agree,-
+2452844,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2469014,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Disagree,Insufficient Documentation
+2476613,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,727,Agree,-
+2458811,1. Part B,,99308,Nurse Practitioner,,Agree,-
+2445386,3. Part A(Excluding Inpatient Hospital PPS),,36415,Critical Access Hospital (CAH) Outpatient Services,851,Agree,Overturned
+2475361,4. Part A(Inpatient Hospital PPS),149,,DRG Short Term,111,Disagree,Incorrect Coding
+2434409,2. DME MAC,,E0470,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2475956,2. DME MAC,,A7037,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2465287,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2466599,2. DME MAC,,L5679,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2435367,2. DME MAC,,A7034,Medical Supply Company with Respiratory Therapist,,Agree,-
+2475666,1. Part B,,97110,Physical Therapist in Private Practice,,Agree,-
+2468149,1. Part B,,36415,Hematology/Oncology,,Agree,-
+2457977,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2470100,1. Part B,,87581,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2461003,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2457576,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2448983,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2476761,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2444765,1. Part B,,Q0092,Portable X-Ray Supplier (Billing Independently),,Agree,-
+2473342,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,823,Agree,-
+2446050,1. Part B,,G0008,Centralized Flu,,Agree,-
+2469582,1. Part B,,80053,Clinical Laboratory (Billing Independently),,Agree,-
+2473328,3. Part A(Excluding Inpatient Hospital PPS),,97530,SNF,223,Disagree,Insufficient Documentation
+2455556,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2442692,1. Part B,,99223,Internal Medicine,,Agree,Overturned
+2439514,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2439516,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2463948,1. Part B,,74177,Diagnostic Radiology,,Agree,-
+2438025,3. Part A(Excluding Inpatient Hospital PPS),,99285,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2464701,4. Part A(Inpatient Hospital PPS),287,,DRG Short Term,111,Agree,-
+2456914,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2456730,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2475550,4. Part A(Inpatient Hospital PPS),220,,DRG Short Term,117,Agree,-
+2460170,3. Part A(Excluding Inpatient Hospital PPS),,87205,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461693,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2449145,1. Part B,,17110,Podiatry,,Agree,-
+2467825,3. Part A(Excluding Inpatient Hospital PPS),,84550,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2437502,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2459168,2. DME MAC,,J1558,Pharmacy,,Agree,-
+2443581,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2465303,3. Part A(Excluding Inpatient Hospital PPS),,97112,SNF,223,Agree,-
+2476861,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2451285,3. Part A(Excluding Inpatient Hospital PPS),,99284,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2480236,3. Part A(Excluding Inpatient Hospital PPS),,83970,ESRD,721,Agree,-
+2481672,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2475941,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Disagree,Medical Necessity
+2440334,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2477577,4. Part A(Inpatient Hospital PPS),057,,DRG Short Term,111,Agree,-
+2478023,3. Part A(Excluding Inpatient Hospital PPS),,99214,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2432235,2. DME MAC,,A6550,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2440575,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2465279,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2434552,1. Part B,,99239,Physician Assistant,,Agree,-
+2436350,4. Part A(Inpatient Hospital PPS),853,,DRG Short Term,111,Agree,-
+2455944,1. Part B,,66984,Ophthalmology,,Disagree,Insufficient Documentation
+2460711,1. Part B,,81298,Clinical Laboratory (Billing Independently),,Disagree,No Documentation
+2465386,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2477630,3. Part A(Excluding Inpatient Hospital PPS),,70450,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2461790,1. Part B,,81317,Clinical Laboratory (Billing Independently),,Agree,-
+2474973,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2462544,2. DME MAC,,A7030,"Medical supply company not included in 51, 52, or 53",,Disagree,Other
+2442337,3. Part A(Excluding Inpatient Hospital PPS),,93306,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435732,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2451517,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2439244,2. DME MAC,,J1599,Pharmacy,,Agree,-
+2451366,4. Part A(Inpatient Hospital PPS),273,,DRG Short Term,111,Agree,-
+2467021,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2452074,3. Part A(Excluding Inpatient Hospital PPS),,93005,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2465933,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2445617,2. DME MAC,,E1800,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2432768,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,727,Agree,-
+2432634,1. Part B,,U0005,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2444445,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2471452,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2475097,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,811,Agree,-
+2480016,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2435492,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2450819,1. Part B,,76881,Independent Diagnostic Testing Facility (IDTF),,Agree,-
+2442462,2. DME MAC,,L5620,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2443841,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2458143,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,817,Agree,-
+2461039,3. Part A(Excluding Inpatient Hospital PPS),,84100,ESRD,721,Agree,-
+2472917,2. DME MAC,,A7033,"Medical supply company not included in 51, 52, or 53",,Disagree,Insufficient Documentation
+2437318,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2444926,3. Part A(Excluding Inpatient Hospital PPS),,93005,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2441424,4. Part A(Inpatient Hospital PPS),299,,DRG Short Term,111,Agree,-
+2454630,4. Part A(Inpatient Hospital PPS),554,,DRG Short Term,111,Agree,-
+2454835,1. Part B,,90834,General Practice,,Disagree,No Documentation
+2435669,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,727,Agree,-
+2478295,1. Part B,,99212,Psychiatry,,Agree,-
+2449169,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2445373,1. Part B,,0242U,Clinical Laboratory (Billing Independently),,Agree,-
+2465338,3. Part A(Excluding Inpatient Hospital PPS),,97535,SNF,223,Agree,-
+2461249,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,812,Agree,-
+2460271,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",137,Agree,-
+2473453,3. Part A(Excluding Inpatient Hospital PPS),,99348,Hospice,823,Agree,-
+2449768,1. Part B,,99232,Internal Medicine,,Agree,-
+2433967,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Other
+2466734,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2456983,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2476685,4. Part A(Inpatient Hospital PPS),561,,DRG Short Term,111,Disagree,Incorrect Coding
+2477249,2. DME MAC,,L5651,Medical supply company with orthotic personnel certified by an accrediting organization,,Agree,-
+2477052,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Insufficient Documentation
+2480336,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2435384,1. Part B,,81546,Clinical Laboratory (Billing Independently),,Agree,-
+2454145,3. Part A(Excluding Inpatient Hospital PPS),,Q9967,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2435497,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Agree,-
+2465181,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2473310,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2445994,3. Part A(Excluding Inpatient Hospital PPS),,70553,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2453196,2. DME MAC,,E1390,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2455209,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2439611,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2481746,3. Part A(Excluding Inpatient Hospital PPS),,80053,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2446196,1. Part B,,86769,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2456811,4. Part A(Inpatient Hospital PPS),176,,DRG Short Term,111,Agree,-
+2448594,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2465787,3. Part A(Excluding Inpatient Hospital PPS),,71045,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461059,3. Part A(Excluding Inpatient Hospital PPS),,J0606,ESRD,721,Agree,-
+2464566,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2457492,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2447202,3. Part A(Excluding Inpatient Hospital PPS),,,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2445006,3. Part A(Excluding Inpatient Hospital PPS),,A0104,Inpatient Rehab Unit,111,Agree,-
+2454556,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Agree,-
+2435701,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,81G,Agree,-
+2476755,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2447790,1. Part B,,J9271,Hematology/Oncology,,Agree,-
+2461264,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2455740,1. Part B,,1123F,Diagnostic Radiology,,Agree,-
+2467708,4. Part A(Inpatient Hospital PPS),460,,DRG Short Term,111,Disagree,Medical Necessity
+2462933,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Disagree,Medical Necessity
+2433468,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,823,Agree,-
+2481549,1. Part B,,85025,Clinical Laboratory (Billing Independently),,Agree,-
+2450579,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2451834,1. Part B,,96375,Hematology/Oncology,,Agree,-
+2470275,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2448970,1. Part B,,82947,Diagnostic Radiology,,Agree,-
+2452729,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Disagree,Other
+2464077,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,Overturned
+2447380,4. Part A(Inpatient Hospital PPS),266,,DRG Short Term,111,Agree,-
+2475177,1. Part B,,A0428,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Agree,-
+2459400,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2468767,1. Part B,,99239,Internal Medicine,,Agree,-
+2434358,1. Part B,,82607,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2481808,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,814,Disagree,Insufficient Documentation
+2461453,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2464312,1. Part B,,99214,Nurse Practitioner,,Agree,-
+2474899,2. DME MAC,,A6446,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2459879,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2474300,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2453081,4. Part A(Inpatient Hospital PPS),469,,DRG Short Term,111,Agree,-
+2440886,1. Part B,,99233,Internal Medicine,,Agree,Overturned
+2438918,1. Part B,,80048,Clinical Laboratory (Billing Independently),,Agree,-
+2465091,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2441269,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2439741,3. Part A(Excluding Inpatient Hospital PPS),,84100,ESRD,721,Agree,-
+2459697,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,329,Agree,-
+2439089,3. Part A(Excluding Inpatient Hospital PPS),,85025,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2480874,4. Part A(Inpatient Hospital PPS),743,,DRG Short Term,111,Agree,-
+2454606,2. DME MAC,,E1392,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480320,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2444142,3. Part A(Excluding Inpatient Hospital PPS),,82040,ESRD,721,Agree,-
+2450011,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2466074,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,320,Agree,-
+2470663,3. Part A(Excluding Inpatient Hospital PPS),,G0463,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2448187,3. Part A(Excluding Inpatient Hospital PPS),,84132,ESRD,721,Agree,-
+2452883,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2447090,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461337,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2470287,2. DME MAC,,A4259,Pharmacy,,Agree,Overturned
+2469887,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2448846,1. Part B,,36415,Nephrology,,Agree,-
+2465381,3. Part A(Excluding Inpatient Hospital PPS),,84100,ESRD,721,Agree,-
+2464507,3. Part A(Excluding Inpatient Hospital PPS),,J9206,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Medical Necessity
+2435521,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Incorrect Coding
+2461157,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2461220,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2475929,1. Part B,,90935,Nephrology,,Agree,-
+2465292,3. Part A(Excluding Inpatient Hospital PPS),,82108,ESRD,721,Agree,-
+2478050,1. Part B,,J0702,Diagnostic Radiology,,Disagree,Insufficient Documentation
+2477496,3. Part A(Excluding Inpatient Hospital PPS),,97112,SNF,213,Disagree,Other
+2439091,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2433869,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,110,Agree,-
+2434448,3. Part A(Excluding Inpatient Hospital PPS),,71101,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2468481,1. Part B,,84443,Clinical Laboratory (Billing Independently),,Agree,-
+2447747,1. Part B,,92015,Optometry,,Agree,-
+2443950,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2461238,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2478835,3. Part A(Excluding Inpatient Hospital PPS),,P9073,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Agree,-
+2456324,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2441062,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2445110,1. Part B,,99223,Internal Medicine,,Agree,-
+2458548,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2455027,1. Part B,,81203,Clinical Laboratory (Billing Independently),,Agree,-
+2455280,1. Part B,,G8427,Family Practice,,Agree,-
+2457167,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2465111,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2453771,2. DME MAC,,E0570,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2478642,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2481134,1. Part B,,36415,Hematology/Oncology,,Agree,-
+2450131,1. Part B,,G0446,Family Practice,,Disagree,Insufficient Documentation
+2477525,1. Part B,,97530,Physical Therapist in Private Practice,,Agree,-
+2476433,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Agree,-
+2442474,2. DME MAC,,L5671,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2472965,3. Part A(Excluding Inpatient Hospital PPS),,84100,ESRD,721,Agree,-
+2448911,1. Part B,,87481,Pathology,,Agree,-
+2469915,4. Part A(Inpatient Hospital PPS),454,,DRG Short Term,111,Agree,-
+2476406,2. DME MAC,,B4224,Pharmacy,,Disagree,Medical Necessity
+2476871,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2457294,4. Part A(Inpatient Hospital PPS),690,,DRG Short Term,111,Agree,-
+2465090,3. Part A(Excluding Inpatient Hospital PPS),,80051,ESRD,721,Agree,-
+2479889,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2460046,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,110,Agree,-
+2464101,1. Part B,,A0429,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Agree,-
+2479297,1. Part B,,97112,Physical Therapist in Private Practice,,Disagree,Insufficient Documentation
+2475536,1. Part B,,97598,Podiatry,,Agree,-
+2432214,1. Part B,,90834,Clinical Social Worker,,Agree,-
+2434778,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,117,Agree,-
+2465334,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452885,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2437760,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Insufficient Documentation
+2446272,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2460432,2. DME MAC,,E0443,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2432238,1. Part B,,86160,Clinical Laboratory (Billing Independently),,Agree,-
+2441999,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Disagree,Insufficient Documentation
+2435450,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2465588,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2433969,3. Part A(Excluding Inpatient Hospital PPS),,Q5002,Hospice,810,Agree,-
+2475737,3. Part A(Excluding Inpatient Hospital PPS),,U0005,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2474070,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2465278,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2473363,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2471218,1. Part B,,0037U,Clinical Laboratory (Billing Independently),,Agree,-
+2471095,4. Part A(Inpatient Hospital PPS),193,,DRG Short Term,111,Disagree,Incorrect Coding
+2444084,2. DME MAC,,Q0512,Pharmacy,,Agree,-
+2454517,4. Part A(Inpatient Hospital PPS),446,,DRG Short Term,111,Agree,-
+2478974,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Agree,-
+2439698,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2458901,3. Part A(Excluding Inpatient Hospital PPS),,3HA21,HHA,329,Agree,-
+2474554,3. Part A(Excluding Inpatient Hospital PPS),,J1100,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2454729,2. DME MAC,,L5050,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2444470,4. Part A(Inpatient Hospital PPS),069,,DRG Short Term,111,Disagree,Medical Necessity
+2451784,2. DME MAC,,A4253,Pharmacy,,Agree,-
+2434931,4. Part A(Inpatient Hospital PPS),870,,DRG Short Term,111,Disagree,Incorrect Coding
+2451902,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2474861,4. Part A(Inpatient Hospital PPS),269,,DRG Short Term,111,Agree,-
+2439206,1. Part B,,96413,Nurse Practitioner,,Agree,-
+2462447,1. Part B,,J7050,Gastroenterology,,Disagree,Incorrect Coding
+2468176,3. Part A(Excluding Inpatient Hospital PPS),,99284,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2475159,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2472978,3. Part A(Excluding Inpatient Hospital PPS),,97110,SNF,233,Agree,-
+2472576,4. Part A(Inpatient Hospital PPS),266,,DRG Short Term,111,Agree,-
+2480237,3. Part A(Excluding Inpatient Hospital PPS),,92507,SNF,223,Agree,-
+2456990,3. Part A(Excluding Inpatient Hospital PPS),,87205,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2444136,3. Part A(Excluding Inpatient Hospital PPS),,83970,ESRD,721,Agree,-
+2455262,1. Part B,,J1200,Rheumatology,,Agree,-
+2456498,2. DME MAC,,A7038,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2450147,3. Part A(Excluding Inpatient Hospital PPS),,83735,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452622,2. DME MAC,,A4402,Pharmacy,,Disagree,Insufficient Documentation
+2439535,3. Part A(Excluding Inpatient Hospital PPS),,J1270,ESRD,721,Agree,-
+2435858,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2439817,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,210,Agree,-
+2480268,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,817,Agree,Overturned
+2460361,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2469224,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2450920,3. Part A(Excluding Inpatient Hospital PPS),,84100,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2433449,1. Part B,,81242,Clinical Laboratory (Billing Independently),,Agree,-
+2478181,2. DME MAC,,A7038,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2453520,1. Part B,,J9144,Hematology/Oncology,,Disagree,No Documentation
+2450621,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2456254,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2480101,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2480366,3. Part A(Excluding Inpatient Hospital PPS),,D1404,Inpatient Rehabilitation Hospitals,111,Disagree,Medical Necessity
+2453044,1. Part B,,97530,Physical Therapist in Private Practice,,Agree,-
+2459222,1. Part B,,80061,Clinical Laboratory (Billing Independently),,Agree,-
+2445896,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2471881,1. Part B,,82746,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2442285,2. DME MAC,,A7030,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2445806,3. Part A(Excluding Inpatient Hospital PPS),,3074F,FQHC,771,Agree,-
+2452850,1. Part B,,81294,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2442530,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2476818,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,Overturned
+2452696,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2449513,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,811,Disagree,Insufficient Documentation
+2459970,1. Part B,,Q9967,Physician Assistant,,Agree,-
+2473424,3. Part A(Excluding Inpatient Hospital PPS),,84075,ESRD,721,Disagree,Incorrect Coding
+2432369,3. Part A(Excluding Inpatient Hospital PPS),,81001,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Agree,-
+2439618,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2472440,3. Part A(Excluding Inpatient Hospital PPS),,97140,Critical Access Hospital (CAH) Outpatient Services,851,Disagree,Insufficient Documentation
+2472951,1. Part B,,U0004,Clinical Laboratory (Billing Independently),,Agree,-
+2451888,3. Part A(Excluding Inpatient Hospital PPS),,J1569,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2437454,3. Part A(Excluding Inpatient Hospital PPS),,KBFC1,SNF,213,Agree,-
+2443743,1. Part B,,83880,Clinical Laboratory (Billing Independently),,Agree,-
+2469800,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2475617,2. DME MAC,,A7035,Medical Supply Company with Respiratory Therapist,,Agree,-
+2467166,4. Part A(Inpatient Hospital PPS),690,,DRG Short Term,111,Agree,-
+2443225,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Agree,-
+2463690,2. DME MAC,,A4352,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2439751,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,-
+2455295,3. Part A(Excluding Inpatient Hospital PPS),,J2405,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2453711,3. Part A(Excluding Inpatient Hospital PPS),,G0494,HHA,329,Agree,-
+2462627,2. DME MAC,,A4222,General Practice,,Disagree,Medical Necessity
+2457011,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,812,Agree,-
+2474806,1. Part B,,78815,Diagnostic Radiology,,Disagree,No Documentation
+2462944,1. Part B,,97110,Physical Therapist in Private Practice,,Disagree,Insufficient Documentation
+2469902,1. Part B,,96365,Nurse Practitioner,,Agree,-
+2463264,1. Part B,,77014,Radiation Oncology,,Agree,-
+2452783,3. Part A(Excluding Inpatient Hospital PPS),,84460,ESRD,721,Agree,-
+2444144,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2444138,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2437415,1. Part B,,A0427,"Ambulance Service Supplier (e.g., private ambulance companies, funeral homes)",,Agree,-
+2474206,4. Part A(Inpatient Hospital PPS),853,,DRG Short Term,111,Agree,-
+2481742,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Agree,-
+2469863,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2448603,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2447353,1. Part B,,80048,Clinical Laboratory (Billing Independently),,Agree,-
+2437495,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,811,Agree,-
+2475920,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2456800,3. Part A(Excluding Inpatient Hospital PPS),,G0159,HHA,329,Agree,-
+2469230,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2438417,1. Part B,,76770,Independent Diagnostic Testing Facility (IDTF),,Agree,-
+2473547,3. Part A(Excluding Inpatient Hospital PPS),,99284,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2450659,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,320,Agree,-
+2457027,3. Part A(Excluding Inpatient Hospital PPS),,G0491,ESRD,721,Agree,-
+2438498,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Agree,-
+2458660,1. Part B,,45380,Gastroenterology,,Agree,-
+2444197,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2478282,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,Overturned
+2474146,2. DME MAC,,E0656,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2463581,1. Part B,,00142,Anesthesiology,,Agree,-
+2437876,3. Part A(Excluding Inpatient Hospital PPS),,FEMF1,SNF,214,Disagree,Other
+2479083,1. Part B,,20610,Nurse Practitioner,,Agree,-
+2439495,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2474788,1. Part B,,Q5116,Hematology/Oncology,,Agree,-
+2453024,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2469173,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2439267,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2480245,3. Part A(Excluding Inpatient Hospital PPS),,84540,ESRD,721,Agree,-
+2439619,3. Part A(Excluding Inpatient Hospital PPS),,J0690,ESRD,721,Agree,-
+2450773,1. Part B,,90662,Centralized Flu,,Agree,-
+2458167,2. DME MAC,,A4452,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2439792,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2473373,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2481988,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2463032,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2458548,3. Part A(Excluding Inpatient Hospital PPS),,A9270,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2461196,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,823,Agree,Overturned
+2442587,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2442541,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2475875,4. Part A(Inpatient Hospital PPS),378,,DRG Short Term,111,Agree,-
+2452052,3. Part A(Excluding Inpatient Hospital PPS),,J0153,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452732,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2456921,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Agree,-
+2462552,3. Part A(Excluding Inpatient Hospital PPS),,G0496,HHA,329,Agree,Overturned
+2439577,3. Part A(Excluding Inpatient Hospital PPS),,J0887,ESRD,721,Agree,-
+2480326,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2445487,1. Part B,,81404,Clinical Laboratory (Billing Independently),,Agree,-
+2432943,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,320,Agree,-
+2443778,3. Part A(Excluding Inpatient Hospital PPS),,82565,ESRD,721,Agree,-
+2449535,4. Part A(Inpatient Hospital PPS),391,,DRG Short Term,111,Agree,-
+2435714,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,727,Agree,-
+2462546,2. DME MAC,,E0470,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2455846,4. Part A(Inpatient Hospital PPS),092,,DRG Short Term,111,Agree,-
+2473039,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2438884,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2450025,4. Part A(Inpatient Hospital PPS),308,,DRG Short Term,111,Agree,-
+2440581,4. Part A(Inpatient Hospital PPS),259,,DRG Short Term,111,Agree,-
+2460715,1. Part B,,81001,Clinical Laboratory (Billing Independently),,Agree,-
+2476633,3. Part A(Excluding Inpatient Hospital PPS),,84075,ESRD,721,Agree,-
+2481324,1. Part B,,87641,Interventional Pain Management,,Agree,-
+2470180,1. Part B,,99213,Physician Assistant,,Agree,-
+2436622,1. Part B,,81519,Clinical Laboratory (Billing Independently),,Agree,-
+2478844,3. Part A(Excluding Inpatient Hospital PPS),,72128,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2477226,4. Part A(Inpatient Hospital PPS),470,,DRG Short Term,111,Agree,Overturned
+2444258,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Agree,-
+2476227,3. Part A(Excluding Inpatient Hospital PPS),,G0152,HHA,329,Agree,-
+2438790,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2465097,3. Part A(Excluding Inpatient Hospital PPS),,93005,Critical Access Hospital (CAH) Outpatient Services,851,Agree,-
+2442727,2. DME MAC,,E1392,Medical supply company with prosthetic/orthotic personnel certified by an accrediting organization,,Agree,-
+2433364,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,320,Agree,-
+2436982,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2443833,3. Part A(Excluding Inpatient Hospital PPS),,85048,ESRD,721,Agree,-
+2473252,3. Part A(Excluding Inpatient Hospital PPS),,85018,ESRD,721,Agree,-
+2454563,4. Part A(Inpatient Hospital PPS),004,,DRG Short Term,111,Agree,-
+2468936,1. Part B,,97530,Physical Therapist in Private Practice,,Agree,-
+2461162,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2466507,3. Part A(Excluding Inpatient Hospital PPS),,81003,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2439667,3. Part A(Excluding Inpatient Hospital PPS),,49083,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2441757,1. Part B,,81479,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2434007,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Disagree,Medical Necessity
+2475067,4. Part A(Inpatient Hospital PPS),871,,DRG Short Term,111,Agree,-
+2481449,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,Overturned
+2455215,3. Part A(Excluding Inpatient Hospital PPS),,G0157,HHA,329,Disagree,Insufficient Documentation
+2440514,1. Part B,,85025,Clinical Laboratory (Billing Independently),,Agree,-
+2468584,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,114,Agree,-
+2433554,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,HHA,320,Agree,-
+2476848,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2435689,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2468956,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2433538,1. Part B,,81162,Clinical Laboratory (Billing Independently),,Agree,-
+2462287,2. DME MAC,,B4224,Pharmacy,,Agree,-
+2438662,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Agree,-
+2466373,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2450951,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2476951,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,-
+2451348,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2475004,4. Part A(Inpatient Hospital PPS),177,,DRG Short Term,111,Disagree,Incorrect Coding
+2467814,3. Part A(Excluding Inpatient Hospital PPS),,84439,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2476756,3. Part A(Excluding Inpatient Hospital PPS),,J0887,ESRD,721,Agree,-
+2463940,3. Part A(Excluding Inpatient Hospital PPS),,G0493,HHA,329,Agree,-
+2462137,3. Part A(Excluding Inpatient Hospital PPS),,G0158,HHA,329,Agree,-
+2438095,3. Part A(Excluding Inpatient Hospital PPS),,G0156,HHA,329,Agree,-
+2480295,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2452506,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2439715,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2468810,3. Part A(Excluding Inpatient Hospital PPS),,84484,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2437619,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,117,Disagree,Medical Necessity
+2474956,1. Part B,,87640,Clinical Laboratory (Billing Independently),,Disagree,Insufficient Documentation
+2457076,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,812,Agree,-
+2444762,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Disagree,Insufficient Documentation
+2459613,1. Part B,,J0178,Ophthalmology,,Agree,-
+2437337,3. Part A(Excluding Inpatient Hospital PPS),,97530,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",121,Disagree,Insufficient Documentation
+2452739,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,813,Agree,Overturned
+2437131,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2442662,4. Part A(Inpatient Hospital PPS),245,,DRG Short Term,111,Disagree,Incorrect Coding
+2460942,1. Part B,,99496,Nurse Practitioner,,Disagree,Insufficient Documentation
+2473269,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Agree,Overturned
+2457165,3. Part A(Excluding Inpatient Hospital PPS),,82728,ESRD,721,Agree,-
+2467288,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,824,Disagree,Insufficient Documentation
+2470675,1. Part B,,96372,Family Practice,,Agree,-
+2435706,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2447253,1. Part B,,93229,Cardiology,,Agree,-
+2432616,1. Part B,,99232,Pulmonary Disease,,Agree,-
+2447772,2. DME MAC,,L5685,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2439520,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2465762,1. Part B,,G8918,Ambulatory Surgical Center,,Agree,-
+2438292,2. DME MAC,,A7031,Pharmacy,,Agree,-
+2476590,1. Part B,,Q0092,Portable X-Ray Supplier (Billing Independently),,Agree,-
+2464085,4. Part A(Inpatient Hospital PPS),538,,DRG Short Term,110,Agree,-
+2436519,3. Part A(Excluding Inpatient Hospital PPS),,G0496,HHA,329,Disagree,Medical Necessity
+2461218,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2439143,2. DME MAC,,K0553,"Medical supply company not included in 51, 52, or 53",,Disagree,No Documentation
+2443137,3. Part A(Excluding Inpatient Hospital PPS),,97140,Comprehensive Outpatient Rehab Facility (CORF),753,Agree,-
+2437870,3. Part A(Excluding Inpatient Hospital PPS),,J7050,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2469171,3. Part A(Excluding Inpatient Hospital PPS),,90945,ESRD,721,Agree,-
+2442150,1. Part B,,99223,Internal Medicine,,Disagree,Incorrect Coding
+2473737,1. Part B,,99233,Internal Medicine,,Disagree,Incorrect Coding
+2453811,1. Part B,,92134,Ophthalmology,,Agree,-
+2443775,3. Part A(Excluding Inpatient Hospital PPS),,97110,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Disagree,Insufficient Documentation
+2476746,3. Part A(Excluding Inpatient Hospital PPS),,83970,ESRD,721,Agree,-
+2450465,1. Part B,,64483,Ambulatory Surgical Center,,Agree,-
+2439538,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2444288,1. Part B,,99214,Obstetrics/Gynecology,,Disagree,Incorrect Coding
+2481221,4. Part A(Inpatient Hospital PPS),330,,DRG Short Term,111,Agree,-
+2466011,3. Part A(Excluding Inpatient Hospital PPS),,83735,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2440554,4. Part A(Inpatient Hospital PPS),856,,DRG Short Term,110,Agree,-
+2435205,3. Part A(Excluding Inpatient Hospital PPS),,G0300,HHA,329,Disagree,Insufficient Documentation
+2461332,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2465221,2. DME MAC,,E2607,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2437284,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2435755,3. Part A(Excluding Inpatient Hospital PPS),,83540,ESRD,721,Agree,-
+2476635,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2449118,1. Part B,,90834,Clinical Social Worker,,Agree,-
+2461037,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2478326,1. Part B,,17311,Dermatology,,Agree,-
+2463921,3. Part A(Excluding Inpatient Hospital PPS),,96367,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2453834,3. Part A(Excluding Inpatient Hospital PPS),,3IB11,HHA,329,Disagree,Medical Necessity
+2475871,3. Part A(Excluding Inpatient Hospital PPS),,96365,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2455408,2. DME MAC,,L2397,"Medical supply company not included in 51, 52, or 53",,Disagree,Medical Necessity
+2459922,2. DME MAC,,B4185,Pharmacy,,Disagree,Insufficient Documentation
+2475693,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2471794,1. Part B,,J9045,Medical Oncology,,Agree,-
+2476903,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,823,Agree,-
+2472654,3. Part A(Excluding Inpatient Hospital PPS),,83735,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2452436,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,111,Agree,-
+2462397,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehab Unit,110,Agree,-
+2448145,1. Part B,,80053,Clinical Laboratory (Billing Independently),,Agree,Overturned
+2468974,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2461039,3. Part A(Excluding Inpatient Hospital PPS),,,ESRD,721,Agree,-
+2445655,2. DME MAC,,A7000,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2447809,3. Part A(Excluding Inpatient Hospital PPS),,J0887,ESRD,721,Agree,-
+2472108,1. Part B,,G0482,Anesthesiology,,Agree,-
+2448370,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2479330,2. DME MAC,,J7527,Pharmacy,,Agree,-
+2449245,1. Part B,,84165,Clinical Laboratory (Billing Independently),,Agree,-
+2449151,3. Part A(Excluding Inpatient Hospital PPS),,G0151,HHA,329,Agree,-
+2460205,3. Part A(Excluding Inpatient Hospital PPS),,,HHA,329,Disagree,Insufficient Documentation
+2478242,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,11P,Disagree,Medical Necessity
+2465416,3. Part A(Excluding Inpatient Hospital PPS),,Q5001,Hospice,813,Agree,-
+2454067,4. Part A(Inpatient Hospital PPS),462,,DRG Short Term,111,Agree,-
+2466208,3. Part A(Excluding Inpatient Hospital PPS),,74177,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2450263,2. DME MAC,,A6021,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2480108,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2458098,1. Part B,,87591,Clinical Laboratory (Billing Independently),,Agree,-
+2478333,1. Part B,,64483,Physical Medicine and Rehabilitation,,Disagree,Insufficient Documentation
+2436669,1. Part B,,36415,Nurse Practitioner,,Agree,-
+2434406,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,211,Agree,-
+2465357,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2440722,3. Part A(Excluding Inpatient Hospital PPS),,,Non PPS Short Term Hospital Inpatient,111,Agree,-
+2468953,3. Part A(Excluding Inpatient Hospital PPS),,J1756,ESRD,721,Agree,-
+2440926,1. Part B,,J0690,Pain Management,,Disagree,Insufficient Documentation
+2432886,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,824,Disagree,Incorrect Coding
+2457012,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,823,Disagree,Insufficient Documentation
+2469695,4. Part A(Inpatient Hospital PPS),274,,DRG Short Term,111,Agree,-
+2462608,2. DME MAC,,Q0511,Pharmacy,,Disagree,Medical Necessity
+2452383,3. Part A(Excluding Inpatient Hospital PPS),,Q4081,ESRD,721,Agree,-
+2474216,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Disagree,Insufficient Documentation
+2440890,2. DME MAC,,L8000,Medical supply company with prosthetic personnel certified by an accrediting organization,,Agree,-
+2482128,2. DME MAC,,A4259,Pharmacy,,Disagree,Insufficient Documentation
+2444246,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,812,Agree,-
+2464376,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2455417,2. DME MAC,,A7037,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2438953,4. Part A(Inpatient Hospital PPS),286,,DRG Short Term,111,Agree,-
+2465361,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2459927,2. DME MAC,,A4385,"Medical supply company not included in 51, 52, or 53",,Agree,-
+2471979,3. Part A(Excluding Inpatient Hospital PPS),,,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",133,Agree,-
+2473787,3. Part A(Excluding Inpatient Hospital PPS),,84132,ESRD,727,Agree,-
+2478140,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-
+2466095,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Rehabilitation Hospitals,111,Agree,-
+2472607,1. Part B,,Q0092,Portable X-Ray Supplier (Billing Independently),,Agree,-
+2457866,1. Part B,,97010,Physical Therapist in Private Practice,,Agree,-
+2472042,2. DME MAC,,A5514,Pedorthic Personnel,,Agree,-
+2449155,3. Part A(Excluding Inpatient Hospital PPS),,G0495,HHA,329,Disagree,Medical Necessity
+2467867,4. Part A(Inpatient Hospital PPS),189,,DRG Short Term,110,Agree,-
+2476260,2. DME MAC,,L5620,Individual prosthetic personnel certified by an accrediting organization,,Agree,-
+2476757,3. Part A(Excluding Inpatient Hospital PPS),,83970,ESRD,721,Agree,-
+2471209,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,-
+2439617,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2480317,3. Part A(Excluding Inpatient Hospital PPS),,G0300,Hospice,813,Agree,-
+2453644,3. Part A(Excluding Inpatient Hospital PPS),,G0299,HHA,329,Agree,Overturned
+2479781,1. Part B,,G6002,Radiation Oncology,,Agree,-
+2479784,1. Part B,,J1745,Nurse Practitioner,,Agree,-
+2456477,1. Part B,,97124,Chiropractic,,Agree,-
+2448471,3. Part A(Excluding Inpatient Hospital PPS),,G0155,Hospice,813,Agree,-
+2476953,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2443944,3. Part A(Excluding Inpatient Hospital PPS),,82310,ESRD,721,Disagree,Insufficient Documentation
+2435761,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,810,Agree,-
+2439121,4. Part A(Inpatient Hospital PPS),554,,DRG Short Term,111,Agree,-
+2469188,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,-
+2446356,1. Part B,,87641,Clinical Laboratory (Billing Independently),,Disagree,Medical Necessity
+2447347,1. Part B,,77067,Diagnostic Radiology,,Agree,-
+2460553,1. Part B,,87591,Clinical Laboratory (Billing Independently),,Agree,-
+2462892,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Disagree,Other
+2470342,2. DME MAC,,A4221,Pharmacy,,Agree,-
+2476847,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Agree,-
+2480310,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,813,Agree,-
+2482027,4. Part A(Inpatient Hospital PPS),561,,DRG Short Term,111,Disagree,Medical Necessity
+2479099,3. Part A(Excluding Inpatient Hospital PPS),,G0103,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2468836,3. Part A(Excluding Inpatient Hospital PPS),,3IA11,HHA,329,Agree,-
+2459155,2. DME MAC,,A4351,Medical Supply Company with Respiratory Therapist,,Agree,-
+2435899,3. Part A(Excluding Inpatient Hospital PPS),,G0156,Hospice,813,Disagree,Incorrect Coding
+2432345,4. Part A(Inpatient Hospital PPS),056,,DRG Short Term,111,Agree,-
+2480395,3. Part A(Excluding Inpatient Hospital PPS),,90999,ESRD,721,Agree,-
+2450596,1. Part B,,99291,Emergency Medicine,,Agree,-
+2446406,3. Part A(Excluding Inpatient Hospital PPS),,84466,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2445704,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,213,Disagree,Insufficient Documentation
+2434878,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,212,Agree,Overturned
+2432592,1. Part B,,85025,Hematology/Oncology,,Disagree,Insufficient Documentation
+2476720,3. Part A(Excluding Inpatient Hospital PPS),,92526,SNF,223,Agree,-
+2448613,3. Part A(Excluding Inpatient Hospital PPS),,G0299,Hospice,822,Agree,-
+2470107,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Disagree,Medical Necessity
+2435987,3. Part A(Excluding Inpatient Hospital PPS),,GDPD1,SNF,211,Agree,-
+2474554,3. Part A(Excluding Inpatient Hospital PPS),,96368,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2449150,3. Part A(Excluding Inpatient Hospital PPS),,,Hospice,814,Agree,-
+2467030,2. DME MAC,,E0466,Medical Supply Company with Respiratory Therapist,,Agree,-
+2450334,3. Part A(Excluding Inpatient Hospital PPS),,A4657,ESRD,721,Agree,-
+2480738,3. Part A(Excluding Inpatient Hospital PPS),,87040,"OPPS, Laboratory (an FI), Ambulatory (Billing an FI)",131,Agree,-
+2467418,1. Part B,,96417,Hematology/Oncology,,Agree,-
+2446052,3. Part A(Excluding Inpatient Hospital PPS),,,SNF,214,Agree,-
+2453245,3. Part A(Excluding Inpatient Hospital PPS),,,Inpatient Critical Access Hospital,111,Agree,-

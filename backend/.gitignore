@@ -1,7 +1,6 @@
 .env
-*.pkl
 data/
-models/
 __pycache__/
 .pytest_cache/
 venv/
+# models/ is committed: trained artifacts + metrics.json are part of the repo
