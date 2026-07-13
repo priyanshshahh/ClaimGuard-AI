@@ -12,4 +12,6 @@ pandas
 numpy
 joblib
 duckdb
+wandb
 pytest
+httpx

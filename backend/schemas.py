@@ -38,3 +38,6 @@ class ClaimAnalysisResponse(BaseModel):
     payer_days_to_pay: int = 35
     cash_flow_urgency: float = 0.0
     knapsack_selected: Optional[bool] = None
+    # calibrated model output before the documented heuristic uplift
+    model_base_probability: Optional[float] = None
+    is_demo: bool = False

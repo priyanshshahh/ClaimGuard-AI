@@ -6,12 +6,15 @@ from typing import Any, Dict, List, Optional
 
 import duckdb
 
-DB_PATH = os.getenv("DUCKDB_PATH", "data/claims.duckdb")
+def _db_path() -> str:
+    # resolved per-call so tests can point DUCKDB_PATH at a temp file
+    return os.getenv("DUCKDB_PATH", "data/claims.duckdb")
 
 
 def _connect() -> duckdb.DuckDBPyConnection:
-    os.makedirs(os.path.dirname(DB_PATH) or ".", exist_ok=True)
-    con = duckdb.connect(DB_PATH)
+    db_path = _db_path()
+    os.makedirs(os.path.dirname(db_path) or ".", exist_ok=True)
+    con = duckdb.connect(db_path)
     con.execute(
         """
         CREATE TABLE IF NOT EXISTS claims (
@@ -35,10 +38,15 @@ def _connect() -> duckdb.DuckDBPyConnection:
             predicted_denial_codes JSON,
             payer_days_to_pay INTEGER,
             cash_flow_urgency DOUBLE,
+            model_base_probability DOUBLE,
+            is_demo BOOLEAN DEFAULT FALSE,
             analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         """
     )
+    # migrate pre-existing local DBs
+    con.execute("ALTER TABLE claims ADD COLUMN IF NOT EXISTS model_base_probability DOUBLE")
+    con.execute("ALTER TABLE claims ADD COLUMN IF NOT EXISTS is_demo BOOLEAN DEFAULT FALSE")
     return con
 
 
@@ -54,8 +62,8 @@ def upsert_claim(claim: Dict[str, Any]) -> None:
             documentation_complete, clinical_justification_present, procedure_mismatch_flag,
             patient_chart_notes, agent_correction_draft, explanation, recommended_action,
             confidence, missing_elements, predicted_denial_codes,
-            payer_days_to_pay, cash_flow_urgency
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            payer_days_to_pay, cash_flow_urgency, model_base_probability, is_demo
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             claim["claim_id"],
@@ -78,9 +86,25 @@ def upsert_claim(claim: Dict[str, Any]) -> None:
             codes,
             claim.get("payer_days_to_pay", 35),
             claim.get("cash_flow_urgency", 0),
+            claim.get("model_base_probability"),
+            bool(claim.get("is_demo", False)),
         ],
     )
     con.close()
+
+
+def get_claim(claim_id: str) -> Optional[Dict[str, Any]]:
+    con = _connect()
+    rows = con.execute(
+        "SELECT * FROM claims WHERE claim_id = ?", [claim_id]
+    ).fetchdf()
+    con.close()
+    if rows.empty:
+        return None
+    record = rows.to_dict(orient="records")[0]
+    record["missing_elements"] = json.loads(record["missing_elements"] or "[]")
+    record["predicted_denial_codes"] = json.loads(record["predicted_denial_codes"] or "[]")
+    return record
 
 
 def clear_claims() -> None:

@@ -1,135 +1,130 @@
+"""Serving layer for the denial-risk model trained on real CMS CERT data.
+
+Artifacts (produced by scripts/train.py, committed in backend/models/):
+  - denial_model.joblib   XGBoost classifier
+  - calibrator.joblib     isotonic calibration fitted on the validation year
+  - feature_maps.json     categorical encodings fitted on training years
+  - metrics.json          full evaluation report from the real training run
+
+The model scores claim attributes (HCPCS/CPT code, Medicare part, provider
+type, type of bill). LLM-agent documentation findings are applied afterwards
+as an explicit, documented heuristic uplift - they are NOT model features,
+because the CERT public file contains no chart-note fields. See
+`adjust_for_agent_findings` for the exact rule.
+"""
+
+from __future__ import annotations
+
+import json
 import os
-from typing import Tuple
+from typing import Optional, Tuple
 
 import joblib
-import numpy as np
-import pandas as pd
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.preprocessing import LabelEncoder
 
-MODEL_PATH = "models/denial_model.pkl"
-ENCODERS_PATH = "models/encoders.pkl"
-MODEL_TYPE_PATH = "models/model_type.txt"
+from features import build_serving_row, load_feature_maps
 
-FEATURE_COLUMNS = [
-    "claim_value_usd",
-    "payer_encoded",
-    "icd_risk",
-    "cpt_risk",
-    "documentation_complete",
-    "clinical_justification_present",
-    "procedure_mismatch_flag",
-]
+MODELS_DIR = os.getenv("MODELS_DIR", os.path.join(os.path.dirname(__file__), "models"))
 
-_xgb = None
-try:
-    import xgboost as xgb
+# Heuristic uplifts applied on top of the model's calibrated probability when
+# the LLM agent flags documentation problems. Insufficient/no documentation is
+# the largest improper-payment category in CERT, so missing documentation
+# carries the largest uplift. These constants are a documented business rule,
+# not model output; the API reports the model's base probability separately.
+UPLIFT_DOC_MISSING = 0.15
+UPLIFT_NO_JUSTIFICATION = 0.10
+UPLIFT_PROCEDURE_MISMATCH = 0.12
+PROB_CAP = 0.97
 
-    _xgb = xgb
-except Exception:
-    _xgb = None
+_cache: dict = {}
 
 
-def _make_classifier(pos: int, neg: int):
-    scale_pos_weight = neg / max(pos, 1)
-    if _xgb is not None:
-        return _xgb.XGBClassifier(
-            n_estimators=120,
-            max_depth=5,
-            learning_rate=0.08,
-            scale_pos_weight=scale_pos_weight,
-            eval_metric="logloss",
-            random_state=42,
-        ), "xgboost"
-    return (
-        HistGradientBoostingClassifier(
-            max_iter=120,
-            max_depth=5,
-            learning_rate=0.08,
-            random_state=42,
-        ),
-        "hist_gradient_boosting",
+class ModelNotAvailableError(RuntimeError):
+    """Raised when trained artifacts are missing; run scripts/train.py."""
+
+
+def load_model() -> Tuple[object, object, dict]:
+    """Load and cache (model, calibrator, feature_maps)."""
+    if "model" not in _cache:
+        model_path = os.path.join(MODELS_DIR, "denial_model.joblib")
+        cal_path = os.path.join(MODELS_DIR, "calibrator.joblib")
+        maps_path = os.path.join(MODELS_DIR, "feature_maps.json")
+        if not (os.path.exists(model_path) and os.path.exists(maps_path)):
+            raise ModelNotAvailableError(
+                f"Model artifacts not found in {MODELS_DIR}. Run: python scripts/train.py"
+            )
+        _cache["model"] = joblib.load(model_path)
+        _cache["calibrator"] = joblib.load(cal_path) if os.path.exists(cal_path) else None
+        _cache["maps"] = load_feature_maps(maps_path)
+    return _cache["model"], _cache["calibrator"], _cache["maps"]
+
+
+def clear_model_cache() -> None:
+    _cache.clear()
+
+
+def get_model_metrics() -> Optional[dict]:
+    path = os.path.join(MODELS_DIR, "metrics.json")
+    if not os.path.exists(path):
+        return None
+    with open(path) as f:
+        return json.load(f)
+
+
+def predict_base_probability(
+    cpt_code: str,
+    part: str = "1. Part B",
+    provider_type: str = "",
+    type_of_bill: str = "",
+    drg: str = "",
+) -> float:
+    """Calibrated P(improper payment) for the claim attributes alone."""
+    model, calibrator, maps = load_model()
+    row = build_serving_row(
+        maps,
+        hcpcs=cpt_code,
+        part=part,
+        provider_type=provider_type,
+        type_of_bill=type_of_bill,
+        drg=drg,
     )
+    raw = float(model.predict_proba(row)[0][1])
+    if calibrator is not None:
+        raw = float(calibrator.predict([raw])[0])
+    return max(min(raw, 1.0), 0.0)
 
 
-def train_dummy_model():
-    """Train classifier on synthetic imbalanced denial data (~10% positive class)."""
-    np.random.seed(42)
-    n_samples = 1000
+def adjust_for_agent_findings(
+    base_prob: float,
+    documentation_complete: int = 1,
+    clinical_justification_present: int = 1,
+    procedure_mismatch_flag: int = 0,
+) -> float:
+    """Documented heuristic: add fixed uplifts for agent-flagged issues.
 
-    data = {
-        "claim_value_usd": np.random.uniform(150, 25000, n_samples),
-        "payer_id": np.random.choice(
-            ["AETNA", "UHC", "BCBS", "MEDICARE", "MEDICAID"], n_samples
-        ),
-        "icd_risk": np.random.uniform(0, 1, n_samples),
-        "cpt_risk": np.random.uniform(0, 1, n_samples),
-        "documentation_complete": np.random.choice([0, 1], n_samples, p=[0.3, 0.7]),
-        "clinical_justification_present": np.random.choice([0, 1], n_samples, p=[0.25, 0.75]),
-        "procedure_mismatch_flag": np.random.choice([0, 1], n_samples, p=[0.2, 0.8]),
-    }
-    df = pd.DataFrame(data)
-
-    denial_prob = (
-        0.35 * (df["claim_value_usd"] > 8000).astype(int)
-        + 0.25 * (df["documentation_complete"] == 0).astype(int)
-        + 0.2 * (df["clinical_justification_present"] == 0).astype(int)
-        + 0.15 * df["procedure_mismatch_flag"]
-        + 0.05 * (df["icd_risk"] > 0.7).astype(int)
-    )
-    y = (denial_prob > 0.55).astype(int)
-
-    le_payer = LabelEncoder()
-    df["payer_encoded"] = le_payer.fit_transform(df["payer_id"])
-    X = df[FEATURE_COLUMNS]
-
-    pos = max(int(y.sum()), 1)
-    neg = max(int(len(y) - y.sum()), 1)
-    model, model_type = _make_classifier(pos, neg)
-
-    sample_weight = np.where(y == 1, neg / pos, 1.0)
-    model.fit(X, y, sample_weight=sample_weight)
-
-    os.makedirs("models", exist_ok=True)
-    joblib.dump(model, MODEL_PATH)
-    joblib.dump({"payer": le_payer}, ENCODERS_PATH)
-    with open(MODEL_TYPE_PATH, "w") as f:
-        f.write(model_type)
-    return model, {"payer": le_payer}
-
-
-def load_model():
-    if os.path.exists(MODEL_PATH) and os.path.exists(ENCODERS_PATH):
-        try:
-            return joblib.load(MODEL_PATH), joblib.load(ENCODERS_PATH)
-        except Exception:
-            pass
-    return train_dummy_model()
+    Kept separate from the model so the statistical estimate stays honest;
+    callers should surface both numbers.
+    """
+    prob = base_prob
+    if documentation_complete == 0:
+        prob += UPLIFT_DOC_MISSING
+    if clinical_justification_present == 0:
+        prob += UPLIFT_NO_JUSTIFICATION
+    if procedure_mismatch_flag == 1:
+        prob += UPLIFT_PROCEDURE_MISMATCH
+    return round(min(prob, PROB_CAP), 4)
 
 
 def predict_denial_probability(features: dict) -> float:
-    model, encoders = load_model()
-    payer_le: LabelEncoder = encoders["payer"]
-    payer_id = features["payer_id"]
-    if payer_id not in payer_le.classes_:
-        payer_encoded = 0
-    else:
-        payer_encoded = int(payer_le.transform([payer_id])[0])
+    """Backward-compatible entry point used by the API layer.
 
-    X = pd.DataFrame(
-        [
-            {
-                "claim_value_usd": features["claim_value_usd"],
-                "payer_encoded": payer_encoded,
-                "icd_risk": features.get("icd_risk", 0.5),
-                "cpt_risk": features.get("cpt_risk", 0.5),
-                "documentation_complete": features.get("documentation_complete", 1),
-                "clinical_justification_present": features.get(
-                    "clinical_justification_present", 1
-                ),
-                "procedure_mismatch_flag": features.get("procedure_mismatch_flag", 0),
-            }
-        ]
+    Expects at minimum {"cpt_code": ...}; agent flags are optional.
+    """
+    base = predict_base_probability(str(features.get("cpt_code", "")))
+    return adjust_for_agent_findings(
+        base,
+        documentation_complete=int(features.get("documentation_complete", 1)),
+        clinical_justification_present=int(
+            features.get("clinical_justification_present", 1)
+        ),
+        procedure_mismatch_flag=int(features.get("procedure_mismatch_flag", 0)),
     )
-    prob = model.predict_proba(X)[0][1]
-    return float(prob)
