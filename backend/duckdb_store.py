@@ -44,9 +44,14 @@ def _connect() -> duckdb.DuckDBPyConnection:
         )
         """
     )
-    # migrate pre-existing local DBs
-    con.execute("ALTER TABLE claims ADD COLUMN IF NOT EXISTS model_base_probability DOUBLE")
-    con.execute("ALTER TABLE claims ADD COLUMN IF NOT EXISTS is_demo BOOLEAN DEFAULT FALSE")
+    # Migrate pre-existing local DBs. Guarded by an explicit column check:
+    # re-running ADD COLUMN IF NOT EXISTS ... DEFAULT on DuckDB resets the
+    # existing column values to the default on reconnect.
+    existing = {r[1] for r in con.execute("PRAGMA table_info('claims')").fetchall()}
+    if "model_base_probability" not in existing:
+        con.execute("ALTER TABLE claims ADD COLUMN model_base_probability DOUBLE")
+    if "is_demo" not in existing:
+        con.execute("ALTER TABLE claims ADD COLUMN is_demo BOOLEAN DEFAULT FALSE")
     return con
 
 
