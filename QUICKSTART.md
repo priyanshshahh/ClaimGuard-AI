@@ -56,8 +56,13 @@ The old single-file HTML now redirects to this new app.
 
 ## Notes
 
-- Groq API key is already configured in `.env`
-- Model is pre-trained on synthetic data for demo
-- For production, replace with real training data + Supabase
+- Copy `.env.example` to `backend/.env` and set `GROQ_API_KEY` for live agent
+  analysis; without a key the API still runs and returns a labeled fallback.
+- The denial model is trained on the real CMS CERT audit dataset (2021-2025);
+  committed artifacts live in `backend/models/`, retrain with
+  `python scripts/train.py`. Metrics: see `backend/models/metrics.json` or the
+  README.
+- Demo claims from "Load Pitch Demo" are synthetic and labeled `is_demo: true`.
 
-Built during AIxBio Hackathon at Bayer Co.Lab - May 28, 2026
+Built during AIxBio Hackathon at Bayer Co.Lab - May 28, 2026; model layer
+rebuilt on real data July 2026.

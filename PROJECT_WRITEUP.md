@@ -6,6 +6,11 @@
 
 ---
 
+> **Status update (July 2026):** this write-up describes the hackathon build.
+> The model layer has since been retrained on the real CMS CERT audit dataset
+> with a temporal split and calibrated evaluation -- see the README and
+> docs/PROJECT-NOTES.md for current, measured numbers.
+
 ## 1. Problem Statement
 
 Healthcare revenue cycle teams lose **5–10% of net revenue** to preventable insurance claim denials. Each denied claim costs approximately **$25 to rework** and traps cash for 30–60 days.
