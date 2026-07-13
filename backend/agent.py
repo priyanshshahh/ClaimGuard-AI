@@ -8,7 +8,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from openai import OpenAI
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from deidentify import scrub_phi
 
@@ -38,6 +38,10 @@ Return predicted_denial_codes as an array (e.g. ["CO-11", "CO-16"]) or [].
 
 
 class ClinicalAnalysis(BaseModel):
+    # strict=True guards against schema drift, but real LLM output uses JSON
+    # booleans for the 0/1 flags, null for optional strings, and bare ints
+    # for confidence - coerce those specific shapes instead of silently
+    # falling back (bug found in a live Groq verification run).
     model_config = ConfigDict(extra="forbid", strict=True)
 
     documentation_complete: int = Field(description="1 if complete, 0 if missing critical elements")
@@ -48,6 +52,26 @@ class ClinicalAnalysis(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0, default=0.82)
     missing_elements: List[str] = Field(default_factory=list)
     predicted_denial_codes: List[str] = Field(default_factory=list)
+
+    @field_validator(
+        "documentation_complete",
+        "clinical_justification_present",
+        "procedure_mismatch_flag",
+        mode="before",
+    )
+    @classmethod
+    def _bool_to_int(cls, v):
+        return int(v) if isinstance(v, bool) else v
+
+    @field_validator("agent_correction_draft", "explanation", mode="before")
+    @classmethod
+    def _none_to_empty(cls, v):
+        return "" if v is None else v
+
+    @field_validator("confidence", mode="before")
+    @classmethod
+    def _int_confidence(cls, v):
+        return float(v) if isinstance(v, int) and not isinstance(v, bool) else v
 
 
 class AppealLetter(BaseModel):
