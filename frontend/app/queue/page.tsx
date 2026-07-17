@@ -29,6 +29,7 @@ interface Claim {
 export default function ClaimsQueue() {
   const [claims, setClaims] = useState<Claim[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<Claim | null>(null);
   const [mode, setMode] = useState<"expected_loss" | "treasury">("expected_loss");
   const [showNewClaimModal, setShowNewClaimModal] = useState(false);
@@ -37,8 +38,10 @@ export default function ClaimsQueue() {
     setLoading(true);
     try {
       const res = await fetch(`${API_URL}/api/priority-queue?mode=${newMode}&knapsack=true`);
+      if (!res.ok) throw new Error(`Queue request failed (${res.status})`);
       const data = await res.json();
       setClaims(data.claims || []);
+      setError(null);
       setMode(newMode as any);
 
       // Update URL so Treasury mode is shareable/bookmarkable
@@ -46,11 +49,10 @@ export default function ClaimsQueue() {
       url.searchParams.set("mode", newMode);
       window.history.replaceState({}, "", url.toString());
     } catch (e) {
+      // Show a real error state rather than silently substituting fake claims.
       toast.error("Failed to load queue", { description: "Is the backend running on :8000?" });
-      setClaims([
-        { claim_id: "CLM-ONC-3914", claim_value_usd: 187500, denial_probability: 0.42, risk_level: "MEDIUM", expected_loss_usd: 78750, payer_days_to_pay: 28, cash_flow_urgency: 1240 },
-        { claim_id: "CLM-SPINE-5529", claim_value_usd: 67300, denial_probability: 0.68, risk_level: "HIGH", expected_loss_usd: 45764, payer_days_to_pay: 42, cash_flow_urgency: 1890 },
-      ]);
+      setClaims([]);
+      setError("Could not reach the backend. No live claim data is available.");
     }
     setLoading(false);
   };
@@ -91,13 +93,21 @@ export default function ClaimsQueue() {
     }
   };
 
-  const handleAccept = (claim: Claim) => {
-    toast.success(`Protected $${claim.expected_loss_usd.toLocaleString()}`, {
-      description: "Agent correction accepted. Claim removed from queue."
-    });
-    // Subtle success animation via state (could expand with confetti lib later)
-    setClaims(prev => prev.filter(c => c.claim_id !== claim.claim_id));
-    setSelected(null);
+  const handleAccept = async (claim: Claim) => {
+    try {
+      const res = await fetch(
+        `${API_URL}/api/resolve-claim?claim_id=${encodeURIComponent(claim.claim_id)}`,
+        { method: "POST" }
+      );
+      if (!res.ok) throw new Error(`Resolve failed (${res.status})`);
+      toast.success(`Protected $${claim.expected_loss_usd.toLocaleString()}`, {
+        description: "Claim marked resolved and persisted — it will stay out of the queue on refresh."
+      });
+      setSelected(null);
+      await fetchQueue();
+    } catch (e) {
+      toast.error("Could not resolve claim", { description: "Backend did not persist the change." });
+    }
   };
 
   return (
@@ -132,6 +142,13 @@ export default function ClaimsQueue() {
           <button onClick={() => setShowNewClaimModal(true)} className="btn btn-primary">New Claim</button>
         </div>
       </div>
+
+      {error && (
+        <div role="alert" className="mb-6 p-4 rounded-2xl border border-[var(--danger,#dc2626)]/40 bg-[var(--danger,#dc2626)]/10 text-sm">
+          <strong>Backend unavailable.</strong> {error} Start it with <code className="font-mono">cd backend &amp;&amp; python main.py</code>, then retry.
+          <button onClick={() => fetchQueue(mode)} className="btn btn-ghost text-xs ml-3">Retry</button>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Bounded Knapsack Priority Table */}

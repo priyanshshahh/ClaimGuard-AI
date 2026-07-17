@@ -21,6 +21,7 @@ export default function Reports() {
   const [claims, setClaims] = useState<any[]>([]);
   const [metrics, setMetrics] = useState<DashboardMetrics>({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [showHistory, setShowHistory] = useState(false);
   const [history, setHistory] = useState<any[]>([]);
 
@@ -31,14 +32,16 @@ export default function Reports() {
           fetch(`${API_URL}/api/priority-queue?mode=expected_loss`),
           fetch(`${API_URL}/api/dashboard-metrics`),
         ]);
+        if (!queueRes.ok || !metricsRes.ok) throw new Error("Backend request failed");
         const queueData = await queueRes.json();
         setClaims(queueData.claims || []);
         setMetrics(await metricsRes.json());
+        setError(null);
       } catch (e) {
-        setClaims([
-          { claim_id: "CLM-ONC-3914", claim_value_usd: 187500, expected_loss_usd: 78750, payer_days_to_pay: 28, risk_level: "MEDIUM", cash_flow_urgency: 1240 },
-          { claim_id: "CLM-SPINE-5529", claim_value_usd: 67300, expected_loss_usd: 45764, payer_days_to_pay: 42, risk_level: "HIGH", cash_flow_urgency: 1890 },
-        ]);
+        // No fake-claim fallback — show an honest empty/error state instead.
+        setClaims([]);
+        setMetrics({});
+        setError("Could not reach the backend. Start it on :8000 to see live report data.");
       }
       setLoading(false);
     };
@@ -64,9 +67,7 @@ export default function Reports() {
 
   const totalAtRisk = metrics.predicted_revenue_leakage ?? claims.reduce((sum, c) => sum + (c.expected_loss_usd || 0), 0);
   const totalLiquidity = metrics.total_pipeline_liquidity ?? claims.reduce((sum, c) => sum + (c.claim_value_usd || 0), 0);
-  const denialCodes = metrics.denial_code_breakdown?.length
-    ? metrics.denial_code_breakdown
-    : [{ code: "CO-16", count: 2 }, { code: "CO-11", count: 1 }];
+  const denialCodes = metrics.denial_code_breakdown ?? [];
   const payerTrends = (metrics.payer_trends || []).map(p => ({
     payer: p.payer_id,
     "Avg Denial Prob": Math.round((p.avg_prob || 0) * 100),
@@ -140,6 +141,11 @@ export default function Reports() {
         </div>
       ) : (
         <>
+      {error && (
+        <div role="alert" className="p-4 rounded-2xl border border-[var(--danger,#dc2626)]/40 bg-[var(--danger,#dc2626)]/10 text-sm">
+          <strong>Backend unavailable.</strong> {error}
+        </div>
+      )}
       <div className="flex items-end justify-between">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">Executive Liquidity Dashboard</h1>

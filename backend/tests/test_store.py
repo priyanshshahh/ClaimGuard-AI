@@ -59,6 +59,20 @@ def test_executive_metrics_empty():
     assert store.get_executive_metrics() == {}
 
 
+def test_resolve_claim_excludes_from_worklist(sample_claim):
+    store.upsert_claim(sample_claim)
+    assert store.resolve_claim("CLM-TEST-1") is True
+    # resolved claim leaves the active worklist and metrics...
+    assert store.list_claims() == []
+    assert store.get_executive_metrics() == {}
+    # ...but is still retrievable by id (audit trail)
+    assert store.get_claim("CLM-TEST-1") is not None
+
+
+def test_resolve_missing_claim_returns_false():
+    assert store.resolve_claim("NOPE") is False
+
+
 def test_demo_flag_persisted(sample_claim):
     store.upsert_claim(sample_claim | {"claim_id": "DEMO-1", "is_demo": True})
     got = store.get_claim("DEMO-1")

@@ -40,6 +40,7 @@ def _connect() -> duckdb.DuckDBPyConnection:
             cash_flow_urgency DOUBLE,
             model_base_probability DOUBLE,
             is_demo BOOLEAN DEFAULT FALSE,
+            resolved BOOLEAN DEFAULT FALSE,
             analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         """
@@ -52,6 +53,8 @@ def _connect() -> duckdb.DuckDBPyConnection:
         con.execute("ALTER TABLE claims ADD COLUMN model_base_probability DOUBLE")
     if "is_demo" not in existing:
         con.execute("ALTER TABLE claims ADD COLUMN is_demo BOOLEAN DEFAULT FALSE")
+    if "resolved" not in existing:
+        con.execute("ALTER TABLE claims ADD COLUMN resolved BOOLEAN DEFAULT FALSE")
     return con
 
 
@@ -67,8 +70,8 @@ def upsert_claim(claim: Dict[str, Any]) -> None:
             documentation_complete, clinical_justification_present, procedure_mismatch_flag,
             patient_chart_notes, agent_correction_draft, explanation, recommended_action,
             confidence, missing_elements, predicted_denial_codes,
-            payer_days_to_pay, cash_flow_urgency, model_base_probability, is_demo
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            payer_days_to_pay, cash_flow_urgency, model_base_probability, is_demo, resolved
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             claim["claim_id"],
@@ -93,9 +96,25 @@ def upsert_claim(claim: Dict[str, Any]) -> None:
             claim.get("cash_flow_urgency", 0),
             claim.get("model_base_probability"),
             bool(claim.get("is_demo", False)),
+            bool(claim.get("resolved", False)),
         ],
     )
     con.close()
+
+
+def resolve_claim(claim_id: str) -> bool:
+    """Mark a claim resolved (removed from the active worklist). Returns
+    False if the claim does not exist."""
+    con = _connect()
+    exists = con.execute(
+        "SELECT 1 FROM claims WHERE claim_id = ?", [claim_id]
+    ).fetchone()
+    if not exists:
+        con.close()
+        return False
+    con.execute("UPDATE claims SET resolved = TRUE WHERE claim_id = ?", [claim_id])
+    con.close()
+    return True
 
 
 def get_claim(claim_id: str) -> Optional[Dict[str, Any]]:
@@ -120,7 +139,9 @@ def clear_claims() -> None:
 
 def list_claims() -> List[Dict[str, Any]]:
     con = _connect()
-    rows = con.execute("SELECT * FROM claims ORDER BY analyzed_at DESC").fetchdf()
+    rows = con.execute(
+        "SELECT * FROM claims WHERE resolved = FALSE ORDER BY analyzed_at DESC"
+    ).fetchdf()
     con.close()
     if rows.empty:
         return []
@@ -167,7 +188,9 @@ def query_priority_queue(
 
 def get_executive_metrics() -> Dict[str, Any]:
     con = _connect()
-    count = con.execute("SELECT COUNT(*) FROM claims").fetchone()[0]
+    count = con.execute(
+        "SELECT COUNT(*) FROM claims WHERE resolved = FALSE"
+    ).fetchone()[0]
     if count == 0:
         con.close()
         return {}
@@ -181,12 +204,14 @@ def get_executive_metrics() -> Dict[str, Any]:
             COALESCE(AVG(denial_probability), 0) AS avg_denial_probability,
             SUM(CASE WHEN risk_level = 'HIGH' THEN 1 ELSE 0 END) AS high_risk_count
         FROM claims
+        WHERE resolved = FALSE
         """
     ).fetchone()
 
     # Denial code breakdown from JSON arrays
     code_rows = con.execute(
-        "SELECT predicted_denial_codes FROM claims WHERE predicted_denial_codes IS NOT NULL"
+        "SELECT predicted_denial_codes FROM claims "
+        "WHERE resolved = FALSE AND predicted_denial_codes IS NOT NULL"
     ).fetchall()
     code_counts: Dict[str, int] = {}
     for (raw,) in code_rows:
@@ -202,6 +227,7 @@ def get_executive_metrics() -> Dict[str, Any]:
                AVG(denial_probability) AS avg_prob,
                COUNT(*) AS claim_count
         FROM claims
+        WHERE resolved = FALSE
         GROUP BY payer_id
         ORDER BY avg_prob DESC
         """

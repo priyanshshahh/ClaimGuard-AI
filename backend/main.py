@@ -13,6 +13,7 @@ from duckdb_store import (
     get_claim,
     get_executive_metrics,
     list_claims,
+    resolve_claim,
     upsert_claim,
 )
 from model import (
@@ -305,6 +306,15 @@ async def seed_demo_data(scenario: str = "default"):
         "is_demo": True,
         "message": "Synthetic demo claims loaded (labeled is_demo=true).",
     }
+
+
+@app.post("/api/resolve-claim")
+async def resolve_claim_endpoint(claim_id: str):
+    """Mark a claim resolved so it drops out of the active worklist and
+    metrics. Persists to DuckDB (unlike the old client-only 'Resolve')."""
+    if not resolve_claim(claim_id):
+        raise HTTPException(404, "Claim not found in current session")
+    return {"claim_id": claim_id, "resolved": True}
 
 
 @app.post("/api/clear-queue")

@@ -103,6 +103,20 @@ def test_clear_queue(client):
     assert client.get("/api/dashboard-metrics").json()["total_claims"] == 0
 
 
+def test_resolve_claim_persists_and_drops_from_queue(client):
+    client.post("/api/analyze-claim", json=CLAIM)
+    assert client.get("/api/dashboard-metrics").json()["total_claims"] == 1
+    r = client.post("/api/resolve-claim?claim_id=CLM-API-1")
+    assert r.status_code == 200 and r.json()["resolved"] is True
+    # resolved claim persists as resolved -> drops out of queue + metrics
+    assert client.get("/api/dashboard-metrics").json()["total_claims"] == 0
+    assert client.get("/api/priority-queue").json()["claims"] == []
+
+
+def test_resolve_unknown_claim_404(client):
+    assert client.post("/api/resolve-claim?claim_id=NOPE").status_code == 404
+
+
 def test_generate_appeal_404_for_unknown_claim(client):
     r = client.post("/api/generate-appeal?claim_id=NOPE")
     assert r.status_code == 404
