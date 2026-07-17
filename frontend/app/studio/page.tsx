@@ -129,7 +129,7 @@ export default function AgentStudio() {
     // Simulate fetching missing labs/history from EHR
     await new Promise(r => setTimeout(r, 850));
 
-    const enrichedNotes = notes + "\n\n[EHR ENRICHED] Patient weight 187 lbs, HbA1c 6.8, no recent falls, lives independently, failed 2 rounds of corticosteroid injections.";
+    const enrichedNotes = notes + "\n\n[SIMULATED EHR ENRICHMENT — demo data, not from a real EHR] Patient weight 187 lbs, HbA1c 6.8, no recent falls, lives independently, failed 2 rounds of corticosteroid injections.";
 
     try {
       const res = await fetch(`${API_URL}/api/analyze-claim`, {
@@ -147,7 +147,7 @@ export default function AgentStudio() {
       const healed = await res.json();
       setAnalysis(healed);
       setNotes(enrichedNotes);
-      toast.success("Self-Healing Complete", { description: "EHR data retrieved. Risk profile updated." });
+      toast.success("Simulated Enrichment Complete", { description: "Demo only — appended synthetic EHR fields and re-scored. No live EHR connection." });
     } catch (e) {
       toast.error("Enrichment failed");
     }
@@ -204,8 +204,8 @@ export default function AgentStudio() {
             <div className="font-semibold flex items-center gap-2">Ambient Pre-Signature Auditor <span className="text-xs px-2 py-0.5 bg-[var(--accent)]/10 text-[var(--accent)] rounded-full">LIVE</span></div>
             <div className="text-sm text-[var(--text-muted)]">Type or paste notes — the agent analyzes in real time before the physician signs.</div>
           </div>
-          <button onClick={handleSelfHealing} disabled={!analysis || isEnriching} className="btn btn-primary text-sm disabled:opacity-50">
-            {isEnriching ? "Retrieving from EHR..." : "Self-Heal: Fetch Missing Data"}
+          <button onClick={handleSelfHealing} disabled={!analysis || isEnriching} title="Demo only: appends synthetic EHR fields and re-scores. No live EHR connection." className="btn btn-primary text-sm disabled:opacity-50">
+            {isEnriching ? "Simulating EHR fetch..." : "Self-Heal: Simulate EHR Enrichment"}
           </button>
         </div>
 

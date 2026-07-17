@@ -298,7 +298,7 @@ export default function Reports() {
         </div>
 
         <div className="mt-6 p-4 bg-[var(--bg)] rounded-2xl text-xs border border-[var(--border)]">
-          <strong>Real-world impact:</strong> In our pilots, enabling Treasury mode increased cash collections by 19% in the first 60 days by forcing teams to work the claims that hurt liquidity the most.
+          <strong>How to read this:</strong> Treasury mode is a prioritization heuristic — it reorders the same claims so that slow-payer, high-liquidity-impact claims surface first. ClaimGuard runs on public CMS CERT audit data and has no production pilot, so no cash-collection outcome is claimed here; the charts above show the reordering effect on the current (synthetic/holdout) claim set only.
         </div>
       </div>
 

@@ -75,7 +75,7 @@ export default function LandingPage() {
         </h1>
 
         <p className="max-w-2xl mx-auto text-2xl text-[var(--text-muted)]">
-          The only platform that combines real-time agentic AI, payer policy intelligence, and cash-flow optimized claim prioritization.
+          A platform that combines real-time agentic note analysis, payer policy intelligence, and cash-flow optimized claim prioritization on a model trained on real CMS audit data.
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-4">
@@ -168,9 +168,9 @@ export default function LandingPage() {
             <div className="text-xs text-[var(--text-muted)] mt-2">These claims jump in priority</div>
           </div>
           <div className="card p-6 text-center">
-            <div className="text-4xl font-semibold text-[var(--warning)]">+19%</div>
-            <div className="mt-1 font-medium">Cash Collections Improvement</div>
-            <div className="text-xs text-[var(--text-muted)] mt-2">Observed in Treasury mode pilots</div>
+            <div className="text-4xl font-semibold text-[var(--primary)]">0.745</div>
+            <div className="mt-1 font-medium">Denial Model ROC-AUC</div>
+            <div className="text-xs text-[var(--text-muted)] mt-2">CMS CERT 2025 holdout — real offline eval, not a pilot</div>
           </div>
         </div>
 
@@ -183,13 +183,8 @@ export default function LandingPage() {
 
       {/* Trust Bar */}
       <div className="border-y border-[var(--border)] bg-[var(--bg-elevated)] py-6">
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-center gap-x-12 text-sm text-[var(--text-muted)]">
-          <div>Trusted in concept by leading health systems</div>
-          <div className="flex gap-6">
-            <span>Regional Health</span>
-            <span>Meridian Health</span>
-            <span>Coastline Medical</span>
-          </div>
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-center gap-x-4 text-sm text-[var(--text-muted)] text-center">
+          <div>Built for provider-side revenue-cycle teams — a solo portfolio project on public CMS CERT data, not a deployed vendor product.</div>
         </div>
       </div>
 
@@ -207,8 +202,8 @@ export default function LandingPage() {
               desc: "The agent watches notes in real time and gently nudges physicians before they sign — preventing denials at the source."
             },
             {
-              title: "Autonomous Self-Healing",
-              desc: "When documentation is incomplete, the system automatically retrieves missing labs, history, and prior auths from the EHR."
+              title: "Self-Healing Enrichment (Simulated)",
+              desc: "A demo of how an EHR integration could pull missing labs, history, and prior auths to re-score an incomplete claim. No live EHR connection — the enrichment is simulated."
             },
             {
               title: "Dynamic Treasury Optimization",
@@ -237,7 +232,7 @@ export default function LandingPage() {
             <div>
               <div className="text-[var(--primary)] font-mono text-sm tracking-widest mb-2">LAYER 02</div>
               <div className="font-semibold text-lg mb-2">ML Denial Prediction</div>
-              <div className="text-sm text-[var(--text-muted)]">Trained model predicts denial probability with high accuracy using clinical, coding, and payer signals.</div>
+              <div className="text-sm text-[var(--text-muted)]">XGBoost model calibrated on real CMS CERT audit outcomes (ROC-AUC 0.745, isotonic-calibrated) scores denial probability from coding and payer signals.</div>
             </div>
             <div>
               <div className="text-[var(--primary)] font-mono text-sm tracking-widest mb-2">LAYER 03</div>
