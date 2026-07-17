@@ -24,14 +24,22 @@ interface Claim {
   predicted_denial_codes?: string[];
   patient_chart_notes?: string;
   knapsack_selected?: boolean;
+  expected_recovery_usd?: number;
+  carc_code?: string | null;
+  carc_group?: string | null;
+  cert_category?: string | null;
+  carc_reasons?: { carc_code: string; carc_desc: string; rarc_code: string; rarc_desc: string; group_code: string; cert_category: string }[];
+  top_drivers?: { label: string; contribution: number; direction: string }[];
 }
+
+type Mode = "expected_loss" | "expected_recovery" | "treasury";
 
 export default function ClaimsQueue() {
   const [claims, setClaims] = useState<Claim[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<Claim | null>(null);
-  const [mode, setMode] = useState<"expected_loss" | "treasury">("expected_loss");
+  const [mode, setMode] = useState<Mode>("expected_loss");
   const [showNewClaimModal, setShowNewClaimModal] = useState(false);
 
   const fetchQueue = async (newMode = mode) => {
@@ -60,7 +68,7 @@ export default function ClaimsQueue() {
   useEffect(() => {
     // Support ?mode=treasury deep links (e.g. from landing page)
     const params = new URLSearchParams(window.location.search);
-    const urlMode = params.get("mode") as "expected_loss" | "treasury" | null;
+    const urlMode = params.get("mode") as Mode | null;
     const initialMode = urlMode || "expected_loss";
     setMode(initialMode);
     fetchQueue(initialMode);
@@ -132,13 +140,18 @@ export default function ClaimsQueue() {
             </div>
           )}
         </div>
-        <div className="flex gap-3">
-          <button 
-            onClick={() => fetchQueue(mode === "expected_loss" ? "treasury" : "expected_loss")} 
-            className={`btn ${mode === "treasury" ? "btn-primary" : "btn-ghost"}`}
+        <div className="flex gap-3 items-center">
+          <label htmlFor="queue-mode" className="text-sm text-[var(--text-muted)]">Rank by</label>
+          <select
+            id="queue-mode"
+            value={mode}
+            onChange={(e) => fetchQueue(e.target.value as Mode)}
+            className="px-3 py-2 bg-[var(--bg)] border border-[var(--border)] rounded-xl text-sm"
           >
-            {mode === "expected_loss" ? "Switch to Treasury Optimization Mode" : "Switch to Traditional Risk Mode"}
-          </button>
+            <option value="expected_loss">Expected loss ($)</option>
+            <option value="expected_recovery">Expected recovery ($)</option>
+            <option value="treasury">Treasury / cash-flow urgency</option>
+          </select>
           <button onClick={() => setShowNewClaimModal(true)} className="btn btn-primary">New Claim</button>
         </div>
       </div>
@@ -170,10 +183,11 @@ export default function ClaimsQueue() {
                     <th className="text-right p-3">Value</th>
                     <th className="text-center p-3">P<sub>i</sub></th>
                     <th className="text-right p-3">EL<sub>i</sub></th>
+                    <th className="text-right p-3" title="Billed × P(denial) × assumed overturn rate">Recovery</th>
+                    <th className="text-center p-3" title="Derived CARC denial reason + group code">CARC</th>
                     <th className="text-center p-3">Doc</th>
                     <th className="text-center p-3">Justify</th>
                     <th className="text-center p-3">Mismatch</th>
-                    <th className="text-center p-3">Codes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -199,12 +213,15 @@ export default function ClaimsQueue() {
                         </span>
                       </td>
                       <td className="p-3 text-right font-semibold tabular-nums">${claim.expected_loss_usd.toLocaleString()}</td>
+                      <td className="p-3 text-right tabular-nums text-[var(--accent)]">
+                        {claim.expected_recovery_usd != null ? `$${claim.expected_recovery_usd.toLocaleString()}` : "—"}
+                      </td>
+                      <td className="p-3 text-center text-xs font-mono">
+                        {claim.carc_code ? `CARC ${claim.carc_code} · ${claim.carc_group}` : "—"}
+                      </td>
                       <td className="p-3 text-center">{claim.documentation_complete === 0 ? "❌" : "✓"}</td>
                       <td className="p-3 text-center">{claim.clinical_justification_present === 0 ? "❌" : "✓"}</td>
                       <td className="p-3 text-center">{claim.procedure_mismatch_flag === 1 ? "⚠" : "—"}</td>
-                      <td className="p-3 text-center text-xs font-mono">
-                        {(claim.predicted_denial_codes || []).join(", ") || "—"}
-                      </td>
                     </motion.tr>
                   ))}
                 </tbody>
@@ -237,6 +254,51 @@ export default function ClaimsQueue() {
               </div>
 
               <div className="my-6 space-y-4 text-sm">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-[var(--bg)] p-3 rounded-xl border border-[var(--border)]">
+                    <div className="text-[var(--text-muted)] text-[10px] tracking-widest">EXPECTED LOSS</div>
+                    <div className="font-semibold tabular-nums">${selected.expected_loss_usd.toLocaleString()}</div>
+                  </div>
+                  <div className="bg-[var(--bg)] p-3 rounded-xl border border-[var(--border)]">
+                    <div className="text-[var(--text-muted)] text-[10px] tracking-widest">EXPECTED RECOVERY</div>
+                    <div className="font-semibold tabular-nums text-[var(--accent)]">
+                      {selected.expected_recovery_usd != null ? `$${selected.expected_recovery_usd.toLocaleString()}` : "—"}
+                    </div>
+                    <div className="text-[10px] text-[var(--text-muted)]">billed × P(denial) × assumed overturn rate</div>
+                  </div>
+                </div>
+
+                {selected.carc_reasons && selected.carc_reasons.length > 0 && (
+                  <div>
+                    <div className="text-[var(--text-muted)] text-xs tracking-widest mb-1">DERIVED DENIAL REASON (CARC/RARC)</div>
+                    <div className="space-y-1">
+                      {selected.carc_reasons.map((r, i) => (
+                        <div key={i} className="text-xs bg-[var(--bg)] p-2 rounded-lg border border-[var(--border)]">
+                          <span className="font-mono">CARC {r.carc_code} · {r.group_code}</span> — {r.carc_desc}
+                          <span className="block text-[var(--text-muted)]">RARC {r.rarc_code}: {r.rarc_desc} · CERT: {r.cert_category}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-[10px] text-[var(--text-muted)] mt-1">Derived mapping — not a payer&apos;s actual remittance code.</div>
+                  </div>
+                )}
+
+                {selected.top_drivers && selected.top_drivers.length > 0 && (
+                  <div>
+                    <div className="text-[var(--text-muted)] text-xs tracking-widest mb-1">TOP RISK DRIVERS (MODEL)</div>
+                    <ul className="space-y-0.5 text-xs">
+                      {selected.top_drivers.map((d, i) => (
+                        <li key={i} className="flex justify-between gap-2">
+                          <span>{d.label}</span>
+                          <span className={d.direction === "increases" ? "text-red-500" : "text-emerald-500"}>
+                            {d.direction === "increases" ? "▲" : "▼"} {d.contribution.toFixed(3)}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 {selected.patient_chart_notes && (
                   <div>
                     <div className="text-[var(--text-muted)] text-xs tracking-widest mb-1">PATIENT CHART</div>

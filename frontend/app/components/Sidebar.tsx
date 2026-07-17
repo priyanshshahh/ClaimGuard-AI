@@ -7,6 +7,7 @@ import {
   ListChecks,
   Bot,
   BarChart3,
+  FileText,
   Settings,
   Play,
 } from "lucide-react";
@@ -16,6 +17,7 @@ const navItems = [
   { href: "/queue", label: "Claims Queue", icon: ListChecks },
   { href: "/studio", label: "Agent Studio", icon: Bot },
   { href: "/reports", label: "Reports", icon: BarChart3 },
+  { href: "/model-card", label: "Model Card", icon: FileText },
   { href: "/settings", label: "Settings", icon: Settings },
 ];
 

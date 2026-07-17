@@ -18,6 +18,10 @@ interface AnalysisResult {
   risk_level?: string;
   denial_probability?: number;
   predicted_denial_codes?: string[];
+  carc_code?: string | null;
+  carc_group?: string | null;
+  carc_reasons?: { carc_code: string; carc_desc: string; rarc_code: string; group_code: string }[];
+  top_drivers?: { label: string; contribution: number; direction: string }[];
 }
 
 interface PolicyResult {
@@ -174,8 +178,11 @@ export default function AgentStudio() {
       return;
     }
     try {
+      const denialReason = analysis.carc_code
+        ? `CARC ${analysis.carc_code} (${analysis.carc_reasons?.[0]?.carc_desc || "denial reason"})`
+        : "Documentation insufficient";
       const res = await fetch(
-        `${API_URL}/api/generate-appeal?claim_id=${encodeURIComponent(analysis.claim_id || "DEMO")}&denial_reason=Documentation%20insufficient`,
+        `${API_URL}/api/generate-appeal?claim_id=${encodeURIComponent(analysis.claim_id || "DEMO")}&denial_reason=${encodeURIComponent(denialReason)}`,
         { method: "POST" }
       );
       const data: AppealResult = await res.json();
@@ -266,6 +273,36 @@ export default function AgentStudio() {
                     ))}
                   </div>
 
+                  {analysis.carc_reasons && analysis.carc_reasons.length > 0 && (
+                    <div>
+                      <div className="uppercase text-[10px] tracking-widest text-[var(--text-muted)] mb-1">Derived Denial Reason (CARC/RARC)</div>
+                      <div className="space-y-1">
+                        {analysis.carc_reasons.map((r, i) => (
+                          <div key={i} className="text-xs">
+                            <span className="font-mono">CARC {r.carc_code} · {r.group_code}</span> — {r.carc_desc}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="text-[10px] text-[var(--text-muted)] mt-1">Derived mapping — not a payer&apos;s actual remittance code.</div>
+                    </div>
+                  )}
+
+                  {analysis.top_drivers && analysis.top_drivers.length > 0 && (
+                    <div>
+                      <div className="uppercase text-[10px] tracking-widest text-[var(--text-muted)] mb-1">Top Risk Drivers (Model)</div>
+                      <ul className="space-y-0.5 text-xs">
+                        {analysis.top_drivers.map((d, i) => (
+                          <li key={i} className="flex justify-between gap-2">
+                            <span>{d.label}</span>
+                            <span className={d.direction === "increases" ? "text-red-500" : "text-emerald-500"}>
+                              {d.direction === "increases" ? "▲" : "▼"} {d.contribution.toFixed(3)}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
                   <div>
                     <div className="uppercase text-[10px] tracking-widest text-[var(--text-muted)] mb-1">Agent Correction Draft</div>
                     <div className="text-[var(--text)] leading-relaxed bg-white dark:bg-slate-900 p-4 rounded-xl border">{analysis.agent_correction_draft}</div>
@@ -317,8 +354,11 @@ export default function AgentStudio() {
         {appeal && (
           <div className="card p-6">
             <div className="font-semibold mb-3 text-[var(--accent)]">Auto-Generated Appeal</div>
+            <div role="alert" className="mb-3 p-2.5 rounded-xl text-xs font-medium bg-amber-100 text-amber-800 border border-amber-300">
+              ⚠ Draft — clinical review required. AI-generated; a clinician/coder must verify every quoted passage before submission.
+            </div>
             <div className="text-sm font-medium mb-2">{appeal.subject}</div>
-            <div className="text-xs bg-[var(--bg)] p-4 rounded-xl max-h-48 overflow-auto border">{appeal.body}</div>
+            <div className="text-xs bg-[var(--bg)] p-4 rounded-xl max-h-48 overflow-auto border whitespace-pre-wrap">{appeal.body}</div>
             <div className="text-[10px] mt-2 text-[var(--text-muted)]">Recommended: {appeal.recommended_attachments.join(", ")}</div>
           </div>
         )}
