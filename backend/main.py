@@ -4,6 +4,7 @@ import os
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 
 from agent import analyze_clinical_notes, check_payer_policy, generate_appeal_letter
@@ -159,7 +160,9 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
 
 @app.post("/api/analyze-claim", response_model=ClaimAnalysisResponse)
 async def analyze_claim(claim: ClaimInput):
-    return _analyze_and_store(claim, is_demo=False)
+    # _analyze_and_store makes a blocking LLM call; run it off the event loop
+    # so one slow provider can't stall other concurrent requests.
+    return await run_in_threadpool(_analyze_and_store, claim, False)
 
 
 @app.get("/api/priority-queue")
@@ -291,7 +294,9 @@ async def seed_demo_data(scenario: str = "default"):
 
     seeded = []
     for claim_data in claims_to_add:
-        seeded.append(_analyze_and_store(ClaimInput(**claim_data), is_demo=True))
+        seeded.append(
+            await run_in_threadpool(_analyze_and_store, ClaimInput(**claim_data), True)
+        )
 
     total_risk = round(sum(c.expected_loss_usd for c in seeded), 2)
     return {
@@ -314,10 +319,11 @@ async def create_appeal(claim_id: str, denial_reason: str = "Medical necessity n
     if not claim:
         raise HTTPException(404, "Claim not found in current session")
 
-    appeal = generate_appeal_letter(
-        claim_data=claim,
-        original_analysis={"explanation": claim.get("explanation", "")},
-        denial_reason=denial_reason,
+    appeal = await run_in_threadpool(
+        generate_appeal_letter,
+        claim,
+        {"explanation": claim.get("explanation", "")},
+        denial_reason,
     )
     return {"claim_id": claim_id, **appeal}
 
@@ -339,7 +345,7 @@ async def policy_check(body: PolicyCheckRequest):
     elif not all([icd, cpt, payer, notes]):
         raise HTTPException(400, "Provide either claim_id or full icd/cpt/payer/notes")
 
-    return check_payer_policy(notes or "", icd, cpt, payer)
+    return await run_in_threadpool(check_payer_policy, notes or "", icd, cpt, payer)
 
 
 @app.post("/api/fhir/claim")

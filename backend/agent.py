@@ -17,6 +17,10 @@ load_dotenv()
 NEBIUS_BASE_URL = "https://api.tokenfactory.nebius.com/v1/"
 NEBIUS_MODEL = os.getenv("NEBIUS_MODEL", "google/gemma-3-27b-it")
 
+# Hard timeout (seconds) for every LLM HTTP call so a hung provider connection
+# is bounded instead of wedging the request. Overridable via LLM_TIMEOUT.
+LLM_TIMEOUT = float(os.getenv("LLM_TIMEOUT", "20"))
+
 MEDICAL_RULES_PROMPT = """
 Evaluate the clinical note against billed ICD-10 and CPT codes using these denial rules:
 
@@ -92,7 +96,7 @@ def _nebius_client() -> Optional[OpenAI]:
     key = os.getenv("NEBIUS_API_KEY")
     if not key:
         return None
-    return OpenAI(base_url=NEBIUS_BASE_URL, api_key=key)
+    return OpenAI(base_url=NEBIUS_BASE_URL, api_key=key, timeout=LLM_TIMEOUT)
 
 
 def _groq_llm(temperature: float = 0.18):
@@ -104,6 +108,8 @@ def _groq_llm(temperature: float = 0.18):
         temperature=temperature,
         max_tokens=1700,
         api_key=api_key,
+        timeout=LLM_TIMEOUT,
+        max_retries=1,
     )
 
 
