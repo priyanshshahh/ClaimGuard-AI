@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 import os
 import uvicorn
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -196,7 +196,8 @@ def _enrich_queue_claim(claim: dict) -> dict:
 @app.get("/api/priority-queue")
 async def get_priority_queue(
     mode: str = "expected_loss",
-    capacity: int = DEFAULT_AUDITOR_CAPACITY,
+    # Bounded: capacity drives an O(n*capacity) DP table in the knapsack solver.
+    capacity: int = Query(DEFAULT_AUDITOR_CAPACITY, ge=1, le=1000),
     knapsack: bool = True,
 ):
     active = list_claims()
