@@ -152,40 +152,6 @@ def list_claims() -> List[Dict[str, Any]]:
     return records
 
 
-def query_priority_queue(
-    mode: str = "expected_loss",
-    limit: int = 15,
-    claim_ids: Optional[List[str]] = None,
-) -> List[Dict[str, Any]]:
-    con = _connect()
-    order = (
-        "cash_flow_urgency DESC"
-        if mode == "treasury"
-        else "expected_loss_usd DESC"
-    )
-    if claim_ids:
-        placeholders = ", ".join(["?"] * len(claim_ids))
-        sql = f"""
-            SELECT * FROM claims
-            WHERE claim_id IN ({placeholders})
-            ORDER BY {order}
-            LIMIT ?
-        """
-        rows = con.execute(sql, claim_ids + [limit]).fetchdf()
-    else:
-        rows = con.execute(
-            f"SELECT * FROM claims ORDER BY {order} LIMIT ?", [limit]
-        ).fetchdf()
-    con.close()
-    if rows.empty:
-        return []
-    records = rows.to_dict(orient="records")
-    for r in records:
-        r["missing_elements"] = json.loads(r["missing_elements"] or "[]")
-        r["predicted_denial_codes"] = json.loads(r["predicted_denial_codes"] or "[]")
-    return records
-
-
 def get_executive_metrics() -> Dict[str, Any]:
     con = _connect()
     count = con.execute(

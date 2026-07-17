@@ -38,7 +38,7 @@ ClaimGuard-AI/
 │   └── PROJECT-NOTES.md         Engineering log for the real-model rebuild
 ├── .github/workflows/ci.yml   Backend (ruff + pytest) and frontend (npm build) jobs
 ├── docker-compose.yml          backend (built image) + frontend (node:20-slim dev server)
-├── .env.example                 Single source of truth for every env var (backend + training + frontend)
+├── .env.example                 Frontend env var (NEXT_PUBLIC_API_URL); backend/training vars live in backend/.env.example
 ├── README.md                    Model card, honest limitations, quickstart
 ├── PROJECT_WRITEUP.md           Original hackathon submission doc (superseded by README; kept for history)
 └── wandb/                      Local offline W&B run directory from a past training run (gitignored)
@@ -165,9 +165,11 @@ as a separate field (`model_base_probability` vs. `denial_probability`).
 | `WANDB_MODE` | `scripts/train.py` | unset | Set to `disabled` to turn off tracking entirely; set to anything to override the offline default |
 | `NEXT_PUBLIC_API_URL` | `frontend/lib/api.ts` | `http://localhost:8000` | Backend base URL the frontend fetches against; the only frontend env var, and the only one Next.js will ever expose to client-side code |
 
-There is one `.env.example` at the repo root covering all three surfaces
-(backend, training, frontend); `backend/.env.example` is a smaller duplicate
-with only the LLM keys (see CODE-AUDIT.md).
+Env vars are split into a coherent pair with no overlap: the repo-root
+`.env.example` holds only the frontend var (`NEXT_PUBLIC_API_URL`), and
+`backend/.env.example` holds the backend + training vars (LLM keys,
+`LLM_TIMEOUT`, CORS, `DUCKDB_PATH`, `MODELS_DIR`, W&B). `NEBIUS_BASE_URL` is a
+constant in `agent.py`, not an env var, so it is no longer documented as one.
 
 ## Test layout (`backend/tests/`, 62 tests)
 

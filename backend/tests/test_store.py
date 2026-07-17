@@ -30,21 +30,6 @@ def test_clear_claims(sample_claim):
     assert store.list_claims() == []
 
 
-def test_priority_queue_orders_by_expected_loss(sample_claim):
-    store.upsert_claim(sample_claim | {"claim_id": "LOW", "expected_loss_usd": 100})
-    store.upsert_claim(sample_claim | {"claim_id": "HIGH", "expected_loss_usd": 9000})
-    store.upsert_claim(sample_claim | {"claim_id": "MID", "expected_loss_usd": 4000})
-    queue = store.query_priority_queue(mode="expected_loss", limit=2)
-    assert [c["claim_id"] for c in queue] == ["HIGH", "MID"]
-
-
-def test_priority_queue_treasury_mode(sample_claim):
-    store.upsert_claim(sample_claim | {"claim_id": "SLOW", "cash_flow_urgency": 999.0})
-    store.upsert_claim(sample_claim | {"claim_id": "FAST", "cash_flow_urgency": 1.0})
-    queue = store.query_priority_queue(mode="treasury", limit=5)
-    assert queue[0]["claim_id"] == "SLOW"
-
-
 def test_executive_metrics_aggregates(sample_claim):
     store.upsert_claim(sample_claim | {"claim_id": "A", "risk_level": "HIGH"})
     store.upsert_claim(sample_claim | {"claim_id": "B"})

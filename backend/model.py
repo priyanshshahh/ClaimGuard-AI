@@ -38,10 +38,6 @@ PROB_CAP = 0.97
 _cache: dict = {}
 
 
-class ModelNotAvailableError(RuntimeError):
-    """Raised when trained artifacts are missing; run scripts/train.py."""
-
-
 def load_model() -> Tuple[object, object, dict]:
     """Load and cache (model, calibrator, feature_maps)."""
     if "model" not in _cache:
@@ -49,17 +45,13 @@ def load_model() -> Tuple[object, object, dict]:
         cal_path = os.path.join(MODELS_DIR, "calibrator.joblib")
         maps_path = os.path.join(MODELS_DIR, "feature_maps.json")
         if not (os.path.exists(model_path) and os.path.exists(maps_path)):
-            raise ModelNotAvailableError(
+            raise RuntimeError(
                 f"Model artifacts not found in {MODELS_DIR}. Run: python scripts/train.py"
             )
         _cache["model"] = joblib.load(model_path)
         _cache["calibrator"] = joblib.load(cal_path) if os.path.exists(cal_path) else None
         _cache["maps"] = load_feature_maps(maps_path)
     return _cache["model"], _cache["calibrator"], _cache["maps"]
-
-
-def clear_model_cache() -> None:
-    _cache.clear()
 
 
 def get_model_metrics() -> Optional[dict]:

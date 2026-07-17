@@ -85,19 +85,17 @@ def test_scrub_applied_before_llm(monkeypatch):
 
     captured = {}
 
-    def fake_langchain(notes, icd, cpt):
-        captured["notes"] = notes
+    def fake_call_llm(system, user, model_cls, fallback, temperature=0.2):
+        captured["user"] = user
         return {"documentation_complete": 1}
 
-    monkeypatch.setenv("GROQ_API_KEY", "test-key")
-    monkeypatch.setattr(agent_mod, "_nebius_client", lambda: None)
-    monkeypatch.setattr(agent_mod, "_parse_clinical_langchain", fake_langchain)
+    monkeypatch.setattr(agent_mod, "_call_llm", fake_call_llm)
     agent_mod.analyze_clinical_notes(
         notes="Patient: John Smith, DOB: 01/02/1958, MRN: 445566. Chest pain.",
         icd_code="I25.10",
         cpt_code="93458",
     )
-    assert "John Smith" not in captured["notes"]
-    assert "01/02/1958" not in captured["notes"]
-    assert "445566" not in captured["notes"]
-    assert "Chest pain" in captured["notes"]
+    assert "John Smith" not in captured["user"]
+    assert "01/02/1958" not in captured["user"]
+    assert "445566" not in captured["user"]
+    assert "Chest pain" in captured["user"]

@@ -126,7 +126,6 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
         documentation_complete=doc,
         clinical_justification_present=justification,
         procedure_mismatch_flag=mismatch,
-        procedure_mismatch=mismatch,
         agent_correction_draft=agent_result.get("agent_correction_draft", ""),
         explanation=agent_result.get(
             "explanation",

@@ -11,7 +11,6 @@ interface AnalysisResult {
   documentation_complete: number;
   clinical_justification_present?: number;
   procedure_mismatch_flag?: number;
-  procedure_mismatch: number;
   agent_correction_draft: string;
   explanation: string;
   confidence: number;

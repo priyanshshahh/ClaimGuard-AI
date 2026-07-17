@@ -28,7 +28,6 @@ class ClaimAnalysisResponse(BaseModel):
     documentation_complete: int
     clinical_justification_present: int = 1
     procedure_mismatch_flag: int = 0
-    procedure_mismatch: int = 0  # backward compat alias
     agent_correction_draft: str
     explanation: str
     recommended_action: str

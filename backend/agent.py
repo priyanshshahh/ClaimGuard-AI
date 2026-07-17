@@ -4,8 +4,7 @@ import re
 from typing import Dict, List, Optional
 
 from dotenv import load_dotenv
-from langchain_core.output_parsers import JsonOutputParser
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_groq import ChatGroq
 from openai import OpenAI
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -137,38 +136,27 @@ def _nebius_chat(system: str, user: str, temperature: float = 0.15) -> str:
     return response.choices[0].message.content or "{}"
 
 
-def _parse_clinical_strict(notes: str, icd_code: str, cpt_code: str) -> dict:
-    schema_hint = json.dumps(ClinicalAnalysis.model_json_schema())
-    system = (
-        "You are an elite medical billing compliance specialist. "
-        "Return ONLY valid JSON matching this schema exactly:\n"
-        f"{schema_hint}\n\n{MEDICAL_RULES_PROMPT}"
-    )
-    user = f"Notes: {notes}\nICD-10: {icd_code}\nCPT: {cpt_code}\n\nAnalyze denial risk."
-    raw = _nebius_chat(system, user)
-    validated = ClinicalAnalysis.model_validate(_extract_json(raw))
-    return validated.model_dump()
-
-
-def _parse_clinical_langchain(notes: str, icd_code: str, cpt_code: str) -> dict:
-    llm = _groq_llm()
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                "You are an elite medical billing compliance specialist.\n"
-                + MEDICAL_RULES_PROMPT
-                + "\nReturn ONLY valid JSON with keys: documentation_complete, "
-                "clinical_justification_present, procedure_mismatch_flag, "
-                "agent_correction_draft, explanation, confidence, missing_elements, "
-                "predicted_denial_codes",
-            ),
-            ("human", "Notes: {notes}\nICD: {icd_code}\nCPT: {cpt_code}\n\nReturn analysis."),
-        ]
-    )
-    chain = prompt | llm | JsonOutputParser(pydantic_object=ClinicalAnalysis)
-    result = chain.invoke({"notes": notes, "icd_code": icd_code, "cpt_code": cpt_code})
-    return ClinicalAnalysis.model_validate(result).model_dump()
+def _call_llm(system: str, user: str, model_cls, fallback: dict, temperature: float = 0.2) -> dict:
+    """Single LLM path for every task: try Nebius (strict JSON) first, then
+    Groq, validating the response against ``model_cls``. Returns the documented
+    ``fallback`` dict if both providers are unset or fail. Replaces the six
+    near-identical provider call sites that used to live in this module.
+    """
+    if _nebius_client():
+        try:
+            raw = _nebius_chat(system, user, temperature)
+            return model_cls.model_validate(_extract_json(raw)).model_dump()
+        except Exception:
+            pass
+    if os.getenv("GROQ_API_KEY"):
+        try:
+            resp = _groq_llm(temperature).invoke(
+                [SystemMessage(content=system), HumanMessage(content=user)]
+            )
+            return model_cls.model_validate(_extract_json(resp.content)).model_dump()
+        except Exception:
+            pass
+    return dict(fallback)
 
 
 def _fallback_clinical() -> dict:
@@ -189,22 +177,14 @@ def _fallback_clinical() -> dict:
 def analyze_clinical_notes(notes: str, icd_code: str, cpt_code: str) -> dict:
     # De-identify before any third-party LLM call (see deidentify.py limitations).
     notes = scrub_phi(notes)
-    if _nebius_client():
-        try:
-            return _parse_clinical_strict(notes, icd_code, cpt_code)
-        except Exception:
-            pass
-    if os.getenv("GROQ_API_KEY"):
-        try:
-            return _parse_clinical_langchain(notes, icd_code, cpt_code)
-        except Exception:
-            pass
-    return _fallback_clinical()
-
-
-def _nebius_json_task(system: str, user: str, model_cls, temperature: float = 0.2) -> dict:
-    raw = _nebius_chat(system, user, temperature)
-    return model_cls.model_validate(_extract_json(raw)).model_dump()
+    schema_hint = json.dumps(ClinicalAnalysis.model_json_schema())
+    system = (
+        "You are an elite medical billing compliance specialist. "
+        "Return ONLY valid JSON matching this schema exactly:\n"
+        f"{schema_hint}\n\n{MEDICAL_RULES_PROMPT}"
+    )
+    user = f"Notes: {notes}\nICD-10: {icd_code}\nCPT: {cpt_code}\n\nAnalyze denial risk."
+    return _call_llm(system, user, ClinicalAnalysis, _fallback_clinical(), 0.15)
 
 
 def generate_appeal_letter(
@@ -212,33 +192,29 @@ def generate_appeal_letter(
 ) -> dict:
     system = (
         "You are a healthcare appeals attorney. Return ONLY JSON with keys: "
-        "subject, body, recommended_attachments (array)."
+        "subject, body, recommended_attachments (array). Ground the appeal in the "
+        "clinical note: quote the exact supporting passage(s) verbatim in the body, "
+        "and explicitly name and rebut the denial reason code you were given."
     )
+    note_excerpt = scrub_phi(claim_data.get("patient_chart_notes", ""))[:900]
     user = (
         f"Claim: {claim_data.get('claim_id')} | Payer: {claim_data.get('payer_id')} | "
         f"${claim_data.get('claim_value_usd')}\nICD: {claim_data.get('icd_10_code')} "
-        f"CPT: {claim_data.get('cpt_code')}\nNotes: {scrub_phi(claim_data.get('patient_chart_notes', ''))[:900]}\n"
-        f"Risk: {original_analysis.get('explanation', '')}\nDenial: {denial_reason}"
+        f"CPT: {claim_data.get('cpt_code')}\nClinical note (quote from this verbatim): "
+        f"{note_excerpt}\n"
+        f"Risk: {original_analysis.get('explanation', '')}\n"
+        f"Denial reason / CARC to rebut: {denial_reason}"
     )
-    if _nebius_client():
-        try:
-            return _nebius_json_task(system, user, AppealLetter, 0.22)
-        except Exception:
-            pass
-    try:
-        llm = _groq_llm(0.22)
-        chain = (
-            ChatPromptTemplate.from_messages([("system", system), ("human", "{user}")])
-            | llm
-            | JsonOutputParser(pydantic_object=AppealLetter)
-        )
-        return chain.invoke({"user": user})
-    except Exception:
-        return {
-            "subject": f"Request for Reconsideration - Claim {claim_data.get('claim_id')}",
-            "body": "We respectfully request reconsideration based on documented medical necessity.",
-            "recommended_attachments": ["Clinical notes", "Imaging", "Physician attestation"],
-        }
+    fallback = {
+        "subject": f"Request for Reconsideration - Claim {claim_data.get('claim_id')}",
+        "body": (
+            "We respectfully request reconsideration based on documented medical "
+            f"necessity, rebutting {denial_reason}. Supporting note excerpt: "
+            f"\"{note_excerpt[:300]}\""
+        ),
+        "recommended_attachments": ["Clinical notes", "Imaging", "Physician attestation"],
+    }
+    return _call_llm(system, user, AppealLetter, fallback, 0.22)
 
 
 def check_payer_policy(notes: str, icd_code: str, cpt_code: str, payer_id: str) -> dict:
@@ -248,24 +224,11 @@ def check_payer_policy(notes: str, icd_code: str, cpt_code: str, payer_id: str) 
         "risk_summary, required_documentation (array)."
     )
     user = f"Payer: {payer_id}\nICD: {icd_code} CPT: {cpt_code}\nNotes: {scrub_phi(notes)[:700]}"
-    if _nebius_client():
-        try:
-            return _nebius_json_task(system, user, PolicyCheckResult, 0.1)
-        except Exception:
-            pass
-    try:
-        llm = _groq_llm(0.1)
-        chain = (
-            ChatPromptTemplate.from_messages([("system", system), ("human", "{user}")])
-            | llm
-            | JsonOutputParser(pydantic_object=PolicyCheckResult)
-        )
-        return chain.invoke({"user": user})
-    except Exception:
-        return {
-            "payer": payer_id,
-            "policy_reference": f"{payer_id} Medical Necessity Guidelines",
-            "compliance_status": "NEEDS_CLARIFICATION",
-            "risk_summary": "Additional documentation recommended.",
-            "required_documentation": ["Visit time documentation", "Medical necessity statement"],
-        }
+    fallback = {
+        "payer": payer_id,
+        "policy_reference": f"{payer_id} Medical Necessity Guidelines",
+        "compliance_status": "NEEDS_CLARIFICATION",
+        "risk_summary": "Additional documentation recommended.",
+        "required_documentation": ["Visit time documentation", "Medical necessity statement"],
+    }
+    return _call_llm(system, user, PolicyCheckResult, fallback, 0.1)

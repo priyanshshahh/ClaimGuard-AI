@@ -57,10 +57,11 @@ Deterministic seed, artifacts written to `backend/models/` (model, calibrator, f
 # Backend (Python 3.12)
 python -m venv .venv && source .venv/bin/activate
 pip install -r backend/requirements.txt
-cp .env.example backend/.env        # GROQ_API_KEY optional; scoring works without it
+cp backend/.env.example backend/.env   # GROQ_API_KEY optional; scoring works without it
 cd backend && uvicorn main:app --reload
 
 # Frontend
+cp .env.example frontend/.env.local    # NEXT_PUBLIC_API_URL (defaults to :8000)
 cd frontend && npm install && npm run dev   # http://localhost:3000/dashboard
 ```
 
