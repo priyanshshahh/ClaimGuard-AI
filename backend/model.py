@@ -21,7 +21,22 @@ from typing import Optional, Tuple
 
 import joblib
 
-from features import build_serving_row, load_feature_maps
+import xgboost as xgb
+
+from features import FEATURE_COLUMNS, build_serving_row, load_feature_maps
+
+# Plain-language labels for the 9 model features, for per-claim explanations.
+FEATURE_LABELS = {
+    "part_idx": "Medicare part",
+    "hcpcs_first_idx": "Procedure-code family",
+    "has_drg": "DRG present on claim",
+    "tob_present": "Type-of-bill present",
+    "hcpcs_rate": "Historical improper-payment rate for this procedure code",
+    "provider_rate": "Historical improper-payment rate for this provider type",
+    "tob_rate": "Historical improper-payment rate for this type of bill",
+    "part_rate": "Historical improper-payment rate for this Medicare part",
+    "hcpcs_freq_log": "How frequently this procedure code appears in CERT",
+}
 
 MODELS_DIR = os.getenv("MODELS_DIR", os.path.join(os.path.dirname(__file__), "models"))
 
@@ -83,6 +98,46 @@ def predict_base_probability(
     if calibrator is not None:
         raw = float(calibrator.predict([raw])[0])
     return max(min(raw, 1.0), 0.0)
+
+
+def explain_claim(
+    cpt_code: str,
+    part: str = "1. Part B",
+    provider_type: str = "",
+    type_of_bill: str = "",
+    drg: str = "",
+    top_n: int = 5,
+) -> list[dict]:
+    """Per-claim top feature contributions using XGBoost's native SHAP-style
+    `pred_contribs` (no extra dependency). Contributions are in log-odds/margin
+    space; we return the top-N by magnitude with a plain-language label and
+    direction. This explains the model's base probability only — the agent
+    documentation uplift is a separate, already-visible business rule."""
+    model, _, maps = load_model()
+    row = build_serving_row(
+        maps,
+        hcpcs=cpt_code,
+        part=part,
+        provider_type=provider_type,
+        type_of_bill=type_of_bill,
+        drg=drg,
+    )
+    booster = model.get_booster()
+    contribs = booster.predict(xgb.DMatrix(row), pred_contribs=True)[0]
+    # last entry is the bias term; drop it
+    feature_contribs = list(zip(FEATURE_COLUMNS, contribs[:-1]))
+    feature_contribs.sort(key=lambda kv: abs(kv[1]), reverse=True)
+    drivers = []
+    for name, value in feature_contribs[:top_n]:
+        drivers.append(
+            {
+                "feature": name,
+                "label": FEATURE_LABELS.get(name, name),
+                "contribution": round(float(value), 4),
+                "direction": "increases" if value >= 0 else "decreases",
+            }
+        )
+    return drivers
 
 
 def adjust_for_agent_findings(

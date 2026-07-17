@@ -16,8 +16,10 @@ from duckdb_store import (
     resolve_claim,
     upsert_claim,
 )
+from carc import attach_carc, map_findings_to_carc
 from model import (
     adjust_for_agent_findings,
+    explain_claim,
     get_model_metrics,
     load_model,
     predict_base_probability,
@@ -27,6 +29,7 @@ from optimizer import (
     PAYER_PAYMENT_SPEED,
     calculate_cash_flow_urgency,
     calculate_expected_loss,
+    calculate_expected_recovery,
     get_risk_level,
     prioritize_claims,
 )
@@ -111,10 +114,18 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
     )
     risk_level = get_risk_level(denial_prob)
     expected_loss = calculate_expected_loss(claim.claim_value_usd, denial_prob)
+    expected_recovery = calculate_expected_recovery(claim.claim_value_usd, denial_prob)
     payer_days = PAYER_PAYMENT_SPEED.get(claim.payer_id, 35)
     cash_urgency = calculate_cash_flow_urgency(
         claim.claim_value_usd, denial_prob, claim.payer_id
     )
+    carc_reasons = map_findings_to_carc(doc, justification, mismatch)
+    carc_primary = carc_reasons[0] if carc_reasons else None
+    try:
+        drivers = explain_claim(claim.cpt_code)
+    except Exception as e:
+        print(f"Driver explanation unavailable: {e}")
+        drivers = []
 
     response = ClaimAnalysisResponse(
         claim_id=claim.claim_id,
@@ -141,6 +152,12 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
         predicted_denial_codes=agent_result.get("predicted_denial_codes", []),
         payer_days_to_pay=payer_days,
         cash_flow_urgency=cash_urgency,
+        expected_recovery_usd=expected_recovery,
+        carc_code=carc_primary["carc_code"] if carc_primary else None,
+        carc_group=carc_primary["group_code"] if carc_primary else None,
+        cert_category=carc_primary["cert_category"] if carc_primary else None,
+        carc_reasons=carc_reasons,
+        top_drivers=drivers,
         is_demo=is_demo,
     )
 
@@ -165,6 +182,17 @@ async def analyze_claim(claim: ClaimInput):
     return await run_in_threadpool(_analyze_and_store, claim, False)
 
 
+def _enrich_queue_claim(claim: dict) -> dict:
+    """Add derived CARC codes + top model drivers to a stored claim on read."""
+    attach_carc(claim)
+    if not claim.get("top_drivers"):
+        try:
+            claim["top_drivers"] = explain_claim(str(claim.get("cpt_code", "")))
+        except Exception:
+            claim["top_drivers"] = []
+    return claim
+
+
 @app.get("/api/priority-queue")
 async def get_priority_queue(
     mode: str = "expected_loss",
@@ -181,7 +209,7 @@ async def get_priority_queue(
         capacity=capacity if knapsack else None,
     )
     return {
-        "claims": prioritized[:15],
+        "claims": [_enrich_queue_claim(c) for c in prioritized[:15]],
         "mode": mode,
         "auditor_capacity": capacity,
         "knapsack_optimized": knapsack,
@@ -415,7 +443,7 @@ async def treasury_priority():
         return {"claims": [], "mode": "treasury"}
     prioritized = prioritize_claims([dict(c) for c in active], mode="treasury")
     return {
-        "claims": prioritized[:12],
+        "claims": [_enrich_queue_claim(c) for c in prioritized[:12]],
         "mode": "treasury",
         "description": "Prioritized by risk + payer payment speed (cash flow urgency)",
     }

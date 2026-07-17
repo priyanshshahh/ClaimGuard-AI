@@ -1,3 +1,4 @@
+import os
 from typing import Dict, List
 
 PAYER_PAYMENT_SPEED = {
@@ -10,9 +11,27 @@ PAYER_PAYMENT_SPEED = {
 
 DEFAULT_AUDITOR_CAPACITY = 8
 
+# ASSUMPTION (not a measured ClaimGuard outcome): the share of denied claims
+# that are overturned on appeal / rework. Industry figures commonly land in the
+# 40-60% range (e.g. KFF analyses of ACA-marketplace internal appeals found
+# roughly half of appealed denials overturned). We use a mid-range 0.5 as a
+# documented, tunable assumption via OVERTURN_RATE; expected *recovery* dollars
+# = billed value x denial probability x this rate. It is labeled as an
+# assumption everywhere it is surfaced.
+ASSUMED_OVERTURN_RATE = float(os.getenv("OVERTURN_RATE", "0.5"))
+
 
 def calculate_expected_loss(claim_value: float, denial_prob: float) -> float:
     return round(claim_value * denial_prob, 2)
+
+
+def calculate_expected_recovery(
+    claim_value: float, denial_prob: float, overturn_rate: float = ASSUMED_OVERTURN_RATE
+) -> float:
+    """Expected *recoverable* dollars from working a claim:
+    billed value x P(denial) x P(overturn on appeal). The overturn rate is a
+    documented assumption (see ASSUMED_OVERTURN_RATE), not a measured result."""
+    return round(claim_value * denial_prob * overturn_rate, 2)
 
 
 def calculate_cash_flow_urgency(
@@ -72,6 +91,9 @@ def prioritize_claims(
         claim["expected_loss_usd"] = calculate_expected_loss(
             claim["claim_value_usd"], claim["denial_probability"]
         )
+        claim["expected_recovery_usd"] = calculate_expected_recovery(
+            claim["claim_value_usd"], claim["denial_probability"]
+        )
         payer = claim.get("payer_id", "UHC")
         claim["cash_flow_urgency"] = calculate_cash_flow_urgency(
             claim["claim_value_usd"], claim["denial_probability"], payer
@@ -81,6 +103,10 @@ def prioritize_claims(
     if mode == "treasury":
         sorted_claims = sorted(
             claims, key=lambda x: x.get("cash_flow_urgency", 0), reverse=True
+        )
+    elif mode == "expected_recovery":
+        sorted_claims = sorted(
+            claims, key=lambda x: x.get("expected_recovery_usd", 0), reverse=True
         )
     else:
         sorted_claims = sorted(

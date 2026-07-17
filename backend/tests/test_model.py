@@ -3,8 +3,10 @@
 import pytest
 
 from model import (
+    FEATURE_LABELS,
     PROB_CAP,
     adjust_for_agent_findings,
+    explain_claim,
     get_model_metrics,
     load_model,
     predict_base_probability,
@@ -49,6 +51,17 @@ def test_predict_denial_probability_entry_point():
     )
     assert 0 <= p_clean <= 1
     assert p_flagged == pytest.approx(p_clean + 0.15, abs=1e-6)
+
+
+def test_explain_claim_returns_ranked_plain_language_drivers():
+    drivers = explain_claim("99214", top_n=5)
+    assert 1 <= len(drivers) <= 5
+    # returned in descending magnitude order
+    mags = [abs(d["contribution"]) for d in drivers]
+    assert mags == sorted(mags, reverse=True)
+    for d in drivers:
+        assert d["direction"] in ("increases", "decreases")
+        assert d["label"] == FEATURE_LABELS[d["feature"]]
 
 
 def test_metrics_json_reports_real_run():

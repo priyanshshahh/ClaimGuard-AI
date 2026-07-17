@@ -1,9 +1,11 @@
 """Property tests for the expected-loss math and knapsack selection."""
 
 from optimizer import (
+    ASSUMED_OVERTURN_RATE,
     bounded_knapsack_select,
     calculate_cash_flow_urgency,
     calculate_expected_loss,
+    calculate_expected_recovery,
     get_risk_level,
     prioritize_claims,
 )
@@ -21,6 +23,24 @@ def _claim(cid, value, prob, weight=1):
 def test_expected_loss_is_value_times_probability():
     assert calculate_expected_loss(10000, 0.25) == 2500.0
     assert calculate_expected_loss(0, 0.9) == 0.0
+
+
+def test_expected_recovery_applies_overturn_rate():
+    assert calculate_expected_recovery(10000, 0.5, overturn_rate=0.5) == 2500.0
+    # default uses the documented assumption
+    assert calculate_expected_recovery(10000, 0.5) == round(
+        10000 * 0.5 * ASSUMED_OVERTURN_RATE, 2
+    )
+
+
+def test_prioritize_sets_expected_recovery_and_orders_by_it():
+    claims = [
+        _claim("small", 1000, 0.5),   # recovery 250
+        _claim("big", 40000, 0.5),    # recovery 10000
+    ]
+    out = prioritize_claims(claims, mode="expected_recovery")
+    assert out[0]["claim_id"] == "big"
+    assert all("expected_recovery_usd" in c for c in out)
 
 
 def test_cash_flow_urgency_higher_for_slower_payers():

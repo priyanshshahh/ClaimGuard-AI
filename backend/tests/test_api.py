@@ -55,6 +55,29 @@ def test_analyze_claim_returns_model_and_uplift(client):
     )
 
 
+def test_analyze_claim_surfaces_carc_recovery_and_drivers(client):
+    # AGENT_RESULT flags documentation_complete=0 -> CARC 16 (CO)
+    body = client.post("/api/analyze-claim", json=CLAIM).json()
+    assert body["carc_code"] == "16"
+    assert body["carc_group"] == "CO"
+    assert body["carc_reasons"][0]["rarc_code"] == "N706"
+    # expected recovery = value x denial_prob x overturn assumption (<= expected loss)
+    assert 0 < body["expected_recovery_usd"] <= body["expected_loss_usd"]
+    assert len(body["top_drivers"]) >= 1
+    assert body["top_drivers"][0]["direction"] in ("increases", "decreases")
+
+
+def test_priority_queue_expected_recovery_mode(client):
+    client.post("/api/analyze-claim", json=CLAIM)
+    client.post("/api/analyze-claim", json=CLAIM | {"claim_id": "BIG", "claim_value_usd": 90000})
+    r = client.get("/api/priority-queue?mode=expected_recovery&knapsack=false")
+    claims = r.json()["claims"]
+    assert claims[0]["claim_id"] == "BIG"
+    # queue claims are enriched with derived CARC + drivers on read
+    assert claims[0]["carc_code"] == "16"
+    assert len(claims[0]["top_drivers"]) >= 1
+
+
 def test_analyze_claim_validation_rejects_short_notes(client):
     bad = CLAIM | {"patient_chart_notes": "too short"}
     assert client.post("/api/analyze-claim", json=bad).status_code == 422

@@ -36,7 +36,16 @@ class ClaimAnalysisResponse(BaseModel):
     predicted_denial_codes: List[str] = []
     payer_days_to_pay: int = 35
     cash_flow_urgency: float = 0.0
+    # billed x P(denial) x assumed overturn rate (documented assumption)
+    expected_recovery_usd: float = 0.0
     knapsack_selected: Optional[bool] = None
     # calibrated model output before the documented heuristic uplift
     model_base_probability: Optional[float] = None
+    # derived CARC/RARC denial-reason mapping (see carc.py)
+    carc_code: Optional[str] = None
+    carc_group: Optional[str] = None
+    cert_category: Optional[str] = None
+    carc_reasons: list = []
+    # top model feature contributions (xgboost pred_contribs)
+    top_drivers: list = []
     is_demo: bool = False
