@@ -17,7 +17,7 @@ ClaimGuard-AI/
 │   ├── duckdb_store.py         DuckDB schema + CRUD/query for the claims table (the only store)
 │   ├── schemas.py              Pydantic request/response models for the API
 │   ├── models/                 Committed training artifacts (model, calibrator, feature maps, metrics.json)
-│   ├── tests/                  62 pytest tests (see "Test layout" below)
+│   ├── tests/                  76 pytest tests (see "Test layout" below)
 │   ├── requirements.txt
 │   └── Dockerfile
 ├── scripts/
@@ -31,7 +31,7 @@ ClaimGuard-AI/
 │   ├── app/studio/                "Agent Studio": live note → agent analysis, policy check, appeal draft
 │   ├── app/reports/               Charts (Recharts), CSV/PDF export, local claim history
 │   ├── app/settings/               Client-only UI state (confidence slider, demo-mode toggle); nothing persists to the backend
-│   ├── app/components/             Sidebar, AppShell (layout/nav), NewClaimModal, MetricCard (unused)
+│   ├── app/components/             Sidebar, AppShell (layout/nav), NewClaimModal
 │   └── lib/api.ts                 API_URL constant, fetch wrapper, localStorage claim history helpers
 ├── data/cert/                 CERT CSVs downloaded by scripts/train.py (gitignored, empty until first run)
 ├── docs/
@@ -51,11 +51,12 @@ ClaimGuard-AI/
 ```mermaid
 flowchart TD
     A["ClaimInput\n(claim_id, value, payer, ICD-10, CPT, notes)"] --> B["deidentify.scrub_phi(notes)"]
-    B --> C{"NEBIUS_API_KEY set?"}
-    C -- yes --> D["agent._parse_clinical_strict\n(OpenAI client → Nebius, strict JSON schema)"]
+    B --> Z["agent.analyze_clinical_notes\n→ agent._call_llm(system, user, schema, fallback)"]
+    Z --> C{"NEBIUS_API_KEY set?"}
+    C -- yes --> D["Nebius (OpenAI client, strict JSON)"]
     C -- no --> E{"GROQ_API_KEY set?"}
-    E -- yes --> F["agent._parse_clinical_langchain\n(ChatGroq + LangChain JsonOutputParser)"]
-    E -- no --> G["agent._fallback_clinical()\ncanned response"]
+    E -- yes --> F["Groq (ChatGroq.invoke, JSON parsed)"]
+    E -- no --> G["_fallback_clinical()\ncanned response"]
     D -- exception --> E
     F -- exception --> G
 
@@ -93,10 +94,12 @@ duckdb_store.list_claims()  →  optimizer.prioritize_claims(mode, capacity)
                              →  top N claims, `knapsack_selected` flag set
 ```
 
-Note: `duckdb_store.query_priority_queue` implements the same ordering as a
-SQL query (`ORDER BY expected_loss_usd/cash_flow_urgency DESC`) but is never
-called from `main.py` — the API always goes through the Python path in
-`optimizer.py`. See CODE-AUDIT.md.
+The queue is ordered entirely in Python (`optimizer.prioritize_claims`) with
+modes `expected_loss`, `expected_recovery` (billed × P(denial) × assumed
+overturn rate), and `treasury` (cash-flow urgency). Each returned claim is then
+enriched on read with its derived CARC/RARC code (`carc.attach_carc`) and top
+model drivers (`model.explain_claim`). The old redundant SQL-side
+`query_priority_queue` was removed in the campaign-3 cleanup.
 
 ### 3. Training pipeline (`scripts/train.py`)
 
@@ -182,10 +185,11 @@ constant in `agent.py`, not an env var, so it is no longer documented as one.
 | `test_deidentify.py` | Each PHI pattern (SSN, phone, email, MRN, DOB/dates, names, address/ZIP), clinical-content preservation, empty/None safety |
 | `test_model.py` | Committed artifacts load, probability stays in `[0,1]`, unseen CPT codes fall back near the prior, uplift/cap behavior |
 | `test_optimizer.py` | Expected-loss arithmetic, cash-flow urgency ordering, risk-level thresholds, knapsack correctness (capacity, value-density, weighted, empty/zero-capacity edge cases) |
-| `test_store.py` | DuckDB upsert/get/replace round-trip, `is_demo` persistence, `query_priority_queue` ordering |
+| `test_store.py` | DuckDB upsert/get/replace round-trip, `is_demo` persistence, resolve-claim exclusion from worklist/metrics |
+| `test_carc.py` | Derived CARC/RARC mapping from agent findings (CARC 16/50/11, CO group, primary-reason priority) |
 | `test_training_pipeline.py` | Feature engineering and a tiny model trained end-to-end on a real 2000-row CERT fixture (`fixtures/cert_sample_2024.csv`), no network required |
 
-Run with `cd backend && pytest tests/ -q` (62 tests, all currently green per
+Run with `cd backend && pytest tests/ -q` (76 tests, all currently green per
 `docs/PROJECT-NOTES.md`). CI (`.github/workflows/ci.yml`) runs `ruff check`
 and this test suite on every push/PR to `main`/`real-model`, plus a separate
 job that runs `npm run build` for the frontend.

@@ -68,7 +68,7 @@ cd frontend && npm install && npm run dev   # http://localhost:3000/dashboard
 Or `docker compose up` for both.
 
 ```bash
-cd backend && pytest tests/ -q     # 62 tests
+cd backend && pytest tests/ -q     # 76 tests
 ```
 
 ## Stack
