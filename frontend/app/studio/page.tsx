@@ -218,15 +218,16 @@ export default function AgentStudio() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
             <textarea
+              aria-label="Clinical notes"
               value={notes}
               onChange={handleNotesChange}
-              className="w-full h-64 p-4 font-mono text-sm bg-[var(--bg)] border border-[var(--border)] rounded-2xl resize-y focus:outline-none focus:border-[var(--primary)]"
-              placeholder="Start typing clinical notes here..."
+              className="w-full h-64 p-4 font-mono text-sm bg-[var(--bg)] border border-[var(--border)] rounded-2xl resize-y focus-visible:border-[var(--primary)]"
+              placeholder="Start typing clinical notes here…"
             />
             <div className="flex gap-2 mt-3 text-xs items-center">
-              <input value={icd} onChange={e => setIcd(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl" />
-              <input value={cpt} onChange={e => setCpt(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl" />
-              <select value={payer} onChange={e => setPayer(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl">
+              <input aria-label="ICD-10 code" value={icd} onChange={e => setIcd(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl" />
+              <input aria-label="CPT code" value={cpt} onChange={e => setCpt(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl" />
+              <select aria-label="Payer" value={payer} onChange={e => setPayer(e.target.value)} className="px-3 py-1 bg-[var(--bg)] border border-[var(--border)] rounded-xl">
                 <option>AETNA</option><option>UHC</option><option>BCBS</option><option>MEDICARE</option><option>MEDICAID</option>
               </select>
 

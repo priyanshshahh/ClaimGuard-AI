@@ -68,42 +68,49 @@ export function NewClaimModal({ isOpen, onClose, onSuccess }: NewClaimModalProps
 
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-elevated)] rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-auto border border-[var(--border)]">
+      <div role="dialog" aria-modal="true" aria-labelledby="new-claim-title" className="bg-[var(--bg-elevated)] rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-auto border border-[var(--border)]">
         <div className="p-6 border-b border-[var(--border)] flex justify-between items-center">
           <div>
-            <h3 className="text-xl font-semibold">Analyze New Claim</h3>
+            <h3 id="new-claim-title" className="text-xl font-semibold">Analyze New Claim</h3>
             <p className="text-sm text-[var(--text-muted)]">Run full agentic + ML + policy analysis</p>
           </div>
-          <button onClick={onClose} className="text-2xl text-[var(--text-muted)] hover:text-[var(--text)]">×</button>
+          <button onClick={onClose} aria-label="Close dialog" className="text-2xl text-[var(--text-muted)] hover:text-[var(--text)]">×</button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CLAIM ID</label>
-              <input 
-                type="text" 
-                value={formData.claim_id} 
+              <label htmlFor="nc-claim-id" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CLAIM ID</label>
+              <input
+                id="nc-claim-id"
+                type="text"
+                name="claim_id"
+                value={formData.claim_id}
                 onChange={e => handleChange('claim_id', e.target.value)}
-                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm" 
+                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm"
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CLAIM VALUE (USD)</label>
-              <input 
-                type="number" 
-                value={formData.claim_value_usd} 
+              <label htmlFor="nc-claim-value" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CLAIM VALUE (USD)</label>
+              <input
+                id="nc-claim-value"
+                type="number"
+                name="claim_value_usd"
+                inputMode="decimal"
+                value={formData.claim_value_usd}
                 onChange={e => handleChange('claim_value_usd', parseFloat(e.target.value))}
-                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm" 
+                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">PAYER</label>
-              <select 
-                value={formData.payer_id} 
+              <label htmlFor="nc-payer" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">PAYER</label>
+              <select
+                id="nc-payer"
+                name="payer_id"
+                value={formData.payer_id}
                 onChange={e => handleChange('payer_id', e.target.value)}
                 className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm"
               >
@@ -115,33 +122,39 @@ export function NewClaimModal({ isOpen, onClose, onSuccess }: NewClaimModalProps
               </select>
             </div>
             <div>
-              <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">ICD-10 CODE</label>
-              <input 
-                type="text" 
-                value={formData.icd_10_code} 
+              <label htmlFor="nc-icd" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">ICD-10 CODE</label>
+              <input
+                id="nc-icd"
+                type="text"
+                name="icd_10_code"
+                value={formData.icd_10_code}
                 onChange={e => handleChange('icd_10_code', e.target.value)}
-                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm" 
+                className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm"
               />
             </div>
           </div>
 
           <div>
-            <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CPT CODE</label>
-            <input 
-              type="text" 
-              value={formData.cpt_code} 
+            <label htmlFor="nc-cpt" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">CPT CODE</label>
+            <input
+              id="nc-cpt"
+              type="text"
+              name="cpt_code"
+              value={formData.cpt_code}
               onChange={e => handleChange('cpt_code', e.target.value)}
-              className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm" 
+              className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-2.5 text-sm"
             />
           </div>
 
           <div>
-            <label className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">PHYSICIAN NOTES</label>
-            <textarea 
-              rows={5} 
-              value={formData.patient_chart_notes} 
+            <label htmlFor="nc-notes" className="text-xs font-medium text-[var(--text-muted)] block mb-1.5">PHYSICIAN NOTES</label>
+            <textarea
+              id="nc-notes"
+              name="patient_chart_notes"
+              rows={5}
+              value={formData.patient_chart_notes}
               onChange={e => handleChange('patient_chart_notes', e.target.value)}
-              className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-3 text-sm font-mono" 
+              className="w-full bg-[var(--bg)] border border-[var(--border)] rounded-2xl px-4 py-3 text-sm font-mono"
             />
           </div>
 

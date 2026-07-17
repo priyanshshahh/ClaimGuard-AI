@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
+
   /* Calm, trustworthy healthcare SaaS palette */
   --bg: #f8fafc;
   --bg-elevated: #ffffff;
@@ -29,6 +30,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --bg: #0f172a;
   --bg-elevated: #1e293b;
   --text: #f1f5f9;
@@ -49,6 +51,41 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-geist-sans);
+}
+
+/* Visible keyboard focus for every interactive element (none existed before). */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Honor reduced-motion: drop transforms/animations for users who ask. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card:hover,
+  .btn:hover,
+  button:active,
+  .btn:active {
+    transform: none !important;
+  }
 }
 
 /* Premium SaaS components */

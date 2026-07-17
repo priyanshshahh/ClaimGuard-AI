@@ -44,8 +44,40 @@ Chosen: **CMS Medicare FFS Comprehensive Error Rate Testing (CERT)**, report yea
 - Live Groq call: chest-pain note → valid `ClinicalAnalysis`, sensible CO-50 flag (surfaced bug #4).
 - Full training run on 860k lines: metrics in `backend/models/metrics.json` are from that run, nowhere else.
 
+## Campaign-3 rebuild (market-benchmark pass)
+
+Honesty fixes (audit-driven): removed the fabricated "+19% cash collections in
+our pilots" claim from the landing page and reports; relabeled the studio
+"Self-Heal" EHR retrieval as a simulation (matching Settings); killed the silent
+fake-claim fallback in queue/reports (now a real error/empty state); wired
+"Resolve & Protect" to a persisted `POST /api/resolve-claim` (adds a `resolved`
+flag). Blocking LLM calls now run via `run_in_threadpool` with an `LLM_TIMEOUT`.
+Six duplicated LLM call sites collapsed into one `_call_llm` helper; dead code
+removed (`query_priority_queue`, `clear_model_cache`, `ModelNotAvailableError`,
+`MetricCard.tsx`, duplicate `procedure_mismatch`); `.env.example` split into a
+clean pair (root = frontend, backend/ = backend + training).
+
+New capabilities (all grounded in real data / labeled assumptions):
+- **CARC/RARC mapping** (`carc.py`): derived crosswalk from CERT categories /
+  agent findings to X12 CARC + CMS RARC + CO/PR/PI/OA groups; surfaced on the
+  analyze response, queue, and studio, always labeled "derived mapping".
+- **Expected-recovery ranking** (`optimizer.py`): billed × P(denial) ×
+  `ASSUMED_OVERTURN_RATE` (0.5, documented 40–60% industry range, tunable via
+  `OVERTURN_RATE`); new queue sort mode + `$` shown in the UI.
+- **Model card page** (`/model-card`) served from `/api/model-info` — provenance,
+  held-out metrics, intended use, known limitations. No new numbers.
+- **Per-claim top drivers** via xgboost native `pred_contribs` (no shap dep),
+  plain-language labels, shown in claim detail.
+- **Evidence-cited appeals**: prompt quotes the note passage + CARC being
+  rebutted; UI shows a persistent "Draft — clinical review required" banner.
+
 ## Known gaps / next steps
 
+- **Drift dashboard (partial):** the Model Card ships a validation-vs-test
+  calibration-over-time curve (real, from `metrics.json`). A fuller drift page —
+  per-feature PSI and score-distribution shift across the 2021→2025 slices — is
+  the documented next step; it is computable from the committed splits but was
+  deferred to keep this pass scoped.
 - No payer-specific signal (CERT is Medicare-only); payer payment-speed table is illustrative.
 - Reliability above ~0.4 predicted degrades (few samples there); could pool years for the high-risk tail.
 - Scrubber should eventually be swapped for a NER-based de-id (e.g. Philter) before touching anything real.

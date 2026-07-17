@@ -311,12 +311,12 @@ export default function Reports() {
       {/* Claim History Modal */}
       {showHistory && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-          <div className="bg-[var(--bg-elevated)] rounded-3xl w-full max-w-4xl max-h-[80vh] overflow-auto border border-[var(--border)]">
+          <div role="dialog" aria-modal="true" aria-labelledby="history-title" className="bg-[var(--bg-elevated)] rounded-3xl w-full max-w-4xl max-h-[80vh] overflow-auto border border-[var(--border)]">
             <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-[var(--bg-elevated)]">
-              <h3 className="text-xl font-semibold">Claim History ({history.length})</h3>
+              <h3 id="history-title" className="text-xl font-semibold">Claim History ({history.length})</h3>
               <div className="flex gap-2">
                 <button onClick={clearHistory} className="text-sm text-red-500 hover:underline">Clear All</button>
-                <button onClick={() => setShowHistory(false)} className="text-xl">×</button>
+                <button onClick={() => setShowHistory(false)} aria-label="Close claim history" className="text-xl">×</button>
               </div>
             </div>
             <div className="p-6">

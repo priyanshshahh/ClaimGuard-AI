@@ -113,8 +113,8 @@ export default function LandingPage() {
       {/* Onboarding Modal */}
       {showOnboarding && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-4">
-          <div className="bg-[var(--bg-elevated)] rounded-3xl max-w-lg w-full p-8 border border-[var(--border)]">
-            <h2 className="text-2xl font-semibold mb-2">Welcome to ClaimGuard AI</h2>
+          <div role="dialog" aria-modal="true" aria-labelledby="onboarding-title" className="bg-[var(--bg-elevated)] rounded-3xl max-w-lg w-full p-8 border border-[var(--border)]">
+            <h2 id="onboarding-title" className="text-2xl font-semibold mb-2">Welcome to ClaimGuard AI</h2>
             <p className="text-[var(--text-muted)] mb-6">Here's how to get the most out of your demo in the next 60 seconds:</p>
             
             <ol className="space-y-4 text-sm mb-8">

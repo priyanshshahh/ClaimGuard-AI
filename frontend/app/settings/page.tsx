@@ -20,15 +20,17 @@ export default function Settings() {
 
       <div className="card p-8 space-y-8">
         <div>
-          <label className="block text-sm font-medium mb-2">Minimum Agent Confidence for Auto-Accept</label>
-          <input 
-            type="range" 
-            min="0.5" 
-            max="0.95" 
-            step="0.05" 
-            value={threshold} 
-            onChange={e => setThreshold(parseFloat(e.target.value))} 
-            className="w-full accent-[var(--primary)]" 
+          <label htmlFor="confidence-threshold" className="block text-sm font-medium mb-2">Minimum Agent Confidence for Auto-Accept</label>
+          <input
+            id="confidence-threshold"
+            type="range"
+            min="0.5"
+            max="0.95"
+            step="0.05"
+            value={threshold}
+            onChange={e => setThreshold(parseFloat(e.target.value))}
+            aria-valuetext={`${(threshold * 100).toFixed(0)}%`}
+            className="w-full accent-[var(--primary)]"
           />
           <div className="text-right text-sm font-mono mt-1">{(threshold * 100).toFixed(0)}%</div>
         </div>
@@ -38,8 +40,10 @@ export default function Settings() {
             <div className="font-medium">Demo Mode</div>
             <div className="text-sm text-[var(--text-muted)]">Use pre-seeded realistic health system data for presentations</div>
           </div>
-          <button 
+          <button
             onClick={() => { setDemoMode(!demoMode); toast.info(demoMode ? "Demo mode disabled" : "Demo mode enabled"); }}
+            aria-pressed={demoMode}
+            aria-label="Toggle demo mode"
             className={`px-4 py-1.5 rounded-2xl text-sm font-medium transition ${demoMode ? 'bg-[var(--accent)] text-white' : 'bg-[var(--bg)] border'}`}
           >
             {demoMode ? "Enabled" : "Disabled"}
