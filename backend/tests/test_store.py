@@ -62,3 +62,12 @@ def test_demo_flag_persisted(sample_claim):
     store.upsert_claim(sample_claim | {"claim_id": "DEMO-1", "is_demo": True})
     got = store.get_claim("DEMO-1")
     assert bool(got["is_demo"]) is True
+
+
+def test_clear_demo_claims_preserves_real(sample_claim):
+    store.upsert_claim(sample_claim | {"claim_id": "REAL-1", "is_demo": False})
+    store.upsert_claim(sample_claim | {"claim_id": "DEMO-1", "is_demo": True})
+    store.clear_demo_claims()
+    remaining = {c["claim_id"] for c in store.list_claims()}
+    assert remaining == {"REAL-1"}
+    assert store.get_claim("DEMO-1") is None

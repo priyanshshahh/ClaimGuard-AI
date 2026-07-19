@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "./components/AppShell";
+import { AuthProvider } from "../lib/auth-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ClaimGuard AI",
-  description: "Agentic Pre-Submission Revenue Protection Platform",
+  description:
+    "Pre-submission claim denial-risk engine trained on real CMS CERT audit data",
   icons: { icon: "/favicon.ico" },
 };
 
@@ -32,7 +34,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex bg-[var(--bg)] text-[var(--text)]">
-        <AppShell>{children}</AppShell>
+        <AuthProvider>
+          <AppShell>{children}</AppShell>
+        </AuthProvider>
       </body>
     </html>
   );

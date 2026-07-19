@@ -2,6 +2,10 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 
 
+class ResolveClaimRequest(BaseModel):
+    claim_id: str
+
+
 class PolicyCheckRequest(BaseModel):
     claim_id: Optional[str] = None
     icd: Optional[str] = None

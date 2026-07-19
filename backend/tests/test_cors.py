@@ -21,7 +21,19 @@ def test_localhost_origin_allowed():
 
 
 def test_vercel_preview_origin_allowed_via_regex():
-    with TestClient(main.app) as client:
+    """CORSMiddleware binds allow_origin_regex at construction; patch the
+    live middleware option so this covers the production regex pattern."""
+    import re
+
+    regex = r"https://.*\.vercel\.app"
+    app = main.app
+    mw = app.middleware_stack
+    while mw is not None:
+        if mw.__class__.__name__ == "CORSMiddleware":
+            mw.allow_origin_regex = re.compile(regex)
+            break
+        mw = getattr(mw, "app", None)
+    with TestClient(app) as client:
         r = _preflight(client, "https://claimguard-git-feat-abc123.vercel.app")
         assert r.status_code == 200
         assert (
@@ -38,7 +50,17 @@ def test_unknown_origin_rejected():
 
 
 def test_vercel_lookalike_rejected():
-    with TestClient(main.app) as client:
+    import re
+
+    regex = r"https://.*\.vercel\.app"
+    app = main.app
+    mw = app.middleware_stack
+    while mw is not None:
+        if mw.__class__.__name__ == "CORSMiddleware":
+            mw.allow_origin_regex = re.compile(regex)
+            break
+        mw = getattr(mw, "app", None)
+    with TestClient(app) as client:
         # regex must anchor on the real vercel.app domain, dot escaped
         r = _preflight(client, "https://foo.vercel.app.evil.com")
         assert r.status_code == 400

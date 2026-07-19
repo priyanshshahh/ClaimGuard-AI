@@ -1,28 +1,14 @@
-"""Feature engineering shared between training (scripts/train.py) and serving.
-
-The model is trained on the CMS Medicare Fee-for-Service Comprehensive Error
-Rate Testing (CERT) public dataset. Each row is a reviewed claim line with a
-real audit outcome: Review Decision == "Disagree" means the CERT reviewer
-determined the claim was improperly paid (insufficient documentation, medical
-necessity, incorrect coding, ...). We use that determination as the training
-label - a documented proxy for denial risk, since the same failure modes
-drive both payer denials and improper-payment findings.
-
-Raw columns used: Part, HCPCS Procedure Code, Provider Type, Type of Bill, DRG.
-Encodings (smoothed target rates, frequency counts) are computed on the
-TRAINING years only and shipped alongside the model in feature_maps.json.
-"""
+"""Feature engineering shared between training (scripts/train.py) and serving."""
 
 from __future__ import annotations
 
 import json
 import math
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import pandas as pd
 
-# Order matters: this is the model's input schema.
-FEATURE_COLUMNS = [
+LEGACY_FEATURE_COLUMNS = [
     "part_idx",
     "hcpcs_first_idx",
     "has_drg",
@@ -34,16 +20,30 @@ FEATURE_COLUMNS = [
     "hcpcs_freq_log",
 ]
 
-SMOOTHING_M = 50.0  # m-estimate smoothing for target encodings
+FEATURE_COLUMNS = LEGACY_FEATURE_COLUMNS + [
+    "hcpcs_family_idx",
+    "provider_freq_log",
+    "tob_freq_log",
+    "hcpcs_part_rate",
+]
+
+SMOOTHING_M = 50.0
+
+
+def active_feature_columns(maps: Dict[str, Any]) -> List[str]:
+    stored = maps.get("feature_columns")
+    if stored:
+        return list(stored)
+    if "hcpcs_family_levels" in maps:
+        return FEATURE_COLUMNS
+    return LEGACY_FEATURE_COLUMNS
 
 
 def smoothed_rate(positives: float, count: float, prior: float, m: float = SMOOTHING_M) -> float:
-    """m-estimate smoothed positive rate; falls back to prior for rare levels."""
     return (positives + m * prior) / (count + m)
 
 
 def fit_feature_maps(df: pd.DataFrame, label_col: str = "label") -> Dict[str, Any]:
-    """Compute all categorical encodings from the TRAINING split only."""
     prior = float(df[label_col].mean())
     maps: Dict[str, Any] = {"prior": prior}
 
@@ -60,34 +60,45 @@ def fit_feature_maps(df: pd.DataFrame, label_col: str = "label") -> Dict[str, An
         }
 
     maps["hcpcs_freq"] = df["hcpcs"].value_counts().to_dict()
+    maps["provider_freq"] = df["provider_type"].value_counts().to_dict()
+    maps["tob_freq"] = df["type_of_bill"].value_counts().to_dict()
     maps["part_levels"] = sorted(df["part"].dropna().unique().tolist())
-    maps["hcpcs_first_levels"] = sorted(
-        {str(h)[:1] for h in df["hcpcs"].dropna() if str(h)}
-    )
+    maps["hcpcs_first_levels"] = sorted({str(h)[:1] for h in df["hcpcs"].dropna() if str(h)})
+    maps["hcpcs_family_levels"] = sorted({str(h)[:2] for h in df["hcpcs"].dropna() if str(h)})
+    maps["feature_columns"] = FEATURE_COLUMNS
     return maps
 
 
-def apply_features(df: pd.DataFrame, maps: Dict[str, Any]) -> pd.DataFrame:
-    """Vectorised feature construction for a normalised CERT frame."""
+def _build_feature_frame(df: pd.DataFrame, maps: Dict[str, Any]) -> pd.DataFrame:
     prior = maps["prior"]
     part_index = {lvl: i for i, lvl in enumerate(maps["part_levels"])}
     first_index = {lvl: i for i, lvl in enumerate(maps["hcpcs_first_levels"])}
 
     out = pd.DataFrame(index=df.index)
     out["part_idx"] = df["part"].map(part_index).fillna(-1).astype(int)
-    out["hcpcs_first_idx"] = (
-        df["hcpcs"].astype(str).str[:1].map(first_index).fillna(-1).astype(int)
-    )
+    out["hcpcs_first_idx"] = df["hcpcs"].astype(str).str[:1].map(first_index).fillna(-1).astype(int)
     out["has_drg"] = (df["drg"].astype(str).str.strip() != "").astype(int)
     out["tob_present"] = (df["type_of_bill"].astype(str).str.strip() != "").astype(int)
     out["hcpcs_rate"] = df["hcpcs"].map(maps["hcpcs_rates"]).fillna(prior)
     out["provider_rate"] = df["provider_type"].map(maps["provider_rates"]).fillna(prior)
     out["tob_rate"] = df["type_of_bill"].map(maps["tob_rates"]).fillna(prior)
     out["part_rate"] = df["part"].map(maps["part_rates"]).fillna(prior)
-    out["hcpcs_freq_log"] = (
-        df["hcpcs"].map(maps["hcpcs_freq"]).fillna(0).astype(float).apply(math.log1p)
-    )
-    return out[FEATURE_COLUMNS]
+    out["hcpcs_freq_log"] = df["hcpcs"].map(maps["hcpcs_freq"]).fillna(0).astype(float).apply(math.log1p)
+
+    if "hcpcs_family_levels" in maps:
+        family_index = {lvl: i for i, lvl in enumerate(maps["hcpcs_family_levels"])}
+        out["hcpcs_family_idx"] = df["hcpcs"].astype(str).str[:2].map(family_index).fillna(-1).astype(int)
+        out["provider_freq_log"] = df["provider_type"].map(maps.get("provider_freq", {})).fillna(0).astype(float).apply(math.log1p)
+        out["tob_freq_log"] = df["type_of_bill"].map(maps.get("tob_freq", {})).fillna(0).astype(float).apply(math.log1p)
+        out["hcpcs_part_rate"] = out["hcpcs_rate"] * out["part_rate"]
+
+    return out
+
+
+def apply_features(df: pd.DataFrame, maps: Dict[str, Any]) -> pd.DataFrame:
+    cols = active_feature_columns(maps)
+    frame = _build_feature_frame(df, maps)
+    return frame[cols]
 
 
 def build_serving_row(
@@ -98,23 +109,13 @@ def build_serving_row(
     type_of_bill: str = "",
     drg: str = "",
 ) -> pd.DataFrame:
-    """Build a single-row feature frame for online scoring.
-
-    The API receives professional claims keyed by CPT code (CPT is HCPCS
-    Level I), so `part` defaults to Part B. Unknown provider type / type of
-    bill fall back to the training prior via apply_features.
-    """
-    df = pd.DataFrame(
-        [
-            {
-                "hcpcs": str(hcpcs).strip().upper(),
-                "part": part,
-                "provider_type": provider_type,
-                "type_of_bill": type_of_bill,
-                "drg": drg,
-            }
-        ]
-    )
+    df = pd.DataFrame([{
+        "hcpcs": str(hcpcs).strip().upper(),
+        "part": part,
+        "provider_type": provider_type,
+        "type_of_bill": type_of_bill,
+        "drg": drg,
+    }])
     return apply_features(df, maps)
 
 

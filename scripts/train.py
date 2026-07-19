@@ -147,6 +147,49 @@ def init_wandb(config: dict):
         return None
 
 
+
+def precision_at_k(y_true: np.ndarray, y_prob: np.ndarray, k: int) -> float:
+    order = np.argsort(-y_prob)
+    top = order[: min(k, len(order))]
+    return round(float(y_true[top].sum() / k), 4)
+
+
+def recall_at_capacity(y_true: np.ndarray, y_prob: np.ndarray, capacity: int) -> float:
+    order = np.argsort(-y_prob)
+    top = order[: min(capacity, len(order))]
+    total_pos = float(y_true.sum())
+    if total_pos == 0:
+        return 0.0
+    return round(float(y_true[top].sum()) / total_pos, 4)
+
+
+def compute_ops_metrics(y_true: np.ndarray, y_prob: np.ndarray) -> dict:
+    order = np.argsort(-y_prob)
+    return {
+        "precision_at_k": {
+            str(k): precision_at_k(y_true, y_prob, k) for k in (100, 500, 1000)
+        },
+        "recall_at_capacity": {
+            str(cap): recall_at_capacity(y_true, y_prob, cap) for cap in (50, 100, 200)
+        },
+        "expected_loss_proxy_mean": round(float(np.mean(y_true * y_prob)), 4),
+        "top1000_true_positives": int(y_true[order[:1000]].sum()),
+    }
+
+
+def feature_importance_from_model(model, feature_names: list[str]) -> list[dict]:
+    scores = model.get_booster().get_score(importance_type="gain")
+    ranked = []
+    for key, gain in sorted(scores.items(), key=lambda kv: kv[1], reverse=True):
+        if key.startswith("f") and key[1:].isdigit():
+            idx = int(key[1:])
+            name = feature_names[idx] if idx < len(feature_names) else key
+        else:
+            name = key
+        ranked.append({"feature": name, "gain": round(float(gain), 4)})
+    return ranked
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--data-dir", default="data/cert")
@@ -217,12 +260,18 @@ def main() -> None:
         results[split].append(evaluate("xgboost", y, p_xgb))
         results[split].append(evaluate("xgboost_isotonic", y, p_cal))
 
+    p_cal_test = iso.predict(xgb.predict_proba(X_te)[:, 1])
+    ops_metrics = compute_ops_metrics(y_te, p_cal_test)
+    feature_importance = feature_importance_from_model(xgb, FEATURE_COLUMNS)
+
     metrics = {
         "config": config,
         "trained_at_utc": datetime.now(timezone.utc).isoformat(),
         "python": platform.python_version(),
         "results": results,
         "best_iteration": int(xgb.best_iteration),
+        "ops_metrics": ops_metrics,
+        "feature_importance": feature_importance,
     }
 
     os.makedirs(args.out, exist_ok=True)

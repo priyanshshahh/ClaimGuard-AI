@@ -4,6 +4,17 @@ Pre-submission claim denial-risk engine for healthcare revenue cycle teams: an M
 
 Started as an AIxBio hackathon project (Bayer Co.Lab, May 2026); the model layer has since been rebuilt on real data with honest, reproducible evaluation.
 
+## Where ClaimGuard sits (vs athenahealth / RapidClaims)
+
+athenahealth (athenaOne) and RapidClaims win on full RCM stacks: massive payer-rule libraries, NCCI scrubbing, EHR-native workflows, and denial recovery ops.
+
+ClaimGuard is a **pre-submission decision layer**:
+- Calibrated improper-payment risk from real CMS CERT audits (honest proxy, not marketed as payer denial accuracy)
+- Chart-note agent for documentation gaps before submit
+- Auditor queue ranked by expected financial loss / treasury urgency
+
+It is designed to sit **upstream of** clearinghouse scrubbers and platforms like athenaOne / RapidClaims — not replace them. See [`docs/COMPETITIVE.md`](docs/COMPETITIVE.md) for the honest comparison.
+
 ## The model is trained on real data
 
 **Dataset:** [Medicare Fee-for-Service Comprehensive Error Rate Testing (CERT)](https://data.cms.gov/quality-of-care/medicare-fee-for-service-comprehensive-error-rate-testing) — a public CMS program that draws a random sample of FFS claims each year and has independent reviewers audit whether each claim was paid properly. ~160-185k claim lines per report year, no authentication required.
@@ -18,9 +29,9 @@ Test = 2025 report year, n = 163,940 claim lines, base rate 14.1%:
 
 | Model | ROC-AUC | PR-AUC | Brier | Log loss |
 |---|---|---|---|---|
-| Logistic regression (baseline) | 0.740 | 0.283 | 0.1131 | 0.369 |
-| XGBoost | 0.745 | 0.302 | 0.1108 | 0.361 |
-| **XGBoost + isotonic calibration (served)** | **0.745** | **0.295** | **0.1096** | **0.358** |
+| Logistic regression (baseline) | 0.735 | 0.281 | 0.1130 | 0.368 |
+| XGBoost | 0.744 | 0.299 | 0.1114 | 0.368 |
+| **XGBoost + isotonic calibration (served)** | **0.744** | **0.294** | **0.1100** | **0.358** |
 
 Validation = 2024, n = 185,349, base rate 15.8%: served model ROC-AUC 0.735, PR-AUC 0.310, Brier 0.1203.
 
@@ -57,25 +68,25 @@ Deterministic seed, artifacts written to `backend/models/` (model, calibrator, f
 # Backend (Python 3.12)
 python -m venv .venv && source .venv/bin/activate
 pip install -r backend/requirements.txt
-cp backend/.env.example backend/.env   # GROQ_API_KEY optional; scoring works without it
+cp .env.example backend/.env   # AUTH_DISABLED=true for local; GROQ_API_KEY optional
 cd backend && uvicorn main:app --reload
 
 # Frontend
-cp .env.example frontend/.env.local    # NEXT_PUBLIC_API_URL (defaults to :8000)
-cd frontend && npm install && npm run dev   # http://localhost:3000/dashboard
+cp .env.example frontend/.env.local    # NEXT_PUBLIC_API_URL + optional DEMO_MODE / Supabase
+cd frontend && npm install && npm run dev   # http://localhost:3000
 ```
 
-Or `docker compose up` for both.
+Or `docker compose up --build` for both. Deploy notes: [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ```bash
-cd backend && pytest tests/ -q     # 76 tests
+cd backend && AUTH_DISABLED=true pytest tests/ -q
 ```
 
 ## Stack
 
 - **Model:** XGBoost + isotonic calibration; scikit-learn baseline; W&B tracking
-- **Backend:** FastAPI, DuckDB (single store), strict-Pydantic LLM extraction (Groq / Nebius)
-- **Frontend:** Next.js 16, Tailwind, Recharts
+- **Backend:** FastAPI, DuckDB (local) or Postgres/Supabase (multi-tenant), JWT/API-key auth, strict-Pydantic LLM extraction (Groq / Nebius)
+- **Frontend:** Next.js 16, Tailwind, Recharts, Supabase Auth client
 - **CI:** ruff + pytest + frontend build (GitHub Actions)
 
 ## License

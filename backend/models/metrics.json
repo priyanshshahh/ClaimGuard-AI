@@ -20,165 +20,169 @@
       "provider_rate",
       "tob_rate",
       "part_rate",
-      "hcpcs_freq_log"
+      "hcpcs_freq_log",
+      "hcpcs_family_idx",
+      "provider_freq_log",
+      "tob_freq_log",
+      "hcpcs_part_rate"
     ],
     "seed": 42,
     "label": "CERT Review Decision == Disagree (improper payment)"
   },
-  "trained_at_utc": "2026-07-13T02:14:20.272549+00:00",
+  "trained_at_utc": "2026-07-18T21:44:15.218863+00:00",
   "python": "3.12.4",
   "results": {
     "val": [
       {
         "model": "logreg_baseline",
-        "roc_auc": 0.7324,
-        "pr_auc": 0.304,
-        "brier": 0.1236,
-        "log_loss": 0.3949,
+        "roc_auc": 0.7295,
+        "pr_auc": 0.3022,
+        "brier": 0.1234,
+        "log_loss": 0.3948,
         "base_rate": 0.158,
         "n": 185349,
         "reliability": [
           {
-            "mean_predicted": 0.0212,
-            "fraction_positive": 0.0151
+            "mean_predicted": 0.02,
+            "fraction_positive": 0.0155
           },
           {
-            "mean_predicted": 0.0476,
-            "fraction_positive": 0.0256
+            "mean_predicted": 0.043,
+            "fraction_positive": 0.0232
           },
           {
-            "mean_predicted": 0.0755,
-            "fraction_positive": 0.0722
+            "mean_predicted": 0.072,
+            "fraction_positive": 0.0769
           },
           {
-            "mean_predicted": 0.0943,
-            "fraction_positive": 0.0814
+            "mean_predicted": 0.0967,
+            "fraction_positive": 0.0934
           },
           {
-            "mean_predicted": 0.1184,
-            "fraction_positive": 0.1226
+            "mean_predicted": 0.1197,
+            "fraction_positive": 0.1243
           },
           {
-            "mean_predicted": 0.1449,
-            "fraction_positive": 0.1925
+            "mean_predicted": 0.1474,
+            "fraction_positive": 0.1685
           },
           {
-            "mean_predicted": 0.1628,
-            "fraction_positive": 0.187
+            "mean_predicted": 0.1654,
+            "fraction_positive": 0.229
           },
           {
-            "mean_predicted": 0.1895,
-            "fraction_positive": 0.2642
+            "mean_predicted": 0.1913,
+            "fraction_positive": 0.2278
           },
           {
-            "mean_predicted": 0.2415,
-            "fraction_positive": 0.2953
+            "mean_predicted": 0.2424,
+            "fraction_positive": 0.2949
           },
           {
-            "mean_predicted": 0.4183,
-            "fraction_positive": 0.3395
+            "mean_predicted": 0.414,
+            "fraction_positive": 0.3356
           }
         ]
       },
       {
         "model": "xgboost",
-        "roc_auc": 0.7326,
-        "pr_auc": 0.315,
-        "brier": 0.1218,
-        "log_loss": 0.3918,
+        "roc_auc": 0.7324,
+        "pr_auc": 0.3127,
+        "brier": 0.1226,
+        "log_loss": 0.3967,
         "base_rate": 0.158,
         "n": 185349,
         "reliability": [
           {
-            "mean_predicted": 0.0118,
-            "fraction_positive": 0.0145
+            "mean_predicted": 0.0674,
+            "fraction_positive": 0.012
           },
           {
-            "mean_predicted": 0.0259,
-            "fraction_positive": 0.0375
+            "mean_predicted": 0.0751,
+            "fraction_positive": 0.0313
           },
           {
-            "mean_predicted": 0.0478,
-            "fraction_positive": 0.0636
+            "mean_predicted": 0.0925,
+            "fraction_positive": 0.0703
           },
           {
-            "mean_predicted": 0.0829,
-            "fraction_positive": 0.1031
+            "mean_predicted": 0.1106,
+            "fraction_positive": 0.0998
           },
           {
-            "mean_predicted": 0.1154,
-            "fraction_positive": 0.1298
+            "mean_predicted": 0.128,
+            "fraction_positive": 0.1394
           },
           {
-            "mean_predicted": 0.1522,
-            "fraction_positive": 0.1711
+            "mean_predicted": 0.1545,
+            "fraction_positive": 0.1807
           },
           {
-            "mean_predicted": 0.1847,
-            "fraction_positive": 0.1619
+            "mean_predicted": 0.1697,
+            "fraction_positive": 0.1568
           },
           {
-            "mean_predicted": 0.2215,
-            "fraction_positive": 0.2596
+            "mean_predicted": 0.1866,
+            "fraction_positive": 0.2796
           },
           {
-            "mean_predicted": 0.2675,
-            "fraction_positive": 0.286
+            "mean_predicted": 0.2191,
+            "fraction_positive": 0.2614
           },
           {
-            "mean_predicted": 0.4256,
-            "fraction_positive": 0.3605
+            "mean_predicted": 0.3158,
+            "fraction_positive": 0.358
           }
         ]
       },
       {
         "model": "xgboost_isotonic",
-        "roc_auc": 0.7345,
-        "pr_auc": 0.3097,
-        "brier": 0.1203,
-        "log_loss": 0.386,
+        "roc_auc": 0.7364,
+        "pr_auc": 0.3112,
+        "brier": 0.1202,
+        "log_loss": 0.385,
         "base_rate": 0.158,
         "n": 185349,
         "reliability": [
           {
-            "mean_predicted": 0.0145,
-            "fraction_positive": 0.0143
+            "mean_predicted": 0.012,
+            "fraction_positive": 0.012
           },
           {
-            "mean_predicted": 0.039,
-            "fraction_positive": 0.0376
+            "mean_predicted": 0.0309,
+            "fraction_positive": 0.0324
           },
           {
-            "mean_predicted": 0.0749,
-            "fraction_positive": 0.0772
+            "mean_predicted": 0.0726,
+            "fraction_positive": 0.071
           },
           {
-            "mean_predicted": 0.1091,
-            "fraction_positive": 0.1085
+            "mean_predicted": 0.0985,
+            "fraction_positive": 0.0984
           },
           {
-            "mean_predicted": 0.1379,
-            "fraction_positive": 0.1549
+            "mean_predicted": 0.1504,
+            "fraction_positive": 0.1633
           },
           {
-            "mean_predicted": 0.17,
-            "fraction_positive": 0.1661
+            "mean_predicted": 0.1738,
+            "fraction_positive": 0.1709
           },
           {
-            "mean_predicted": 0.1921,
-            "fraction_positive": 0.1514
+            "mean_predicted": 0.1756,
+            "fraction_positive": 0.1432
           },
           {
-            "mean_predicted": 0.2631,
-            "fraction_positive": 0.2691
+            "mean_predicted": 0.2589,
+            "fraction_positive": 0.2399
           },
           {
-            "mean_predicted": 0.306,
-            "fraction_positive": 0.3022
+            "mean_predicted": 0.2984,
+            "fraction_positive": 0.3307
           },
           {
-            "mean_predicted": 0.3739,
-            "fraction_positive": 0.3713
+            "mean_predicted": 0.3936,
+            "fraction_positive": 0.3926
           }
         ]
       }
@@ -186,158 +190,222 @@
     "test": [
       {
         "model": "logreg_baseline",
-        "roc_auc": 0.74,
-        "pr_auc": 0.2827,
-        "brier": 0.1131,
-        "log_loss": 0.3687,
+        "roc_auc": 0.7354,
+        "pr_auc": 0.281,
+        "brier": 0.113,
+        "log_loss": 0.3683,
         "base_rate": 0.141,
         "n": 163940,
         "reliability": [
           {
-            "mean_predicted": 0.0216,
-            "fraction_positive": 0.0157
+            "mean_predicted": 0.0203,
+            "fraction_positive": 0.0177
           },
           {
-            "mean_predicted": 0.0442,
-            "fraction_positive": 0.0364
+            "mean_predicted": 0.0413,
+            "fraction_positive": 0.0306
           },
           {
-            "mean_predicted": 0.0718,
-            "fraction_positive": 0.0529
+            "mean_predicted": 0.0668,
+            "fraction_positive": 0.0515
           },
           {
-            "mean_predicted": 0.0913,
-            "fraction_positive": 0.054
+            "mean_predicted": 0.089,
+            "fraction_positive": 0.0624
           },
           {
-            "mean_predicted": 0.1106,
-            "fraction_positive": 0.0905
+            "mean_predicted": 0.1087,
+            "fraction_positive": 0.091
           },
           {
-            "mean_predicted": 0.1398,
-            "fraction_positive": 0.1609
+            "mean_predicted": 0.1414,
+            "fraction_positive": 0.1643
           },
           {
-            "mean_predicted": 0.1604,
-            "fraction_positive": 0.187
+            "mean_predicted": 0.1646,
+            "fraction_positive": 0.2106
           },
           {
-            "mean_predicted": 0.1827,
-            "fraction_positive": 0.2151
+            "mean_predicted": 0.1907,
+            "fraction_positive": 0.2221
           },
           {
-            "mean_predicted": 0.2345,
-            "fraction_positive": 0.3051
+            "mean_predicted": 0.2421,
+            "fraction_positive": 0.284
           },
           {
-            "mean_predicted": 0.4248,
-            "fraction_positive": 0.304
+            "mean_predicted": 0.4202,
+            "fraction_positive": 0.3004
           }
         ]
       },
       {
         "model": "xgboost",
-        "roc_auc": 0.7445,
-        "pr_auc": 0.3017,
-        "brier": 0.1108,
-        "log_loss": 0.3607,
+        "roc_auc": 0.7438,
+        "pr_auc": 0.2991,
+        "brier": 0.1114,
+        "log_loss": 0.3683,
         "base_rate": 0.141,
         "n": 163940,
         "reliability": [
           {
-            "mean_predicted": 0.0126,
-            "fraction_positive": 0.0121
+            "mean_predicted": 0.0679,
+            "fraction_positive": 0.0078
           },
           {
-            "mean_predicted": 0.0256,
-            "fraction_positive": 0.018
+            "mean_predicted": 0.0744,
+            "fraction_positive": 0.0236
           },
           {
-            "mean_predicted": 0.0397,
-            "fraction_positive": 0.0698
+            "mean_predicted": 0.0859,
+            "fraction_positive": 0.0594
           },
           {
-            "mean_predicted": 0.0746,
-            "fraction_positive": 0.0718
+            "mean_predicted": 0.1061,
+            "fraction_positive": 0.081
           },
           {
-            "mean_predicted": 0.1029,
-            "fraction_positive": 0.0897
+            "mean_predicted": 0.1207,
+            "fraction_positive": 0.0879
           },
           {
-            "mean_predicted": 0.1442,
-            "fraction_positive": 0.1433
+            "mean_predicted": 0.1484,
+            "fraction_positive": 0.1565
           },
           {
-            "mean_predicted": 0.1819,
-            "fraction_positive": 0.1584
+            "mean_predicted": 0.1672,
+            "fraction_positive": 0.1644
           },
           {
-            "mean_predicted": 0.214,
-            "fraction_positive": 0.2779
+            "mean_predicted": 0.1859,
+            "fraction_positive": 0.2756
           },
           {
-            "mean_predicted": 0.2542,
-            "fraction_positive": 0.2617
+            "mean_predicted": 0.2176,
+            "fraction_positive": 0.2471
           },
           {
-            "mean_predicted": 0.4165,
-            "fraction_positive": 0.3145
+            "mean_predicted": 0.3108,
+            "fraction_positive": 0.3139
           }
         ]
       },
       {
         "model": "xgboost_isotonic",
-        "roc_auc": 0.7447,
-        "pr_auc": 0.2949,
-        "brier": 0.1096,
-        "log_loss": 0.3575,
+        "roc_auc": 0.7441,
+        "pr_auc": 0.2935,
+        "brier": 0.11,
+        "log_loss": 0.3583,
         "base_rate": 0.141,
         "n": 163940,
         "reliability": [
           {
-            "mean_predicted": 0.0153,
-            "fraction_positive": 0.0121
+            "mean_predicted": 0.0122,
+            "fraction_positive": 0.0078
           },
           {
-            "mean_predicted": 0.039,
-            "fraction_positive": 0.0387
+            "mean_predicted": 0.0312,
+            "fraction_positive": 0.0361
           },
           {
-            "mean_predicted": 0.0699,
-            "fraction_positive": 0.0659
+            "mean_predicted": 0.0739,
+            "fraction_positive": 0.0614
           },
           {
-            "mean_predicted": 0.0893,
-            "fraction_positive": 0.076
+            "mean_predicted": 0.0938,
+            "fraction_positive": 0.0838
           },
           {
-            "mean_predicted": 0.1123,
-            "fraction_positive": 0.0835
+            "mean_predicted": 0.1077,
+            "fraction_positive": 0.0889
           },
           {
-            "mean_predicted": 0.1646,
-            "fraction_positive": 0.1495
+            "mean_predicted": 0.1722,
+            "fraction_positive": 0.1631
           },
           {
-            "mean_predicted": 0.1731,
-            "fraction_positive": 0.192
+            "mean_predicted": 0.1738,
+            "fraction_positive": 0.138
           },
           {
-            "mean_predicted": 0.2572,
-            "fraction_positive": 0.2591
+            "mean_predicted": 0.2476,
+            "fraction_positive": 0.2219
           },
           {
-            "mean_predicted": 0.3059,
-            "fraction_positive": 0.2988
+            "mean_predicted": 0.296,
+            "fraction_positive": 0.3301
           },
           {
-            "mean_predicted": 0.378,
-            "fraction_positive": 0.3328
+            "mean_predicted": 0.3982,
+            "fraction_positive": 0.3566
           }
         ]
       }
     ]
   },
-  "best_iteration": 121
+  "best_iteration": 18,
+  "ops_metrics": {
+    "precision_at_k": {
+      "100": 0.45,
+      "500": 0.542,
+      "1000": 0.601
+    },
+    "recall_at_capacity": {
+      "50": 0.0011,
+      "100": 0.0019,
+      "200": 0.004
+    },
+    "expected_loss_proxy_mean": 0.0331,
+    "top1000_true_positives": 601
+  },
+  "feature_importance": [
+    {
+      "feature": "hcpcs_rate",
+      "gain": 465.3857
+    },
+    {
+      "feature": "tob_rate",
+      "gain": 296.2416
+    },
+    {
+      "feature": "provider_rate",
+      "gain": 285.196
+    },
+    {
+      "feature": "part_rate",
+      "gain": 242.0636
+    },
+    {
+      "feature": "part_idx",
+      "gain": 104.9681
+    },
+    {
+      "feature": "hcpcs_freq_log",
+      "gain": 97.2865
+    },
+    {
+      "feature": "hcpcs_part_rate",
+      "gain": 84.8781
+    },
+    {
+      "feature": "tob_freq_log",
+      "gain": 38.5653
+    },
+    {
+      "feature": "provider_freq_log",
+      "gain": 18.1381
+    },
+    {
+      "feature": "hcpcs_family_idx",
+      "gain": 15.1284
+    },
+    {
+      "feature": "hcpcs_first_idx",
+      "gain": 11.8269
+    },
+    {
+      "feature": "has_drg",
+      "gain": 6.0958
+    }
+  ]
 }

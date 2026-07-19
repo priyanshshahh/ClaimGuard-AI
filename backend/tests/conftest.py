@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 @pytest.fixture(autouse=True)
 def isolated_duckdb(tmp_path, monkeypatch):
+    monkeypatch.setenv("AUTH_DISABLED", "true")
     """Point every test at its own throwaway DuckDB file."""
     monkeypatch.setenv("DUCKDB_PATH", str(tmp_path / "claims.duckdb"))
     yield

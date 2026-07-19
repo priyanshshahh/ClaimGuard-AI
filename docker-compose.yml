@@ -4,20 +4,22 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - AUTH_DISABLED=true
+      - STORAGE_BACKEND=duckdb
       - GROQ_API_KEY=${GROQ_API_KEY:-}
       - NEBIUS_API_KEY=${NEBIUS_API_KEY:-}
+      - LLM_TIMEOUT=${LLM_TIMEOUT:-20}
       - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000}
+      - CORS_ORIGIN_REGEX=${CORS_ORIGIN_REGEX:-}
       - DUCKDB_PATH=/data/claims.duckdb
     volumes:
       - claims-data:/data
     restart: unless-stopped
 
   frontend:
-    image: node:20-slim
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    command: sh -c "npm ci && npm run dev -- --hostname 0.0.0.0"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     environment:
       - NEXT_PUBLIC_API_URL=http://localhost:8000
     ports:

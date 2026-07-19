@@ -1,0 +1,33 @@
+# Render Blueprint — free web service for ClaimGuard API
+# https://render.com/docs/blueprint-spec
+#
+# One-click: connect this repo in Render Dashboard → New → Blueprint
+# Free tier spins down after idle (~50s cold start on wake).
+
+services:
+  - type: web
+    name: claimguard-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: AUTH_DISABLED
+        value: "true"
+      - key: STORAGE_BACKEND
+        value: duckdb
+      - key: DUCKDB_PATH
+        value: /tmp/claims.duckdb
+      - key: CORS_ORIGINS
+        sync: false
+      - key: CORS_ORIGIN_REGEX
+        value: "https://.*\\.vercel\\.app"
+      - key: LLM_TIMEOUT
+        value: "20"
+      - key: WANDB_MODE
+        value: disabled
+      - key: GROQ_API_KEY
+        sync: false
+      - key: NEBIUS_API_KEY
+        sync: false

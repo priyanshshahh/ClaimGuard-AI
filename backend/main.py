@@ -1,27 +1,27 @@
 from contextlib import asynccontextmanager
 
+import logging
+import math
 import os
+import uuid
 import uvicorn
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import APIRouter, Depends, FastAPI, HTTPException, Query, Request
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from agent import analyze_clinical_notes, check_payer_policy, generate_appeal_letter
-from duckdb_store import (
-    clear_claims,
-    get_claim,
-    get_executive_metrics,
-    list_claims,
-    resolve_claim,
-    upsert_claim,
-)
+from auth import CurrentUser, get_current_user, require_admin
+import store
 from carc import attach_carc, map_findings_to_carc
 from model import (
     adjust_for_agent_findings,
     explain_claim,
+    get_feature_importance,
     get_model_metrics,
     load_model,
+    model_is_loaded,
     predict_base_probability,
 )
 from optimizer import (
@@ -33,22 +33,27 @@ from optimizer import (
     get_risk_level,
     prioritize_claims,
 )
-from schemas import ClaimAnalysisResponse, ClaimInput, PolicyCheckRequest
+from schemas import ClaimAnalysisResponse, ClaimInput, PolicyCheckRequest, ResolveClaimRequest
 
 load_dotenv()
+logging.basicConfig(
+    level=os.getenv("LOG_LEVEL", "INFO"),
+    format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
+)
+logger = logging.getLogger("claimguard")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     load_model()  # fail fast if trained artifacts are missing
-    print("ClaimGuard-AI backend started; model artifacts loaded")
+    logger.info("ClaimGuard-AI backend started; model artifacts loaded")
     yield
 
 
 app = FastAPI(
     title="ClaimGuard-AI API",
     description="Pre-submission claim denial-risk scoring on real CMS CERT data",
-    version="3.0.0",
+    version="3.1.0",
     lifespan=lifespan,
 )
 
@@ -60,7 +65,7 @@ cors_origins = [
     for o in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
     if o.strip()
 ]
-cors_origin_regex = os.getenv("CORS_ORIGIN_REGEX", r"https://.*\.vercel\.app")
+cors_origin_regex = os.getenv("CORS_ORIGIN_REGEX", "")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
@@ -70,15 +75,68 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.middleware("http")
+async def request_id_middleware(request: Request, call_next):
+    request_id = request.headers.get("X-Request-ID", str(uuid.uuid4()))
+    request.state.request_id = request_id
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = request_id
+    return response
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    """Last-resort handler: log the failure with the request id for tracing and
+    return a generic 500 so internal details never leak to clients."""
+    request_id = getattr(request.state, "request_id", "-")
+    logger.error(
+        "Unhandled error [request_id=%s] on %s %s: %s",
+        request_id,
+        request.method,
+        request.url.path,
+        exc,
+        exc_info=True,
+    )
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error", "request_id": request_id},
+    )
+
+
+api = APIRouter(prefix="/api", dependencies=[Depends(get_current_user)])
+
 
 @app.get("/")
 async def root():
     return {
         "message": "ClaimGuard-AI API is running",
         "status": "healthy",
-        "version": "3.0.0",
+        "version": "3.1.0",
         "model": "xgboost + isotonic calibration, trained on CMS CERT 2021-2024",
     }
+
+
+@app.get("/health")
+async def health():
+    """Readiness probe: verifies the trained model is loaded and the storage
+    backend is reachable. Returns 503 (not 200) when the model is missing so
+    orchestrators do not route traffic to a non-functional instance."""
+    model_ok = model_is_loaded()
+    try:
+        store_ok = await run_in_threadpool(store.ping)
+    except Exception as e:  # pragma: no cover - defensive
+        logger.warning("Health check store ping failed: %s", e)
+        store_ok = False
+
+    status_ok = model_ok and store_ok
+    payload = {
+        "status": "ready" if status_ok else "not_ready",
+        "model_loaded": model_ok,
+        "store_reachable": store_ok,
+    }
+    if not model_ok:
+        return JSONResponse(status_code=503, content=payload)
+    return payload
 
 
 @app.get("/api/model-info")
@@ -90,7 +148,7 @@ async def model_info():
     return metrics
 
 
-def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysisResponse:
+def _analyze_and_store(claim: ClaimInput, user: CurrentUser, is_demo: bool = False) -> ClaimAnalysisResponse:
     try:
         agent_result = analyze_clinical_notes(
             notes=claim.patient_chart_notes,
@@ -98,7 +156,7 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
             cpt_code=claim.cpt_code,
         )
     except Exception as e:
-        print(f"Agent analysis failed, using conservative defaults: {e}")
+        logger.warning("Agent analysis failed, using conservative defaults: %s", e)
         agent_result = {}
 
     doc = agent_result.get("documentation_complete", 1)
@@ -124,7 +182,7 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
     try:
         drivers = explain_claim(claim.cpt_code)
     except Exception as e:
-        print(f"Driver explanation unavailable: {e}")
+        logger.warning("Driver explanation unavailable: %s", e)
         drivers = []
 
     response = ClaimAnalysisResponse(
@@ -171,19 +229,55 @@ def _analyze_and_store(claim: ClaimInput, is_demo: bool = False) -> ClaimAnalysi
             "is_demo": is_demo,
         }
     )
-    upsert_claim(stored)
+    store.upsert_claim(stored, org_id=user.org_id)
     return response
 
 
-@app.post("/api/analyze-claim", response_model=ClaimAnalysisResponse)
-async def analyze_claim(claim: ClaimInput):
-    # _analyze_and_store makes a blocking LLM call; run it off the event loop
-    # so one slow provider can't stall other concurrent requests.
-    return await run_in_threadpool(_analyze_and_store, claim, False)
+
+
+
+def _coerce_nan(value):
+    """Return None for NaN/inf floats so downstream math and JSON stay valid."""
+    if isinstance(value, float) and not math.isfinite(value):
+        return None
+    return value
+
+
+def _apply_score_mode(claims: list[dict], score_mode: str) -> list[dict]:
+    if score_mode != "base":
+        return claims
+    out = []
+    for claim in claims:
+        c = dict(claim)
+        base = _coerce_nan(c.get("model_base_probability"))
+        if base is not None:
+            value = _coerce_nan(c.get("claim_value_usd")) or 0
+            # In base mode, rank + display on the raw model probability. Keep
+            # model_base_probability untouched; surface the ranking probability
+            # as denial_probability for display consistency and recompute the
+            # expected loss from the base probability.
+            c["denial_probability"] = base
+            c["ranking_probability"] = base
+            c["expected_loss_usd"] = calculate_expected_loss(value, base)
+        out.append(c)
+    return out
+
+
+def _score_histogram(claims: list[dict], bins: int = 10) -> list[dict]:
+    if not claims:
+        return []
+    probs = [float(c.get("denial_probability") or 0) for c in claims]
+    step = 1.0 / bins
+    hist = []
+    for i in range(bins):
+        lo = round(i * step, 2)
+        hi = round((i + 1) * step, 2)
+        count = sum(1 for p in probs if (lo <= p < hi) or (i == bins - 1 and p == 1.0))
+        hist.append({"bin_start": lo, "bin_end": hi, "count": count})
+    return hist
 
 
 def _enrich_queue_claim(claim: dict) -> dict:
-    """Add derived CARC codes + top model drivers to a stored claim on read."""
     attach_carc(claim)
     if not claim.get("top_drivers"):
         try:
@@ -193,45 +287,91 @@ def _enrich_queue_claim(claim: dict) -> dict:
     return claim
 
 
-@app.get("/api/priority-queue")
+@api.post("/analyze-claim", response_model=ClaimAnalysisResponse)
+async def analyze_claim(claim: ClaimInput, user: CurrentUser = Depends(get_current_user)):
+    return await run_in_threadpool(_analyze_and_store, claim, user, False)
+
+
+
+@api.get("/priority-queue")
 async def get_priority_queue(
+    user: CurrentUser = Depends(get_current_user),
     mode: str = "expected_loss",
-    # Bounded: capacity drives an O(n*capacity) DP table in the knapsack solver.
+    score_mode: str = Query("uplifted", pattern="^(base|uplifted)$"),
     capacity: int = Query(DEFAULT_AUDITOR_CAPACITY, ge=1, le=1000),
     knapsack: bool = True,
 ):
-    active = list_claims()
+    active = store.list_claims(org_id=user.org_id)
     if not active:
         return {"claims": [], "message": "No claims analyzed yet", "mode": mode}
-
+    working = _apply_score_mode([dict(c) for c in active], score_mode)
     prioritized = prioritize_claims(
-        [dict(c) for c in active],
+        working,
         mode=mode,
         capacity=capacity if knapsack else None,
     )
     return {
         "claims": [_enrich_queue_claim(c) for c in prioritized[:15]],
         "mode": mode,
+        "score_mode": score_mode,
         "auditor_capacity": capacity,
         "knapsack_optimized": knapsack,
     }
 
 
-@app.get("/api/dashboard-metrics")
-async def get_dashboard_metrics():
-    metrics = get_executive_metrics()
-    if metrics:
-        return metrics
+
+@api.get("/me")
+async def get_me(user: CurrentUser = Depends(get_current_user)):
+    """Return the authenticated principal's identity and tenancy."""
     return {
-        "total_claims": 0,
-        "total_pipeline_liquidity": 0,
-        "predicted_revenue_leakage": 0,
-        "total_revenue_at_risk": 0,
-        "high_risk_count": 0,
-        "avg_denial_probability": 0,
-        "corrections_generated": 0,
-        "denial_code_breakdown": [],
-        "payer_trends": [],
+        "user_id": user.user_id,
+        "org_id": user.org_id,
+        "role": user.role,
+        "email": user.email,
+    }
+
+
+@api.get("/dashboard-metrics")
+async def get_dashboard_metrics(user: CurrentUser = Depends(get_current_user)):
+    metrics = store.get_executive_metrics(org_id=user.org_id)
+    if not metrics:
+        return {
+            "total_claims": 0,
+            "total_pipeline_liquidity": 0,
+            "predicted_revenue_leakage": 0,
+            "total_revenue_at_risk": 0,
+            "high_risk_count": 0,
+            "avg_denial_probability": 0,
+            "corrections_generated": 0,
+            "denial_code_breakdown": [],
+            "payer_trends": [],
+            "score_histogram": [],
+        }
+    # Authenticated dashboards get the live per-org score distribution; the
+    # public /api/model-health endpoint stays limited to offline metrics.
+    metrics["score_histogram"] = _score_histogram(store.list_claims(org_id=user.org_id))
+    return metrics
+
+
+
+@app.get("/api/model-health")
+async def model_health():
+    """Public offline model health for the model card (no session required)."""
+    metrics = get_model_metrics() or {}
+    ops_metrics = metrics.get("ops_metrics")
+    feature_importance = metrics.get("feature_importance")
+    if not feature_importance:
+        try:
+            feature_importance = get_feature_importance()
+        except Exception as e:
+            logger.warning("Feature importance unavailable: %s", e)
+            feature_importance = []
+    return {
+        "score_histogram": [],
+        "ops_metrics": ops_metrics,
+        "feature_importance": feature_importance,
+        "active_claims": 0,
+        "note": "Offline metrics from metrics.json.",
     }
 
 
@@ -313,20 +453,22 @@ DEMO_CLAIMS = [
 ]
 
 
-@app.post("/api/seed-demo")
-async def seed_demo_data(scenario: str = "default"):
-    clear_claims()
-
+@api.post("/seed-demo")
+async def seed_demo_data(
+    scenario: str = "default",
+    user: CurrentUser = Depends(require_admin),
+):
+    # Only clear previously-seeded demo claims so real analyzed claims survive
+    # a re-seed. Demo rows are labeled is_demo=true.
+    store.clear_demo_claims(org_id=user.org_id)
     claims_to_add = DEMO_CLAIMS.copy()
     if scenario == "high-risk":
         claims_to_add = [c for c in DEMO_CLAIMS if c["claim_value_usd"] > 50000]
-
     seeded = []
     for claim_data in claims_to_add:
         seeded.append(
-            await run_in_threadpool(_analyze_and_store, ClaimInput(**claim_data), True)
+            await run_in_threadpool(_analyze_and_store, ClaimInput(**claim_data), user, True)
         )
-
     total_risk = round(sum(c.expected_loss_usd for c in seeded), 2)
     return {
         "seeded": len(seeded),
@@ -336,27 +478,34 @@ async def seed_demo_data(scenario: str = "default"):
     }
 
 
-@app.post("/api/resolve-claim")
-async def resolve_claim_endpoint(claim_id: str):
-    """Mark a claim resolved so it drops out of the active worklist and
-    metrics. Persists to DuckDB (unlike the old client-only 'Resolve')."""
-    if not resolve_claim(claim_id):
+
+@api.post("/resolve-claim")
+async def resolve_claim_endpoint(
+    body: ResolveClaimRequest,
+    user: CurrentUser = Depends(get_current_user),
+):
+    if not store.resolve_claim(body.claim_id, org_id=user.org_id, resolved_by=user.user_id):
         raise HTTPException(404, "Claim not found in current session")
-    return {"claim_id": claim_id, "resolved": True}
+    return {"claim_id": body.claim_id, "resolved": True}
 
 
-@app.post("/api/clear-queue")
-async def clear_queue():
-    clear_claims()
+
+@api.post("/clear-queue")
+async def clear_queue(user: CurrentUser = Depends(require_admin)):
+    store.clear_claims(org_id=user.org_id)
     return {"message": "Queue cleared", "total_claims": 0}
 
 
-@app.post("/api/generate-appeal")
-async def create_appeal(claim_id: str, denial_reason: str = "Medical necessity not established"):
-    claim = get_claim(claim_id)
+
+@api.post("/generate-appeal")
+async def create_appeal(
+    claim_id: str,
+    user: CurrentUser = Depends(get_current_user),
+    denial_reason: str = "Medical necessity not established",
+):
+    claim = store.get_claim(claim_id, org_id=user.org_id)
     if not claim:
         raise HTTPException(404, "Claim not found in current session")
-
     appeal = await run_in_threadpool(
         generate_appeal_letter,
         claim,
@@ -366,12 +515,16 @@ async def create_appeal(claim_id: str, denial_reason: str = "Medical necessity n
     return {"claim_id": claim_id, **appeal}
 
 
-@app.post("/api/check-policy")
-async def policy_check(body: PolicyCheckRequest):
+
+@api.post("/check-policy")
+async def policy_check(
+    body: PolicyCheckRequest,
+    user: CurrentUser = Depends(get_current_user),
+):
     claim_id = body.claim_id
     icd, cpt, payer, notes = body.icd, body.cpt, body.payer, body.notes
     if claim_id:
-        claim = get_claim(claim_id)
+        claim = store.get_claim(claim_id, org_id=user.org_id)
         if not claim:
             raise HTTPException(404, "Claim not found")
         icd, cpt, payer, notes = (
@@ -382,18 +535,13 @@ async def policy_check(body: PolicyCheckRequest):
         )
     elif not all([icd, cpt, payer, notes]):
         raise HTTPException(400, "Provide either claim_id or full icd/cpt/payer/notes")
-
     return await run_in_threadpool(check_payer_policy, notes or "", icd, cpt, payer)
 
 
-@app.post("/api/fhir/claim")
-async def fhir_endpoint(payload: dict):
-    """Map a minimal FHIR R4 Claim shape to our internal fields.
 
-    Demo-only mapper: it validates/echoes structure and shows how a FHIR
-    integration would feed /api/analyze-claim. It does not run the ML or
-    agent pipeline (FHIR Claim resources carry no chart notes).
-    """
+@api.post("/fhir/claim")
+async def fhir_endpoint(payload: dict, user: CurrentUser = Depends(get_current_user)):
+    del user
     try:
         mapped = {
             "resourceType": "Claim",
@@ -437,9 +585,10 @@ async def fhir_endpoint(payload: dict):
         raise HTTPException(400, f"Invalid FHIR payload: {str(e)}")
 
 
-@app.get("/api/treasury-priority")
-async def treasury_priority():
-    active = list_claims()
+
+@api.get("/treasury-priority")
+async def treasury_priority(user: CurrentUser = Depends(get_current_user)):
+    active = store.list_claims(org_id=user.org_id)
     if not active:
         return {"claims": [], "mode": "treasury"}
     prioritized = prioritize_claims([dict(c) for c in active], mode="treasury")
@@ -448,6 +597,10 @@ async def treasury_priority():
         "mode": "treasury",
         "description": "Prioritized by risk + payer payment speed (cash flow urgency)",
     }
+
+
+
+app.include_router(api)
 
 
 if __name__ == "__main__":

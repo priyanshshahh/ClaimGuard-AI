@@ -23,12 +23,13 @@ import joblib
 
 import xgboost as xgb
 
-from features import FEATURE_COLUMNS, build_serving_row, load_feature_maps
+from features import active_feature_columns, build_serving_row, load_feature_maps
 
 # Plain-language labels for the 9 model features, for per-claim explanations.
 FEATURE_LABELS = {
     "part_idx": "Medicare part",
-    "hcpcs_first_idx": "Procedure-code family",
+    "hcpcs_first_idx": "Procedure-code family (1-char)",
+    "hcpcs_family_idx": "Procedure-code family (2-char)",
     "has_drg": "DRG present on claim",
     "tob_present": "Type-of-bill present",
     "hcpcs_rate": "Historical improper-payment rate for this procedure code",
@@ -36,6 +37,9 @@ FEATURE_LABELS = {
     "tob_rate": "Historical improper-payment rate for this type of bill",
     "part_rate": "Historical improper-payment rate for this Medicare part",
     "hcpcs_freq_log": "How frequently this procedure code appears in CERT",
+    "provider_freq_log": "Provider-type frequency in CERT (log)",
+    "tob_freq_log": "Type-of-bill frequency in CERT (log)",
+    "hcpcs_part_rate": "HCPCS x Part interaction rate",
 }
 
 MODELS_DIR = os.getenv("MODELS_DIR", os.path.join(os.path.dirname(__file__), "models"))
@@ -67,6 +71,12 @@ def load_model() -> Tuple[object, object, dict]:
         _cache["calibrator"] = joblib.load(cal_path) if os.path.exists(cal_path) else None
         _cache["maps"] = load_feature_maps(maps_path)
     return _cache["model"], _cache["calibrator"], _cache["maps"]
+
+
+def model_is_loaded() -> bool:
+    """True once load_model() has cached the trained artifacts. Used by the
+    readiness probe to avoid re-loading on every health check."""
+    return "model" in _cache
 
 
 def get_model_metrics() -> Optional[dict]:
@@ -122,10 +132,10 @@ def explain_claim(
         type_of_bill=type_of_bill,
         drg=drg,
     )
+    cols = active_feature_columns(maps)
     booster = model.get_booster()
     contribs = booster.predict(xgb.DMatrix(row), pred_contribs=True)[0]
-    # last entry is the bias term; drop it
-    feature_contribs = list(zip(FEATURE_COLUMNS, contribs[:-1]))
+    feature_contribs = list(zip(cols, contribs[:-1]))
     feature_contribs.sort(key=lambda kv: abs(kv[1]), reverse=True)
     drivers = []
     for name, value in feature_contribs[:top_n]:
@@ -160,6 +170,22 @@ def adjust_for_agent_findings(
         prob += UPLIFT_PROCEDURE_MISMATCH
     return round(min(prob, PROB_CAP), 4)
 
+
+
+def get_feature_importance(top_n: int = 10) -> list[dict]:
+    """Return gain-based feature importance mapped to column names when possible."""
+    model, _, maps = load_model()
+    cols = active_feature_columns(maps)
+    scores = model.get_booster().get_score(importance_type="gain")
+    ranked = []
+    for key, gain in sorted(scores.items(), key=lambda kv: kv[1], reverse=True):
+        if key.startswith("f") and key[1:].isdigit():
+            idx = int(key[1:])
+            name = cols[idx] if idx < len(cols) else key
+        else:
+            name = key
+        ranked.append({"feature": name, "gain": round(float(gain), 4)})
+    return ranked[:top_n]
 
 def predict_denial_probability(features: dict) -> float:
     """Backward-compatible entry point used by the API layer.

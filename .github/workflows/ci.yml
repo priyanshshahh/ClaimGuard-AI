@@ -22,6 +22,7 @@ jobs:
       - name: Tests
         working-directory: backend
         env:
+          AUTH_DISABLED: "true"
           WANDB_MODE: disabled
         run: pytest tests/ -q
 

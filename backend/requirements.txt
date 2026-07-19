@@ -15,3 +15,5 @@ duckdb
 wandb
 pytest
 httpx
+PyJWT
+psycopg[binary]

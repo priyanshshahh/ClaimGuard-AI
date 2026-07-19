@@ -129,7 +129,7 @@ def test_clear_queue(client):
 def test_resolve_claim_persists_and_drops_from_queue(client):
     client.post("/api/analyze-claim", json=CLAIM)
     assert client.get("/api/dashboard-metrics").json()["total_claims"] == 1
-    r = client.post("/api/resolve-claim?claim_id=CLM-API-1")
+    r = client.post("/api/resolve-claim", json={"claim_id": "CLM-API-1"})
     assert r.status_code == 200 and r.json()["resolved"] is True
     # resolved claim persists as resolved -> drops out of queue + metrics
     assert client.get("/api/dashboard-metrics").json()["total_claims"] == 0
@@ -137,7 +137,7 @@ def test_resolve_claim_persists_and_drops_from_queue(client):
 
 
 def test_resolve_unknown_claim_404(client):
-    assert client.post("/api/resolve-claim?claim_id=NOPE").status_code == 404
+    assert client.post("/api/resolve-claim", json={"claim_id": "NOPE"}).status_code == 404
 
 
 def test_generate_appeal_404_for_unknown_claim(client):
@@ -161,3 +161,38 @@ def test_model_info_serves_real_metrics(client):
     m = client.get("/api/model-info").json()
     assert "CERT" in m["config"]["dataset"]
     assert m["results"]["test"][0]["n"] > 100000
+
+
+def test_health_ready_when_model_loaded(client):
+    r = client.get("/health")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["status"] == "ready"
+    assert body["model_loaded"] is True
+    assert body["store_reachable"] is True
+
+
+def test_me_returns_identity(client):
+    # AUTH_DISABLED -> synthetic local admin
+    body = client.get("/api/me").json()
+    assert body["org_id"] == "local"
+    assert body["role"] == "admin"
+    assert "user_id" in body and "email" in body
+
+
+def test_seed_demo_preserves_real_claims(client):
+    client.post("/api/analyze-claim", json=CLAIM)  # real, is_demo=False
+    client.post("/api/seed-demo")
+    from duckdb_store import get_claim
+
+    # real claim survives the re-seed; demo claims are added alongside it
+    assert get_claim("CLM-API-1") is not None
+    m = client.get("/api/dashboard-metrics").json()
+    assert m["total_claims"] >= 7  # 1 real + 6 demo
+
+
+def test_dashboard_metrics_includes_score_histogram(client):
+    client.post("/api/analyze-claim", json=CLAIM)
+    m = client.get("/api/dashboard-metrics").json()
+    assert "score_histogram" in m
+    assert sum(b["count"] for b in m["score_histogram"]) == m["total_claims"]
